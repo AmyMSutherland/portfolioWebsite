@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script type="text/javascript" src="home.js"></script>
+    <title>AS Portfolio</title>
+  </head>
+  <body>
+    <div id = "wholeContainer">
+      <div id="contentWrap">
+        <nav id="nav_bar" class="container">
+      <img
+        src="/Images/ASLogo.png"
+        class="asLogo"
+        alt="ASLogo"
+        width="156px"
+        height="52px"
+      />
+      <label for="toggle">&#9776</label>
+      <input type="checkbox" id="toggle"/>
+        <div class="nav-link">
+          <a  id="nav-b"  href="#contactme" onclick="on()"><b>CONTACT ME</b></a>
+          <a  id="nav-b" href="#aboutme"> ABOUT ME</a>
+          <a  id="nav-b" href="#otherprojects"> OTHER PROJECTS</a>
+          <a  id="nav-b" href="#photography"> PHOTOGRAPHY</a>
+          <a  id="nav-b" href="#coding"> CODING</a>
+          <a  id="nav-b" href="#uxdesign"> UX DESIGN </a>
+        </div>
+    </nav>
+      <button onclick="myFunction()">Toggle Dark Mode</button> 
+      <!--Attemtping to make a dark mode-->
+
+    <div id="overlay" onclick="off()">
+      <div id="contactModal" onclick="on()">
+        <h1 class="center">Contact Me</h1>
+        <p id="contactMeP" class="center">
+          <!--(or email me at
+          <a
+            href="mailto:amy.sutherland002@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            >amy.sutherland002@gmail.com</a
+          >)
+        </p>
+        
+        <p>Dear Amy Sutherland,</p>
+        <textarea
+          name=""
+          id="contactMessage"
+          class=""
+          cols="30"
+          rows="10"
+          placeholder="Write your message here"
+        ></textarea>
+        <p id="contactMeP">From,</p>
+        <textarea
+          name=""
+          id="contactModalS"
+          cols="30"
+          rows="10"
+          placeholder="Your name"
+        ></textarea>
+        <textarea
+          name=""
+          id="contactModalS"
+          cols="30"
+          rows="10"
+          placeholder="Your email"
+        ></textarea>
+        <input class="submitButton" type="submit" value="Send" /> -->
+          <img
+            src="/Images/wireframeImage.svg"
+            alt="wireframeImage"
+            class="imageContactMe"
+            width="154.06px"
+            height="154.06px"
+          />
+        </p>
+      </div>
+      </div>
+    </div>
+
+    <div class="homepageBanner">
+      <h1 class="bannerName">Amy Sutherland</h1>
+      <p class="bannerDescription">Designer Developer</p>
+      <div id="bannerLine"></div>
+    </div>
+    <div class="thumbnailContainer">
+      <div class="uxGalleryContainer">
+        <div id="uxDesignThumbnail">UX DESIGN</div>
+      </div>
+      <div class="codingGalleryContainer">
+        <div id="codingThumbnail">CODING</div>
+      </div>
+      <div class="photographyGalleryContainer">
+        <div id="photographyThumbnail">PHOTOGRAPHY</div>
+      </div>
+      <div class="otherProjectsGalleryContainer">
+        <div id="otherProjectsThumbnail">OTHER PROJECTS</div>
+      </div>
+    </div>
+  </div>
+    <div id="footer">
+      <b>Designed and Coded by Amy Sutherland &#169; 2020</b>
+    </div>
+    
+  </body>
+</html>
