@@ -6,10 +6,16 @@ body {
   
   height: 100%;
 }
-.dark-mode{
-  background-color: black;
-  color: white;
+
+.dark-mode-wrapper{
+ /* filter: invert(1) hue-rotate(180deg); easy dark mode but inverted the logo*/
+ /* background-color: black;
+  color: white;*/
   /*Dark mode attempt*/
+  animation: moving-dark-mode 1s ease-in-out forwards;  
+}
+.light-mode-wrapper{
+  animation: moving-light-mode 1s ease-in-out forwards;
 }
 #overlay {
   position: fixed;
@@ -295,4 +301,26 @@ label{
   #toggle:checked + .nav-link{
     display: block;
     }
+}
+@keyframes moving-dark-mode {
+  0% {
+    background-color: white;
+    color: black;
+  }
+
+  100% {
+    background-color: #3b4045;
+    color: white;
+  }
+}
+@keyframes moving-light-mode {
+  0% {
+    background-color: #3b4045;
+    color: white;
+  }
+
+  100% {
+    background-color: white;
+    color: black;
+  }
 }
