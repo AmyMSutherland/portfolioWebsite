@@ -8,10 +8,6 @@ body {
 }
 
 .dark-mode-wrapper{
- /* filter: invert(1) hue-rotate(180deg); easy dark mode but inverted the logo*/
- /* background-color: black;
-  color: white;*/
-  /*Dark mode attempt*/
   animation: moving-dark-mode 1s ease-in-out forwards;  
 }
 .light-mode-wrapper{
@@ -73,7 +69,12 @@ label{
 #nav_bar {
   background-color: white;
   height: 82px;
-  border: 1px solid #e4e4e4;
+  border-bottom: 1px;
+  border-right: 0px;
+  border-left: 0px;
+  border-top: 0px;
+  border-style: solid;
+  border-color: #e4e4e4;
 }
 .asLogo {
   padding-left: 30px;
@@ -136,6 +137,8 @@ label{
   background-color: white;
   color: black;
   cursor: pointer;
+
+  incase I ever put a submit contact function in
 } */
 .homepageBanner {
   height: 706px;
@@ -156,7 +159,7 @@ label{
   padding-left: 12% /*305px*/;
 }
 #bannerLine {
-  border-left: 1px solid black;
+  border-left: 3px solid black;
   height: 63.5px;
   width: 2.83px;
   padding-left: 534px;
@@ -294,9 +297,9 @@ label{
     }  
   .nav-link a{
     display:block;
-    border-bottom: 1px solid #e4e4e4;
     margin: 0;
     clear: right;
+    border-bottom: 1px solid #e4e4e4;
     }
   #toggle:checked + .nav-link{
     display: block;
