@@ -62,10 +62,15 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap">
-      <p>© {{ "" | year }} {{ site.name }}. All images are the artist's own; please ask before reusing them.</p>
-      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a>
-      {%- for link in site.social %} · <a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}</p>
+    <div class="wrap footer-inner">
+      <p class="footer-name"><img src="{{ '/favicon.svg' | bust }}" alt="" width="32" height="32"> © {{ "" | year }} {{ site.name }}</p>
+      <p class="footer-contact">
+        <a class="footer-email" href="mailto:{{ site.email }}">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          {{ site.email }}
+        </a>
+        {%- for link in site.social %} <a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
+      </p>
     </div>
   </footer>
 </body>
