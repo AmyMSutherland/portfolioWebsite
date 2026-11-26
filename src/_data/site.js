@@ -10,8 +10,8 @@ export default {
     subheading: "Photography and art by Amy Sutherland",
   },
   description: "The photography, art and design work of Amy Sutherland.",
-  // TODO: put the email address you want visitors to use here.
-  email: "hello@example.com",
+  // Forwards to a personal inbox via Cloudflare Email Routing.
+  email: "amy@amysutherlandsart.com",
   // Add or remove links. Leave the list empty to hide the section.
   social: [
     { label: "GitHub", url: "https://github.com/AmyMSutherland" },
