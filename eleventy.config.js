@@ -40,6 +40,11 @@ async function picture(file, alt, sizes = "100vw", loading = "lazy", widths = [4
 export default function (eleventyConfig) {
   eleventyConfig.addAsyncShortcode("picture", picture);
 
+  // Pages that are hidden for now. To bring one back, delete its line here
+  // and restore its menu entry in src/_data/site.js.
+  const HIDDEN_PAGES = ["src/art.njk", "src/art-item.njk", "src/projects.njk"];
+  HIDDEN_PAGES.forEach((file) => eleventyConfig.ignores.add(file));
+
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy({ "src/favicon.svg": "favicon.svg", "src/logo.png": "logo.png", "src/logo-light-text.png": "logo-light-text.png" });

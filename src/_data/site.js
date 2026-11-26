@@ -3,13 +3,13 @@ export default {
   name: "Amy Sutherland",
   // The site's main address (no slash at the end). Used for search engines and link previews.
   url: "https://amysutherlandsart.com",
-  tagline: "Photographer, artist, designer and developer",
+  tagline: "Photographer",
   // The headline and line under it on the home page. Change these to your own words.
   intro: {
     heading: "Animals, family and the light in between.",
-    subheading: "Photography and art by Amy Sutherland",
+    subheading: "Photography by Amy Sutherland",
   },
-  description: "The photography, art and design work of Amy Sutherland.",
+  description: "Photography by Amy Sutherland: animals, family and the moments in between.",
   // Forwards to a personal inbox via Cloudflare Email Routing.
   email: "amy@amysutherlandsart.com",
   // Add or remove links. Leave the list empty to hide the section.
@@ -18,8 +18,9 @@ export default {
   ],
   nav: [
     { label: "Photography", url: "/photography/" },
-    { label: "Art", url: "/art/" },
-    { label: "Projects", url: "/projects/" },
+    // Hidden for now (see HIDDEN_PAGES in eleventy.config.js):
+    // { label: "Art", url: "/art/" },
+    // { label: "Projects", url: "/projects/" },
     { label: "About", url: "/about/" },
   ],
 };
