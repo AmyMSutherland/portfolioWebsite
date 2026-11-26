@@ -4,6 +4,7 @@ pagination:
   data: art
   size: 1
   alias: item
+  addAllPagesToCollections: true
 permalink: "/art/{{ item.title | slugify }}/"
 eleventyComputed:
   title: "{{ item.title }}"

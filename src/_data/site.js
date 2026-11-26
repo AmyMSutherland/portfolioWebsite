@@ -3,7 +3,6 @@ export default {
   name: "Amy Sutherland",
   // The site's main address (no slash at the end). Used for search engines and link previews.
   url: "https://amysutherlandsart.com",
-  tagline: "Photographer",
   description: "Photography by Amy Sutherland: animals, family and the moments in between.",
   // Forwards to a personal inbox via Cloudflare Email Routing.
   email: "amy@amysutherlandsart.com",

@@ -1,15 +1,26 @@
 # Amy Sutherland: portfolio website
 
-A simple, accessible art and photography portfolio built with [Eleventy](https://www.11ty.dev/).
+A simple, accessible photography portfolio built with [Eleventy](https://www.11ty.dev/),
+live at https://amysutherlandsart.com.
 It's plain HTML and CSS. The only JavaScript is the light/dark toggle and a small script that
 balances the photo rows; the site works without either.
 
-## Add a photo (or artwork) in 3 steps
+## What's where
 
-1. **Copy the image** into `src/images/photography/` (or `src/images/art/`).
+| To change… | Edit |
+|---|---|
+| Photos (home page and Photography page) | `src/_data/photography.json` + images in `src/images/photography/` |
+| Other projects (illustration, relief carving…) | `src/_data/projects.json` + images in `src/images/projects/` |
+| About page bio and photo | `src/about.njk` (photo in `src/images/about/`) |
+| Name, email, social links, menu | `src/_data/site.js` |
+| Colors and layout | `src/css/styles.css` |
+
+## Add a photo in 3 steps
+
+1. **Copy the image** into `src/images/photography/`.
    Use the full-size JPEG; the site makes the smaller, faster versions for you.
    Use a simple file name with no spaces, e.g. `harbor-at-dawn.jpg`.
-2. **Add an entry** to `src/_data/photography.json` (or `art.json`). Copy an existing block and edit it:
+2. **Add an entry** to `src/_data/photography.json`. Copy an existing block and edit it:
    ```json
    {
      "file": "photography/harbor-at-dawn.jpg",
@@ -25,10 +36,20 @@ balances the photo rows; the site works without either.
    - Separate entries with commas, and don't put a comma after the last one.
    - Photos appear in the order of the list, on both the home page and the Photography page.
      Each photo keeps its own shape (wide, tall or square). Nothing gets cropped.
-3. **Commit and push.** The host rebuilds the site automatically within a minute or two.
+3. **Commit and push.** The host rebuilds the site automatically within about 5 minutes.
 
-Delete the `sample-*.jpg` files and their entries once you've added your own work.
-Edit your name, email, links and the home page headline in `src/_data/site.js`, and your bio in `src/about.njk`.
+Projects work the same way, using `src/_data/projects.json` (each entry also has a `category`
+and a `summary`).
+
+## Hidden pages
+
+The Art page is built but hidden. To bring it back, remove it from `HIDDEN_PAGES` in
+`eleventy.config.js`, restore its menu entry in `src/_data/site.js`, and replace the sample
+entries in `src/_data/art.json`.
+
+**After removing or renaming any page**, purge Cloudflare's cache (Cloudflare dashboard →
+amysutherlandsart.com → Caching → Configuration → Purge Everything). Otherwise Cloudflare
+may keep showing the old page at its old address for up to a week.
 
 ## Run it on your computer
 

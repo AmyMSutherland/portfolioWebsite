@@ -6,13 +6,23 @@
   <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <meta name="color-scheme" content="light dark">
+  {%- if page.url != "/404.html" %}
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  {%- endif %}
+  {#- Link previews (texts, social media): a photo's own page shares that photo;
+      other pages share the image named in their front matter, or the first photo. -#}
+  {%- set shareFile = item.file if (item and item.file) else (shareImageFile or photography[0].file) %}
+  {%- set shareAlt = item.alt if (item and item.alt) else (shareImageAlt or photography[0].alt) %}
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}{{ site.name }}">
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:image" content="{{ site.url }}{% shareImage shareFile %}">
+  <meta property="og:image:alt" content="{{ shareAlt }}">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <script>
     // Apply a saved light/dark choice before the page draws, so it doesn't flash.
     try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}

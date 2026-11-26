@@ -4,6 +4,7 @@ pagination:
   data: photography
   size: 1
   alias: item
+  addAllPagesToCollections: true
 permalink: "/photography/{{ item.title | slugify }}/"
 eleventyComputed:
   title: "{{ item.title }}"

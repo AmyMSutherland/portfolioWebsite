@@ -15,26 +15,13 @@ function bust(url) {
 
 const IMAGE_ROOT = "src/images";
 
-/**
- * Builds a responsive <picture> (AVIF + WebP + JPEG, several widths).
- * Stops the build if alt text is missing, so nothing goes live without it.
- *
- * Usage: {% picture "photography/harbor.jpg", item.alt, "(min-width: 60rem) 25vw, 100vw", "lazy" %}
- */
-async function picture(file, alt, sizes = "100vw", loading = "lazy", widths = [400, 800, 1200, 2000]) {
-  if (!file) {
-    throw new Error(`[picture] An image entry has no "file". Check your data files in src/_data/.`);
-  }
-  if (typeof alt !== "string" || alt.trim() === "") {
-    throw new Error(
-      `[picture] "${file}" has no alt text. Add an "alt" describing the image in its data file (src/_data/).`
-    );
-  }
-
-  const metadata = await Image(path.join(IMAGE_ROOT, file), {
-    widths: [...widths, "auto"],
-    formats: ["avif", "webp", "jpeg"],
-    outputDir: "_site/img/",
+export default function (eleventyConfig) {
+  // Image settings shared by the page images and the link-preview images.
+  // Output follows the build's output folder (normally _site), wherever that is.
+  const imageOptions = (widths, formats) => ({
+    widths,
+    formats,
+    outputDir: path.join(eleventyConfig.directories.output, "img"),
     urlPath: "/img/",
     // Quality is set high because this is a photography site; fine detail matters
     // more than a few extra kilobytes.
@@ -43,16 +30,33 @@ async function picture(file, alt, sizes = "100vw", loading = "lazy", widths = [4
     sharpAvifOptions: { quality: 72 },
   });
 
-  return Image.generateHTML(metadata, {
-    alt,
-    sizes,
-    loading,
-    decoding: "async",
+  /**
+   * Builds a responsive <picture> (AVIF + WebP + JPEG, several widths).
+   * Stops the build if alt text is missing, so nothing goes live without it.
+   *
+   * Usage: {% picture "photography/harbor.jpg", item.alt, "(min-width: 60rem) 25vw, 100vw", "lazy" %}
+   */
+  eleventyConfig.addAsyncShortcode("picture", async (file, alt, sizes = "100vw", loading = "lazy", widths = [400, 800, 1200, 2000]) => {
+    if (!file) {
+      throw new Error(`[picture] An image entry has no "file". Check your data files in src/_data/.`);
+    }
+    if (typeof alt !== "string" || alt.trim() === "") {
+      throw new Error(
+        `[picture] "${file}" has no alt text. Add an "alt" describing the image in its data file (src/_data/).`
+      );
+    }
+    const metadata = await Image(path.join(IMAGE_ROOT, file), imageOptions([...widths, "auto"], ["avif", "webp", "jpeg"]));
+    return Image.generateHTML(metadata, { alt, sizes, loading, decoding: "async" });
   });
-}
 
-export default function (eleventyConfig) {
-  eleventyConfig.addAsyncShortcode("picture", picture);
+  /**
+   * URL of a 1200px JPEG for link previews (texts, social media).
+   * Usage: {% shareImage "photography/harbor.jpg" %}
+   */
+  eleventyConfig.addAsyncShortcode("shareImage", async (file) => {
+    const metadata = await Image(path.join(IMAGE_ROOT, file), imageOptions([1200], ["jpeg"]));
+    return metadata.jpeg[0].url;
+  });
 
   // Pages that are hidden for now. To bring one back, delete its line here
   // and restore its menu entry in src/_data/site.js.
@@ -61,7 +65,12 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
-  eleventyConfig.addPassthroughCopy({ "src/favicon.svg": "favicon.svg", "src/logo.png": "logo.png", "src/logo-light-text.png": "logo-light-text.png" });
+  eleventyConfig.addPassthroughCopy({
+    "src/favicon.svg": "favicon.svg",
+    "src/apple-touch-icon.png": "apple-touch-icon.png",
+    "src/logo.png": "logo.png",
+    "src/logo-light-text.png": "logo-light-text.png",
+  });
 
   eleventyConfig.addWatchTarget("src/images/");
 
