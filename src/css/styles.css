@@ -370,7 +370,7 @@ main:has(.home-wall) { padding-top: 1.5rem; }
   color: var(--text);
   font-weight: 600;
   text-decoration: none;
-  transition: border-color 0.2s, background-color 0.2s, transform 0.2s;
+  transition: border-color 0.2s;
 }
 .pager-prev .pager-btn, .pager-next .pager-btn { width: 100%; }
 .pager-next .pager-btn { justify-content: flex-end; text-align: right; }
