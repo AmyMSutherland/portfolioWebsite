@@ -204,11 +204,11 @@ img { max-width: 100%; height: auto; display: block; }
 .theme-toggle[aria-pressed="true"] .theme-icon { box-shadow: none; }
 
 /* ==========================================================================
-   Home intro
+   Home page
    ========================================================================== */
-.intro { padding-block: 0.5rem 0; }
-.intro h1 { max-width: 22ch; margin-bottom: 0.4rem; }
-.intro p { color: var(--muted); font-size: 1.1rem; margin: 0; }
+/* Photos start right under the menu: less space above the wall. */
+main:has(.home-wall) { padding-top: 1.5rem; }
+.home-wall .wall { margin-top: 0; }
 /* "Keep exploring" cards at the bottom of the home page */
 .next { margin-top: 3.5rem; }
 .next-heading {

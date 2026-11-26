@@ -7,10 +7,31 @@
     "year": 2024
   },
   {
+    "file": "photography/marry-me.jpg",
+    "title": "Marry me",
+    "alt": "Two people holding hands and laughing in a white gazebo beneath giant gold balloon letters spelling MARRY ME, with red rose petals scattered across the floor and a winter field behind them. One wears a dark green velvet dress; the other wears a tan coat and green bow tie.",
+    "caption": "",
+    "year": 2026
+  },
+  {
     "file": "photography/dogs.jpg",
     "title": "Best friends",
     "alt": "Two happy dogs with their mouths open: a sleek black greyhound wearing a yellow bee-patterned collar, and a fluffy golden dog looking up beside it.",
     "caption": ""
+  },
+  {
+    "file": "photography/light-columns.jpg",
+    "title": "Light columns",
+    "alt": "Night photo where lights have streaked vertically into tall glowing golden columns of different heights against a black sky, each topped with a bright wavy line of light, with blurred gold reflections along the bottom.",
+    "caption": "Taken at the University of Maine while experimenting with exposure: a 1/6-second shutter let the lights stretch into glowing columns.",
+    "year": 2014
+  },
+  {
+    "file": "photography/cookie.jpg",
+    "title": "Cookie",
+    "alt": "Black-and-white close-up of a grey and white cat with small folded ears peeking in from the lower left corner, its eyes the only color in the photo: a vivid glowing green. The background is a soft grey blur.",
+    "caption": "My cat, Cookie.",
+    "year": 2014
   },
   {
     "file": "photography/ahhhh.jpg",
