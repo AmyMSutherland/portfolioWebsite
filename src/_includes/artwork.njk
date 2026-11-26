@@ -15,9 +15,9 @@
 
   <nav class="pager" aria-label="{{ sectionName }}">
     <ul>
-      <li>{% if prev %}<a href="{{ baseUrl }}{{ prev.title | slugify }}/" rel="prev">← Previous: {{ prev.title }}</a>{% endif %}</li>
-      <li><a href="{{ baseUrl }}">All {{ sectionName | lower }} ({{ pagination.pageNumber + 1 }} of {{ items.length }})</a></li>
-      <li>{% if next %}<a href="{{ baseUrl }}{{ next.title | slugify }}/" rel="next">Next: {{ next.title }} →</a>{% endif %}</li>
-    </ul>
+      <li class="pager-prev">{% if prev %}<a class="pager-btn" href="{{ baseUrl }}{{ prev.title | slugify }}/" rel="prev"><span class="pager-arrow" aria-hidden="true">←</span><span class="pager-text"><span class="pager-label">Previous</span> <span class="pager-name">{{ prev.title }}</span></span></a>{% endif %}</li>
+      <li class="pager-all"><a class="pager-btn pager-btn-all" href="{{ baseUrl }}"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>All {{ sectionName | lower }} <span class="pager-count">({{ pagination.pageNumber + 1 }} of {{ items.length }})</span></a></li>
+      <li class="pager-next">{% if next %}<a class="pager-btn" href="{{ baseUrl }}{{ next.title | slugify }}/" rel="next"><span class="pager-text"><span class="pager-label">Next</span> <span class="pager-name">{{ next.title }}</span></span><span class="pager-arrow" aria-hidden="true">→</span></a>{% endif %}</li>
+
   </nav>
 </div>
