@@ -178,30 +178,44 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-list a:hover { border-bottom-color: var(--border); }
 .nav-list a[aria-current] { border-bottom-color: var(--accent-line); }
 
+/* Light/dark switch: sun and moon, with a knob that slides to the active one.
+   Light: yellow knob behind the sun. Dark: blue knob behind the moon (the logo's two colors). */
 .theme-toggle {
-  display: inline-flex;
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 0.5rem;
-  min-height: 2.75rem;
-  padding: 0.4rem 0.9rem;
-  font: inherit;
-  font-weight: 600;
-  color: var(--text);
-  background: transparent;
-  border: 2px solid var(--text);
+  width: 5.5rem;
+  height: 2.75rem;
+  padding: 0.25rem;
+  border: 2px solid var(--border);
   border-radius: 999px;
+  background: var(--surface);
   cursor: pointer;
 }
-.theme-toggle:hover { border-color: var(--brand-blue); }
 .theme-toggle[hidden] { display: none; }
-.theme-icon {
-  width: 1rem; height: 1rem;
-  border-radius: 50%;
+.theme-toggle:hover { border-color: var(--accent-line); }
+.theme-knob {
+  position: absolute;
+  top: 0.25rem; bottom: 0.25rem; left: 0.25rem;
+  width: calc(50% - 0.25rem);
+  border-radius: 999px;
   background: var(--brand-yellow);
-  border: 1px solid var(--text);
-  box-shadow: inset -0.35rem -0.1rem 0 0 var(--bg);
+  transition: transform 0.25s ease, background-color 0.25s ease;
 }
-.theme-toggle[aria-pressed="true"] .theme-icon { box-shadow: none; }
+.theme-sun, .theme-moon { position: relative; justify-self: center; transition: color 0.25s ease; }
+.theme-sun { color: var(--ink); }
+.theme-moon { color: var(--muted); }
+.theme-toggle[aria-pressed="true"] .theme-knob { transform: translateX(100%); background: var(--brand-blue); }
+.theme-toggle[aria-pressed="true"] .theme-sun { color: var(--muted); }
+.theme-toggle[aria-pressed="true"] .theme-moon { color: #fff; }
+/* Dark mode: no ring around the switch, just a slightly lighter track. */
+.theme-toggle[aria-pressed="true"] { border-color: transparent; background: #2a2a2a; }
+.theme-toggle[aria-pressed="true"]:hover { border-color: transparent; background: #333; }
+@media (forced-colors: active) {
+  .theme-toggle { border-color: ButtonText; }
+  .theme-knob { background: Highlight; forced-color-adjust: none; }
+}
 
 /* ==========================================================================
    Home page
