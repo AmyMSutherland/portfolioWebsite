@@ -1,18 +1,18 @@
 [
   {
-    "title": "Sample UX project",
-    "category": "UX design",
-    "summary": "One or two sentences about the problem, what you did and the result.",
-    "file": "projects/sample-project-1.jpg",
-    "alt": "Placeholder image: a wide blue gradient with the words Sample UX project.",
+    "title": "Self-portrait by the river",
+    "category": "Digital illustration",
+    "summary": "A flat, painted self-portrait layered over one of my own photographs: sunlight sparkling on a river, an old tree trunk, and autumn leaves floating by.",
+    "file": "projects/self-portrait.jpg",
+    "alt": "Digital illustration of a smiling woman with long dark brown hair, black glasses and a grey hoodie, drawn in flat colors and placed over a real photo of a sunlit river with sparkling water, a tree trunk and floating autumn leaves.",
     "link": ""
   },
   {
-    "title": "Sample coding project",
-    "category": "Coding",
-    "summary": "What it does, what you built it with, and a link to the code or live demo.",
-    "file": "projects/sample-project-2.jpg",
-    "alt": "Placeholder image: a wide yellow gradient with the words Sample coding project.",
-    "link": "https://github.com/AmyMSutherland"
+    "title": "Friends",
+    "category": "Digital illustration",
+    "summary": "Three friends squeezed into one happy frame, drawn in simple flat shapes and bold colors against a bright blue sky.",
+    "file": "projects/friends.jpg",
+    "alt": "Digital illustration of three smiling friends leaning together against a blue sky: one with round purple glasses on the left, one in the middle with black glasses, curly brown hair and a green T-shirt with arms folded, and one on the right with shoulder-length brown hair and a black jacket.",
+    "link": ""
   }
 ]

@@ -18,9 +18,9 @@ export default {
   ],
   nav: [
     { label: "Photography", url: "/photography/" },
+    { label: "Other projects", url: "/projects/" },
     // Hidden for now (see HIDDEN_PAGES in eleventy.config.js):
     // { label: "Art", url: "/art/" },
-    // { label: "Projects", url: "/projects/" },
     { label: "About", url: "/about/" },
   ],
 };

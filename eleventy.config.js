@@ -42,7 +42,7 @@ export default function (eleventyConfig) {
 
   // Pages that are hidden for now. To bring one back, delete its line here
   // and restore its menu entry in src/_data/site.js.
-  const HIDDEN_PAGES = ["src/art.njk", "src/art-item.njk", "src/projects.njk"];
+  const HIDDEN_PAGES = ["src/art.njk", "src/art-item.njk"];
   HIDDEN_PAGES.forEach((file) => eleventyConfig.ignores.add(file));
 
   eleventyConfig.addPassthroughCopy("src/css");
