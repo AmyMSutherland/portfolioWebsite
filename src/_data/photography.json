@@ -1,58 +1,63 @@
 [
   {
-    "file": "photography/sample-1.jpg",
-    "title": "Sample photo one",
-    "alt": "Placeholder image: a blue gradient with the words Sample photo one.",
-    "caption": "Replace this with one of your photos. See README.md for how.",
-    "year": 2026
-  },
-  {
-    "file": "photography/sample-2.jpg",
-    "title": "Sample photo two",
-    "alt": "Placeholder image: a yellow gradient with the words Sample photo two.",
-    "caption": "Replace this with one of your photos.",
-    "year": 2026
-  },
-  {
-    "file": "photography/sample-3.jpg",
-    "title": "Sample photo three",
-    "alt": "Placeholder image: a tall blue and yellow gradient with the words Sample photo three.",
-    "caption": "Portrait-orientation images work too.",
-    "year": 2026
-  },
-  {
-    "file": "photography/sample-4.jpg",
-    "title": "Sample photo four",
-    "alt": "Placeholder image: a grey gradient with the words Sample photo four.",
-    "caption": "",
-    "year": 2025
-  },
-  {
-    "file": "photography/sample-5.jpg",
-    "title": "Sample photo five",
-    "alt": "Placeholder image: a wide panoramic light-blue to deep-blue gradient with the words Sample photo five.",
-    "caption": "Wide panoramas get a whole row to themselves on small screens.",
-    "year": 2025
-  },
-  {
-    "file": "photography/sample-6.jpg",
-    "title": "Sample photo six",
-    "alt": "Placeholder image: a square yellow to blue gradient with the words Sample photo six.",
-    "caption": "",
-    "year": 2025
-  },
-  {
-    "file": "photography/sample-7.jpg",
-    "title": "Sample photo seven",
-    "alt": "Placeholder image: a tall dark grey gradient with the words Sample photo seven.",
-    "caption": "",
+    "file": "photography/eclipse2024.jpg",
+    "title": "Totality",
+    "alt": "A total solar eclipse: the black disc of the moon surrounded by a bright white ring of the sun's corona against a dark blue sky.",
+    "caption": "The total solar eclipse of April 8, 2024.",
     "year": 2024
   },
   {
-    "file": "photography/sample-8.jpg",
-    "title": "Sample photo eight",
-    "alt": "Placeholder image: a blue to light-blue gradient with the words Sample photo eight.",
-    "caption": "",
-    "year": 2024
+    "file": "photography/dogs.jpg",
+    "title": "Best friends",
+    "alt": "Two happy dogs with their mouths open: a sleek black greyhound wearing a yellow bee-patterned collar, and a fluffy golden dog looking up beside it.",
+    "caption": ""
+  },
+  {
+    "file": "photography/ahhhh.jpg",
+    "title": "Ahhhh",
+    "alt": "Two giant anteaters standing side by side in front of an ivy-covered brick wall, their long grey snouts pointing toward the camera.",
+    "caption": ""
+  },
+  {
+    "file": "photography/bird.jpg",
+    "title": "Chickadee",
+    "alt": "Black-and-white photo of a small chickadee perched on top of a rounded stone, with a softly blurred background.",
+    "caption": ""
+  },
+  {
+    "file": "photography/comfy.jpg",
+    "title": "Comfy",
+    "alt": "A shaggy black binturong with long white whiskers resting its chin on the edge of a hammock, eyes half closed.",
+    "caption": ""
+  },
+  {
+    "file": "photography/dogandboy.jpg",
+    "title": "A boy and his dog",
+    "alt": "A bearded man with glasses in a red T-shirt smiling down at a fluffy golden puppy he is holding, against a clear blue sky.",
+    "caption": ""
+  },
+  {
+    "file": "photography/grammy.jpg",
+    "title": "Grammy",
+    "alt": "An older woman with white curly hair and tinted glasses laughing, wearing a magenta shirt, with dark green trees behind her.",
+    "caption": ""
+  },
+  {
+    "file": "photography/gramps.jpg",
+    "title": "Gramps",
+    "alt": "Side profile of an older man with white hair and sunglasses in a light blue shirt, looking down, with a blurred green forest behind him.",
+    "caption": ""
+  },
+  {
+    "file": "photography/familypic.jpg",
+    "title": "Family",
+    "alt": "A large family group outdoors in front of tall trees and a small red-and-white lighthouse model, with an older couple seated in lawn chairs at the front.",
+    "caption": ""
+  },
+  {
+    "file": "photography/grad.jpg",
+    "title": "Graduation day",
+    "alt": "Black-and-white photo of a crowd of graduates in caps and gowns, seen from behind, with one smiling graduate turned toward the camera waving.",
+    "caption": ""
   }
 ]

@@ -6,7 +6,7 @@ export default {
   tagline: "Photographer, artist, designer and developer",
   // The headline and line under it on the home page. Change these to your own words.
   intro: {
-    heading: "Light, water and quiet places.",
+    heading: "Animals, family and the light in between.",
     subheading: "Photography and art by Amy Sutherland",
   },
   description: "The photography, art and design work of Amy Sutherland.",
