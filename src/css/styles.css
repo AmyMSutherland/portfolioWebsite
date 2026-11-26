@@ -328,6 +328,10 @@ main:has(.home-wall) { padding-top: 1.5rem; }
   margin-inline: auto;
 }
 .artwork figcaption { margin-top: 1.25rem; }
+/* Photos can be swiped on touch screens: sideways swipes go to the script, up/down still scrolls. */
+.artwork-frame { touch-action: pan-y pinch-zoom; overflow: hidden; }
+.swipe-hint { display: none; margin: 0.75rem 0 0; font-size: 0.9rem; color: var(--muted); }
+@media (pointer: coarse) { .swipe-hint { display: block; } }
 .artwork figcaption h1 { margin-bottom: 0.25rem; }
 
 .pager {
