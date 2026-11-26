@@ -20,6 +20,7 @@
     }
 
     var start = 0;
+    var heightSum = 0, fullRows = 0;   // track the full rows so a short last row can match them
     while (start < items.length) {
       var end = start + 1;
       // Add photos until the row would get shorter than the target height,
@@ -31,7 +32,14 @@
       }
       var isLast = end >= items.length;
       var h = rowHeight(start, end);
-      if (isLast && h > target * 1.25) h = target; // don't blow up a short last row
+      if (isLast) {
+        // A short last row shouldn't be stretched (or end up bigger than the rest):
+        // give it the same height as the full rows above it.
+        var usual = fullRows ? heightSum / fullRows : target;
+        h = Math.min(h, usual);
+      } else {
+        heightSum += h; fullRows++;
+      }
       for (var i = start; i < end; i++) {
         var w = Math.floor(ratios[i] * h);
         items[i].style.flex = (i === end - 1 && !isLast) ? "1 1 " + w + "px" : "0 0 " + w + "px";
