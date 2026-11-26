@@ -1,5 +1,17 @@
 import path from "node:path";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import Image from "@11ty/eleventy-img";
+
+/**
+ * Adds a fingerprint of the file's contents to its URL, e.g. /css/styles.css?v=1a2b3c4d.
+ * Browsers may keep stylesheets and scripts for hours; a new fingerprint makes them
+ * download the new version as soon as it changes.
+ */
+function bust(url) {
+  const hash = createHash("md5").update(readFileSync(path.join("src", url))).digest("hex").slice(0, 8);
+  return `${url}?v=${hash}`;
+}
 
 const IMAGE_ROOT = "src/images";
 
@@ -52,6 +64,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget("src/images/");
 
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
+  eleventyConfig.addFilter("bust", bust);
   eleventyConfig.addFilter("throwError", (message) => {
     throw new Error(message);
   });
