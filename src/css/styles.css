@@ -273,6 +273,8 @@ main:has(.home-wall) { padding-top: 1.5rem; }
 .wall::after { content: ""; flex: 999 1 0; }
 /* js/wall.js balances the rows when JavaScript is available. */
 .wall.is-justified::after { display: none; }
+/* A short last row sits in the middle, like the link cards on the home page. */
+.wall.is-justified { justify-content: center; }
 
 .wall-item {
   flex: var(--r) 1 calc(var(--r) * var(--row-h));
