@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Sample UX project",
+    "category": "UX design",
+    "summary": "One or two sentences about the problem, what you did and the result.",
+    "file": "projects/sample-project-1.jpg",
+    "alt": "Placeholder image: a wide blue gradient with the words Sample UX project.",
+    "link": ""
+  },
+  {
+    "title": "Sample coding project",
+    "category": "Coding",
+    "summary": "What it does, what you built it with, and a link to the code or live demo.",
+    "file": "projects/sample-project-2.jpg",
+    "alt": "Placeholder image: a wide yellow gradient with the words Sample coding project.",
+    "link": "https://github.com/AmyMSutherland"
+  }
+]

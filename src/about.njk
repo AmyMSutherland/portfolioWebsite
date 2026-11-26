@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: About
+description: About Amy Sutherland and how to get in touch.
+permalink: /about/
+---
+<div class="wrap">
+  <h1>About me</h1>
+  <p class="lead">Hi, I'm {{ site.name }}: a photographer, artist, designer and developer.</p>
+  <p>Write a few sentences here about yourself: what you like to photograph, what inspires your art, and what kind of work or collaborations you're open to.</p>
+
+  <h2>Contact</h2>
+  <p>The best way to reach me is by email: <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+  {%- if site.social.length %}
+  <p>You can also find me on:</p>
+  <ul>
+    {%- for link in site.social %}
+    <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+    {%- endfor %}
+  </ul>
+  {%- endif %}
+</div>

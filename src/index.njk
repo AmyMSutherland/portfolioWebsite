@@ -1,0 +1,16 @@
+---
+layout: base.njk
+permalink: /
+---
+<div class="wrap">
+  <section class="intro" aria-labelledby="intro-title">
+    <h1 id="intro-title">{{ site.intro.heading }}</h1>
+    <p>{{ site.intro.subheading }}</p>
+  </section>
+
+  <h2 class="visually-hidden">Photography</h2>
+  {% set items = photography %}{% set baseUrl = "/photography/" %}
+  {% include "gallery.njk" %}
+
+  <p class="more-link"><a href="/art/">See my other art</a> · <a href="/projects/">See my design and coding projects</a></p>
+</div>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
+  <meta name="description" content="{{ description or site.description }}">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script>
+    // Apply a saved light/dark choice before the page draws, so it doesn't flash.
+    try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/theme.js" defer></script>
+  <script src="/js/wall.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>
+        <img class="brand-logo logo-on-light" src="/logo.png" alt="{{ site.name }}" width="156" height="52">
+        <img class="brand-logo logo-on-dark" src="/logo-light-text.png" alt="{{ site.name }}" width="156" height="52">
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          {%- for item in site.nav %}
+          <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% elif page.url.startsWith(item.url) %} aria-current="true"{% endif %}>{{ item.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" hidden>
+        <span aria-hidden="true" class="theme-icon"></span>Dark theme
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© {{ "" | year }} {{ site.name }}. All images are the artist's own; please ask before reusing them.</p>
+      <p><a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      {%- for link in site.social %} · <a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}</p>
+    </div>
+  </footer>
+</body>
+</html>
