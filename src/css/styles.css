@@ -177,6 +177,13 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .nav-list a:hover { border-bottom-color: var(--border); }
 .nav-list a[aria-current] { border-bottom-color: var(--accent-line); }
+/* Phones and small tablets: logo and light/dark switch share the top row, menu goes underneath. */
+@media (max-width: 44rem) {
+  .header-inner { column-gap: 1rem; }
+  .header-inner > nav { order: 2; flex-basis: 100%; }
+  .theme-toggle { order: 1; }
+  .nav-list { margin-inline: -0.6rem; }   /* line the first menu item up with the logo */
+}
 
 /* Light/dark switch: sun and moon, with a knob that slides to the active one.
    Light: yellow knob behind the sun. Dark: blue knob behind the moon (the logo's two colors). */
