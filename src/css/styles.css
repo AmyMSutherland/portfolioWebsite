@@ -322,6 +322,9 @@ main:has(.home-wall) { padding-top: 1.5rem; }
 .wall-link:hover .wall-media img { transform: scale(1.025); }
 .wall-title { display: block; margin-top: 0.4rem; font-size: 0.95rem; }
 .wall-link:hover .wall-title { color: var(--link); text-decoration: underline; }
+/* Medium (illustration, relief carving, logo design) under a project's title */
+.wall-medium { display: inline-block; margin-top: 0.3rem; padding: 0.05rem 0.5rem; background: var(--brand-yellow); color: var(--ink); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.artwork figcaption .tag { margin-bottom: 0.4rem; }
 
 /* About page: photo beside the bio on wide screens, above it on phones */
 .about {

@@ -8,20 +8,7 @@ shareImageAlt: Digital illustration self-portrait over a photo of a sunlit river
 ---
 <div class="wrap">
   <h1>Other projects</h1>
-  <p class="lead">Illustration, relief carving and other creative work beyond the camera.</p>
-  <ul class="projects">
-    {%- for p in projects %}
-    <li class="project">
-      {#- Artwork is shown at its own shape, never cropped. -#}
-      {#- Tall pieces are capped at 70% of the screen height so they don't dominate the page. -#}
-      <div class="card-media{% if p.category == 'Logo design' %} card-media-logo{% endif %}" style="aspect-ratio: {{ imageSizes[p.file].ratio }}; max-width: calc(70vh * {{ imageSizes[p.file].ratio }})">{% picture p.file, p.alt, "(min-width: 48rem) 35rem, 100vw", ("eager" if loop.first else "lazy"), [500, 900, 1400, 2000] %}</div>
-      <div>
-        {% if p.category %}<span class="tag">{{ p.category }}</span>{% endif %}
-        <h2>{{ p.title }}</h2>
-        <p>{{ p.summary }}</p>
-        {% if p.link %}<p><a href="{{ p.link }}">View {{ p.title }}</a></p>{% endif %}
-      </div>
-    </li>
-    {%- endfor %}
-  </ul>
+  <p class="lead">Illustration, relief carving and logo design. Select a project to see it full size.</p>
+  {% set items = projects %}{% set baseUrl = "/projects/" %}
+  {% include "gallery.njk" %}
 </div>

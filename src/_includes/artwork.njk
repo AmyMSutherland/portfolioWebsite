@@ -12,10 +12,12 @@
     {%- if prev %}<link rel="prefetch" href="{{ baseUrl }}{{ prev.title | slugify }}/">{% endif %}
     {%- if next %}<link rel="prefetch" href="{{ baseUrl }}{{ next.title | slugify }}/">{% endif %}
     <figcaption>
+      {%- set medium = item.medium or item.category %}
+      {%- if medium %}<span class="tag">{{ medium }}</span>{% endif %}
       <h1>{{ item.title }}</h1>
       {#- Years are kept in the data files but not shown, since not every photo has one. -#}
-      {%- if item.medium %}<p class="muted">{{ item.medium }}</p>{% endif %}
-      {%- if item.caption %}<p>{{ item.caption }}</p>{% endif %}
+      {%- set caption = item.caption or item.summary %}{% if caption %}<p>{{ caption }}</p>{% endif %}
+      {%- if item.link %}<p><a href="{{ item.link }}">Visit {{ item.title }}</a></p>{% endif %}
     </figcaption>
     <p class="swipe-hint" aria-hidden="true">Swipe the photo for more</p>
   </figure>

@@ -8,7 +8,7 @@
   <li class="wall-item" style="--r: {{ size.ratio }}">
     <a class="wall-link" href="{{ baseUrl }}{{ item.title | slugify }}/">
       <span class="wall-media">{% picture item.file, item.alt, "(min-width: 72rem) 40rem, (min-width: 40rem) 60vw, 100vw", ("eager" if loop.index <= 3 else "lazy"), [500, 900, 1400] %}</span>
-      <span class="wall-title">{{ item.title }}</span>
+      <span class="wall-title">{{ item.title }}</span>{% if item.category %}<span class="wall-medium">{{ item.category }}</span>{% endif %}
     </a>
   </li>
   {%- endfor %}
