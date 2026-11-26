@@ -1,6 +1,8 @@
 // Site-wide settings. Edit these to change your name, email and links everywhere.
 export default {
   name: "Amy Sutherland",
+  // The site's main address (no slash at the end). Used for search engines and link previews.
+  url: "https://amysutherlandsart.com",
   tagline: "Photographer, artist, designer and developer",
   // The headline and line under it on the home page. Change these to your own words.
   intro: {

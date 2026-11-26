@@ -1,5 +1,7 @@
 # Putting the site online (about $10–11 per year)
 
+> **Current setup:** hosted on Cloudflare Pages (project `amysutherland`, also at https://amysutherland.pages.dev) with the domain **amysutherlandsart.com**, registered through Cloudflare. Pushing to `main` redeploys automatically.
+
 | What | Where | Cost |
 |---|---|---|
 | Hosting | Cloudflare Pages | Free (unlimited bandwidth, free HTTPS) |

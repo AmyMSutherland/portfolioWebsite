@@ -6,6 +6,12 @@
   <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}{{ site.name }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <script>
     // Apply a saved light/dark choice before the page draws, so it doesn't flash.
