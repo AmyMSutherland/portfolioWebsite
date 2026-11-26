@@ -227,7 +227,7 @@ main:has(.home-wall) { padding-top: 1.5rem; }
   margin: 0;
   padding: 0;
 }
-@media (min-width: 40rem) { .next-links { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 40rem) { .next-links { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); } }
 .next-links a {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -397,3 +397,117 @@ main:has(.home-wall) { padding-top: 1.5rem; }
   .nav-list a[aria-current] { border-bottom-color: Highlight; }
   .tag { border: 1px solid; }
 }
+
+
+/* ==========================================================================
+   Home page carousel
+   ========================================================================== */
+main:has(.carousel) { padding-top: 0; }
+.carousel { position: relative; }
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+}
+.carousel.is-enhanced .carousel-track { scrollbar-width: none; }
+.carousel.is-enhanced .carousel-track::-webkit-scrollbar { display: none; }
+.carousel-slide { flex: 0 0 100%; scroll-snap-align: start; }
+.carousel-link { display: block; color: var(--text); text-decoration: none; }
+.carousel-link:focus-visible { outline-offset: -4px; }
+.carousel-media {
+  display: block;
+  height: calc(var(--intro-h) + max(14rem, min(72vh - var(--intro-h), 46rem, 100vw)));
+  background: var(--surface);
+}
+.carousel-media picture { display: block; }
+/* The whole photo always shows: no cropping, whatever its shape. */
+.carousel-media img { width: 100%; height: 100%; object-fit: contain; }
+.carousel-caption {
+  display: block;
+  width: min(100% - 2.5rem, 50rem);
+  margin: 1rem auto 0;
+  text-align: center;
+}
+.carousel-title { display: block; font-size: 1.35rem; font-weight: 700; color: var(--link); }
+.carousel-text { display: block; color: var(--muted); margin-top: 0.25rem; }
+.carousel-link:hover .carousel-title { text-decoration: underline; text-underline-offset: 0.18em; }
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.carousel-controls[hidden] { display: none; }
+.carousel-btn {
+  width: 2.75rem; height: 2.75rem;
+  border-radius: 50%;
+  border: 2px solid var(--text);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.carousel-btn:hover { border-color: var(--accent-line); color: var(--link); }
+.carousel-thumbs {
+  display: flex;
+  gap: 0.5rem;
+  min-width: 0;
+  overflow-x: auto;
+  padding: 5px;               /* room for the outline around the current photo */
+  scrollbar-width: thin;
+}
+.carousel-dot {
+  flex: 0 0 auto;
+  width: 4.5rem; height: 3rem;
+  border: 0; padding: 0;
+  border-radius: 4px;
+  background: var(--surface);
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+.carousel-dot img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+.carousel-dot:hover { opacity: 0.85; }
+.carousel-dot[aria-current="true"] { opacity: 1; outline: 3px solid var(--accent-line); outline-offset: 2px; }
+.carousel-dot[aria-current="true"]:focus-visible { outline-color: var(--focus); }
+@media (max-width: 30rem) { .carousel-dot { width: 3.5rem; height: 2.5rem; } }
+@media (forced-colors: active) { .carousel-dot[aria-current="true"] { outline-color: Highlight; } }
+
+/* Blurred copy of the photo filling the space around it */
+/* The top band is kept clear for the name and intro, so they never cover the photo. */
+.carousel { --intro-h: 7.5rem; }
+@media (max-width: 40rem) { .carousel { --intro-h: 6.5rem; } }
+.carousel-media { position: relative; overflow: hidden; display: flex; flex-direction: column; padding-top: var(--intro-h); }
+.carousel-media picture { flex: 1; min-height: 0; }
+.carousel-backdrop {
+  position: absolute;
+  inset: -3rem;
+  background-size: cover;
+  background-position: center;
+  filter: blur(28px) brightness(0.45) saturate(1.15);
+}
+.carousel-media picture { position: relative; padding-bottom: 1rem; }
+
+/* Name and intro over the top of the photos */
+.carousel-stage { position: relative; }
+.carousel-intro {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 2;
+  padding: 1.25rem max(1.25rem, (100% - 72rem) / 2) 0;
+  background: linear-gradient(rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.15) 7.5rem, transparent);
+  color: #fff;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 0.6);
+  pointer-events: none;      /* clicks still reach the photo underneath */
+}
+.carousel-name {
+  color: #fff;
+  margin: 0;
+  font-size: clamp(1.75rem, 1.2rem + 2.5vw, 3rem);
+}
+.carousel-tagline { margin: 0.25rem 0 0; font-size: clamp(1rem, 0.9rem + 0.4vw, 1.2rem); max-width: none; }
+.carousel-intro .carousel-tagline::before { content: ""; display: block; width: 3rem; height: 0.25rem; background: var(--brand-yellow); margin-bottom: 0.5rem; }

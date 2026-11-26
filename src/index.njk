@@ -2,16 +2,19 @@
 layout: base.njk
 permalink: /
 ---
-<div class="wrap">
-  {#- No visible headline: the photos start right under the menu.
-      This heading is hidden on screen but announced by screen readers. -#}
-  <h1 class="visually-hidden">{{ site.name }}: Photography</h1>
-  {% set items = photography %}{% set baseUrl = "/photography/" %}
-  <div class="home-wall">{% include "gallery.njk" %}</div>
+{% include "carousel.njk" %}
 
+<div class="wrap">
   <section class="next" aria-labelledby="next-title">
     <h2 id="next-title" class="next-heading">Keep exploring</h2>
     <ul class="next-links">
+      <li>
+        <a href="/photography/">
+          <span class="next-title">All photography</span>
+          <span class="next-desc">Every photo, from animals and family to the 2024 eclipse</span>
+          <span class="next-arrow" aria-hidden="true">→</span>
+        </a>
+      </li>
       <li>
         <a href="/projects/">
           <span class="next-title">Other projects</span>

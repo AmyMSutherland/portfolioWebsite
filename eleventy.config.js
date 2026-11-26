@@ -58,6 +58,15 @@ export default function (eleventyConfig) {
     return metadata.jpeg[0].url;
   });
 
+  /**
+   * URL of a small JPEG, for thumbnails and blurred backdrops.
+   * Usage: {% imageUrl "photography/harbor.jpg", 400 %}
+   */
+  eleventyConfig.addAsyncShortcode("imageUrl", async (file, width = 400) => {
+    const metadata = await Image(path.join(IMAGE_ROOT, file), imageOptions([width], ["jpeg"]));
+    return metadata.jpeg[0].url;
+  });
+
   // Pages that are hidden for now. To bring one back, delete its line here
   // and restore its menu entry in src/_data/site.js.
   const HIDDEN_PAGES = ["src/art.njk", "src/art-item.njk"];
