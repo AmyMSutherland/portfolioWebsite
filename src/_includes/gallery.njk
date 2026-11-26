@@ -1,0 +1,12 @@
+{#- Grid of thumbnails. Expects: items, baseUrl -#}
+<ul class="gallery">
+  {%- for item in items %}
+  <li>
+    <a class="card" href="{{ baseUrl }}{{ item.title | slugify }}/">
+      <span class="card-media">{% picture item.file, item.alt, "(min-width: 72rem) 22rem, (min-width: 40rem) 45vw, 100vw", ("eager" if loop.first else "lazy"), [400, 800] %}</span>
+      <span class="card-title">{{ item.title }}</span>
+      {%- if item.year or item.medium %}<span class="card-meta">{{ item.medium }}{% if item.medium and item.year %}, {% endif %}{{ item.year }}</span>{% endif %}
+    </a>
+  </li>
+  {%- endfor %}
+</ul>

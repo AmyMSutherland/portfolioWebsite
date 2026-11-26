@@ -1,0 +1,12 @@
+---
+layout: base.njk
+title: Photography
+description: Photographs by Amy Sutherland.
+permalink: /photography/
+---
+<div class="wrap">
+  <h1>Photography</h1>
+  <p class="lead">Select a photo to see it larger.</p>
+  {% set items = photography %}{% set baseUrl = "/photography/" %}
+  {% include "gallery.njk" %}
+</div>

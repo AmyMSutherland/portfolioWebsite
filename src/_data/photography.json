@@ -1,0 +1,30 @@
+[
+  {
+    "file": "photography/sample-1.jpg",
+    "title": "Sample photo one",
+    "alt": "Placeholder image: a blue gradient with the words Sample photo one.",
+    "caption": "Replace this with one of your photos. See README.md for how.",
+    "year": 2026
+  },
+  {
+    "file": "photography/sample-2.jpg",
+    "title": "Sample photo two",
+    "alt": "Placeholder image: a yellow gradient with the words Sample photo two.",
+    "caption": "Replace this with one of your photos.",
+    "year": 2026
+  },
+  {
+    "file": "photography/sample-3.jpg",
+    "title": "Sample photo three",
+    "alt": "Placeholder image: a tall blue and yellow gradient with the words Sample photo three.",
+    "caption": "Portrait-orientation images work too.",
+    "year": 2026
+  },
+  {
+    "file": "photography/sample-4.jpg",
+    "title": "Sample photo four",
+    "alt": "Placeholder image: a grey-blue gradient with the words Sample photo four.",
+    "caption": "",
+    "year": 2025
+  }
+]

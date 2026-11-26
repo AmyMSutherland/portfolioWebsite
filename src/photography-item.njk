@@ -1,0 +1,13 @@
+---
+layout: base.njk
+pagination:
+  data: photography
+  size: 1
+  alias: item
+permalink: "/photography/{{ item.title | slugify }}/"
+eleventyComputed:
+  title: "{{ item.title }}"
+  description: "{{ item.alt }}"
+---
+{% set items = photography %}{% set baseUrl = "/photography/" %}{% set sectionName = "Photography" %}
+{% include "artwork.njk" %}

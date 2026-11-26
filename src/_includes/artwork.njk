@@ -1,0 +1,23 @@
+{#- One artwork, large. Expects: item, items, pagination, baseUrl, sectionName -#}
+{%- set prev = items[pagination.pageNumber - 1] if pagination.pageNumber > 0 else null -%}
+{%- set next = items[pagination.pageNumber + 1] if pagination.pageNumber + 1 < items.length else null -%}
+<div class="wrap">
+  <figure class="artwork">
+    <div class="artwork-frame">
+      {% picture item.file, item.alt, "(min-width: 72rem) 72rem, 100vw", "eager" %}
+    </div>
+    <figcaption>
+      <h1>{{ item.title }}</h1>
+      {%- if item.medium or item.year %}<p class="muted">{{ item.medium }}{% if item.medium and item.year %}, {% endif %}{{ item.year }}</p>{% endif %}
+      {%- if item.caption %}<p>{{ item.caption }}</p>{% endif %}
+    </figcaption>
+  </figure>
+
+  <nav class="pager" aria-label="{{ sectionName }}">
+    <ul>
+      <li>{% if prev %}<a href="{{ baseUrl }}{{ prev.title | slugify }}/" rel="prev">← Previous: {{ prev.title }}</a>{% endif %}</li>
+      <li><a href="{{ baseUrl }}">All {{ sectionName | lower }} ({{ pagination.pageNumber + 1 }} of {{ items.length }})</a></li>
+      <li>{% if next %}<a href="{{ baseUrl }}{{ next.title | slugify }}/" rel="next">Next: {{ next.title }} →</a>{% endif %}</li>
+    </ul>
+  </nav>
+</div>

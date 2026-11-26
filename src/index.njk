@@ -1,0 +1,22 @@
+---
+layout: base.njk
+permalink: /
+---
+<div class="wrap">
+  <section class="hero" aria-labelledby="hero-title">
+    <h1 id="hero-title"><span>{{ site.name }}</span> <span class="tagline">{{ site.tagline }}</span></h1>
+    <p class="lead">Welcome! This is where I share my photography, my art and the design and coding work I've done.</p>
+  </section>
+
+  <ul class="section-links">
+    <li><a href="/photography/"><strong>Photography</strong> <span>{{ photography.length }} photos</span></a></li>
+    <li><a href="/art/"><strong>Art</strong> <span>{{ art.length }} pieces</span></a></li>
+    <li><a href="/projects/"><strong>Projects</strong> <span>UX design and coding</span></a></li>
+    <li><a href="/about/"><strong>About</strong> <span>Who I am and how to reach me</span></a></li>
+  </ul>
+
+  <h2>Recent photography</h2>
+  {% set items = photography.slice(0, 3) %}{% set baseUrl = "/photography/" %}
+  {% include "gallery.njk" %}
+  <p><a href="/photography/">See all photography</a></p>
+</div>
