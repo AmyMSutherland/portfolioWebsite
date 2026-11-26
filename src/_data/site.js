@@ -12,10 +12,9 @@ export default {
   description: "Photography by Amy Sutherland: animals, family and the moments in between.",
   // Forwards to a personal inbox via Cloudflare Email Routing.
   email: "amy@amysutherlandsart.com",
-  // Add or remove links. Leave the list empty to hide the section.
-  social: [
-    { label: "GitHub", url: "https://github.com/AmyMSutherland" },
-  ],
+  // Add or remove links, e.g. { label: "Instagram", url: "https://instagram.com/yourname" }.
+  // Leave the list empty to hide the section.
+  social: [],
   nav: [
     { label: "Photography", url: "/photography/" },
     { label: "Other projects", url: "/projects/" },
