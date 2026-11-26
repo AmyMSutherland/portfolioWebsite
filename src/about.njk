@@ -6,17 +6,25 @@ permalink: /about/
 ---
 <div class="wrap">
   <h1>About me</h1>
-  <p class="lead">Hi, I'm {{ site.name }}, a photographer.</p>
-  <p>What I love most about photography is how much emotion a single picture can hold when it's taken at just the right moment: a laugh, a quiet glance, a dog mid-grin, the sky going dark at totality. I photograph animals, the people I love, and the moments in between, always waiting for that instant when a feeling shows itself. I hope a few of these make you smile.</p>
+  <div class="about">
+    <figure class="about-photo">
+      {% picture "about/amy-gallery.jpg", "Amy smiling in front of a gallery wall of her framed photographs, including a chickadee on a rock, a cat, glowing candles, and a tree against a red sky.", "(min-width: 56rem) 28rem, 100vw", "eager", [500, 960] %}
+      <figcaption>With some of my photographs on the gallery wall.</figcaption>
+    </figure>
+    <div class="about-text">
+      <p class="lead">Hi, I'm {{ site.name }}, a photographer.</p>
+      <p>What I love most about photography is how much emotion a single picture can hold when it's taken at just the right moment: a laugh, a quiet glance, a dog mid-grin, the sky going dark at totality. I photograph animals, the people I love, and the moments in between, always waiting for that instant when a feeling shows itself. I hope a few of these make you smile.</p>
 
-  <h2>Contact</h2>
-  <p>The best way to reach me is by email: <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
-  {%- if site.social.length %}
-  <p>You can also find me on:</p>
-  <ul>
-    {%- for link in site.social %}
-    <li><a href="{{ link.url }}">{{ link.label }}</a></li>
-    {%- endfor %}
-  </ul>
-  {%- endif %}
+      <h2>Contact</h2>
+      <p>The best way to reach me is by email: <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+      {%- if site.social.length %}
+      <p>You can also find me on:</p>
+      <ul>
+        {%- for link in site.social %}
+        <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+    </div>
+  </div>
 </div>

@@ -36,9 +36,11 @@ async function picture(file, alt, sizes = "100vw", loading = "lazy", widths = [4
     formats: ["avif", "webp", "jpeg"],
     outputDir: "_site/img/",
     urlPath: "/img/",
-    sharpJpegOptions: { quality: 82, progressive: true },
-    sharpWebpOptions: { quality: 80 },
-    sharpAvifOptions: { quality: 60 },
+    // Quality is set high because this is a photography site; fine detail matters
+    // more than a few extra kilobytes.
+    sharpJpegOptions: { quality: 86, progressive: true },
+    sharpWebpOptions: { quality: 86 },
+    sharpAvifOptions: { quality: 72 },
   });
 
   return Image.generateHTML(metadata, {
