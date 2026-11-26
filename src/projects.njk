@@ -1,17 +1,18 @@
 ---
 layout: base.njk
 title: Other projects
-description: Digital illustration and other creative projects by Amy Sutherland.
+description: Digital illustration, printmaking and other creative projects by Amy Sutherland.
 permalink: /projects/
 ---
 <div class="wrap">
   <h1>Other projects</h1>
-  <p class="lead">Digital illustration and other creative work beyond the camera.</p>
+  <p class="lead">Illustration, printmaking and other creative work beyond the camera.</p>
   <ul class="projects">
     {%- for p in projects %}
     <li class="project">
       {#- Artwork is shown at its own shape, never cropped. -#}
-      <div class="card-media" style="aspect-ratio: {{ imageSizes[p.file].ratio }}">{% picture p.file, p.alt, "(min-width: 48rem) 35rem, 100vw", ("eager" if loop.first else "lazy"), [500, 900, 1400, 2000] %}</div>
+      {#- Tall pieces are capped at 70% of the screen height so they don't dominate the page. -#}
+      <div class="card-media" style="aspect-ratio: {{ imageSizes[p.file].ratio }}; max-width: calc(70vh * {{ imageSizes[p.file].ratio }})">{% picture p.file, p.alt, "(min-width: 48rem) 35rem, 100vw", ("eager" if loop.first else "lazy"), [500, 900, 1400, 2000] %}</div>
       <div>
         {% if p.category %}<span class="tag">{{ p.category }}</span>{% endif %}
         <h2>{{ p.title }}</h2>
