@@ -315,6 +315,8 @@ main:has(.home-wall) { padding-top: 1.5rem; }
 .card-media { display: block; background: var(--surface); overflow: hidden; aspect-ratio: 16 / 10; }
 .card-media picture { display: block; height: 100%; }
 .card-media img { width: 100%; height: 100%; object-fit: cover; }
+/* Logos sit on their own light/dark panels: a soft edge that matches the theme keeps them from blending into the page. */
+.card-media-logo { border: 1px solid var(--border); }
 
 /* Single artwork page */
 .artwork { margin: 0; }

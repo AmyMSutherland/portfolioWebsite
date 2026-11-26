@@ -30,5 +30,21 @@
     "file": "projects/windham-parks-rec-logo.png",
     "alt": "Oval logo with a lavender border and the words Windham Parks & Recreation in flowing script across the top. Inside are four overlapping circles: a cyclist under a yellow sun beside a daisy, a person paddling a canoe, a person fishing from the canoe among cattails, and an ice skater on snow. Find It Here is written in blue at the bottom.",
     "link": ""
+  },
+  {
+    "title": "Eric’s Miniatures",
+    "category": "Logo design",
+    "summary": "A logo for Eric’s Miniatures, a site showing miniatures, terrain and model kits. A jagged orange tear runs through the lettering, and a single slit-pupil eye forms the I in “Eric’s.” It has a light-mode and a dark-mode version, which switch with the site’s theme. Designed in 2020 and still in use on the site.",
+    "file": "projects/erics-miniatures-logo.png",
+    "alt": "The Eric’s Miniatures logo shown twice. On white: the words Eric’s Miniatures in chunky lime-green capital letters, split by a jagged orange tear, with a black slit pupil standing in for the I in Eric’s. Below, on dark charcoal: the same logo, where the eye has a white surround so it stands out on the dark background.",
+    "link": "https://ericsminiatures.com/"
+  },
+  {
+    "title": "My own logo",
+    "category": "Logo design",
+    "summary": "The logo at the top of this website: an A in blue and an S in yellow, set beside my name. It has a second version with light lettering, so it stays readable when the site is in dark mode.",
+    "file": "projects/as-logo.png",
+    "alt": "The Amy Sutherland logo shown twice. On a cream background: a large blue A overlapping a yellow S, beside the name Amy Sutherland in black, with Sutherland in bold. Below, on a near-black background: the same logo with the name in off-white.",
+    "link": ""
   }
 ]
