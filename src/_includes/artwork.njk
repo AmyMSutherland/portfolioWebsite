@@ -8,7 +8,8 @@
     </div>
     <figcaption>
       <h1>{{ item.title }}</h1>
-      {%- if item.medium or item.year %}<p class="muted">{{ item.medium }}{% if item.medium and item.year %}, {% endif %}{{ item.year }}</p>{% endif %}
+      {#- Years are kept in the data files but not shown, since not every photo has one. -#}
+      {%- if item.medium %}<p class="muted">{{ item.medium }}</p>{% endif %}
       {%- if item.caption %}<p>{{ item.caption }}</p>{% endif %}
     </figcaption>
   </figure>
