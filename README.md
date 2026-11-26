@@ -44,8 +44,9 @@ and a `summary`).
 ## Hidden pages
 
 The Art page is built but hidden. To bring it back, remove it from `HIDDEN_PAGES` in
-`eleventy.config.js`, restore its menu entry in `src/_data/site.js`, and replace the sample
-entries in `src/_data/art.json`.
+`eleventy.config.js`, restore its menu entry in `src/_data/site.js`, replace the sample
+entries in `src/_data/art.json`, and delete the `/art/` lines in `src/_redirects`
+(they currently send old Art addresses to Other projects).
 
 **After removing or renaming any page**, purge Cloudflare's cache (Cloudflare dashboard →
 amysutherlandsart.com → Caching → Configuration → Purge Everything). Otherwise Cloudflare

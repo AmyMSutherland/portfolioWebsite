@@ -1,0 +1,13 @@
+# Cloudflare Pages redirects: old addresses -> current pages.
+# These were sample/placeholder pages from the first version of the site.
+/photography/sample-photo-one/     /photography/  301
+/photography/sample-photo-two/     /photography/  301
+/photography/sample-photo-three/   /photography/  301
+/photography/sample-photo-four/    /photography/  301
+/photography/sample-photo-five/    /photography/  301
+/photography/sample-photo-six/     /photography/  301
+/photography/sample-photo-seven/   /photography/  301
+/photography/sample-photo-eight/   /photography/  301
+/art/                              /projects/     301
+/art/sample-artwork-one/           /projects/     301
+/art/sample-artwork-two/           /projects/     301

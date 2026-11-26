@@ -21,8 +21,9 @@
   <meta property="og:image" content="{{ site.url }}{% shareImage shareFile %}">
   <meta property="og:image:alt" content="{{ shareAlt }}">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="{{ '/favicon.ico' | bust }}" sizes="any">
+  <link rel="icon" href="{{ '/favicon.svg' | bust }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | bust }}">
   <script>
     // Apply a saved light/dark choice before the page draws, so it doesn't flash.
     try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}

@@ -67,6 +67,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy({
     "src/favicon.svg": "favicon.svg",
+    "src/favicon.ico": "favicon.ico",
+    "src/_redirects": "_redirects",
     "src/apple-touch-icon.png": "apple-touch-icon.png",
     "src/logo.png": "logo.png",
     "src/logo-light-text.png": "logo-light-text.png",
