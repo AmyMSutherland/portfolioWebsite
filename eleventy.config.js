@@ -42,11 +42,14 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
-  eleventyConfig.addPassthroughCopy({ "src/favicon.svg": "favicon.svg" });
+  eleventyConfig.addPassthroughCopy({ "src/favicon.svg": "favicon.svg", "src/logo.png": "logo.png", "src/logo-light-text.png": "logo-light-text.png" });
 
   eleventyConfig.addWatchTarget("src/images/");
 
   eleventyConfig.addFilter("year", () => new Date().getFullYear());
+  eleventyConfig.addFilter("throwError", (message) => {
+    throw new Error(message);
+  });
 
   return {
     dir: { input: "src", includes: "_includes", data: "_data", output: "_site" },

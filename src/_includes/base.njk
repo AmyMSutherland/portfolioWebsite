@@ -13,6 +13,7 @@
   </script>
   <link rel="stylesheet" href="/css/styles.css">
   <script src="/js/theme.js" defer></script>
+  <script src="/js/wall.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -20,8 +21,8 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="/"{% if page.url == "/" %} aria-current="page"{% endif %}>
-        <span class="brand-mark" aria-hidden="true"><span class="brand-a">A</span><span class="brand-s">S</span></span>
-        <span class="brand-name">{{ site.name }}</span>
+        <img class="brand-logo logo-on-light" src="/logo.png" alt="{{ site.name }}" width="156" height="52">
+        <img class="brand-logo logo-on-dark" src="/logo-light-text.png" alt="{{ site.name }}" width="156" height="52">
       </a>
       <nav aria-label="Main">
         <ul class="nav-list">

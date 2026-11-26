@@ -23,8 +23,36 @@
   {
     "file": "photography/sample-4.jpg",
     "title": "Sample photo four",
-    "alt": "Placeholder image: a grey-blue gradient with the words Sample photo four.",
+    "alt": "Placeholder image: a grey gradient with the words Sample photo four.",
     "caption": "",
     "year": 2025
+  },
+  {
+    "file": "photography/sample-5.jpg",
+    "title": "Sample photo five",
+    "alt": "Placeholder image: a wide panoramic light-blue to deep-blue gradient with the words Sample photo five.",
+    "caption": "Wide panoramas get a whole row to themselves on small screens.",
+    "year": 2025
+  },
+  {
+    "file": "photography/sample-6.jpg",
+    "title": "Sample photo six",
+    "alt": "Placeholder image: a square yellow to blue gradient with the words Sample photo six.",
+    "caption": "",
+    "year": 2025
+  },
+  {
+    "file": "photography/sample-7.jpg",
+    "title": "Sample photo seven",
+    "alt": "Placeholder image: a tall dark grey gradient with the words Sample photo seven.",
+    "caption": "",
+    "year": 2024
+  },
+  {
+    "file": "photography/sample-8.jpg",
+    "title": "Sample photo eight",
+    "alt": "Placeholder image: a blue to light-blue gradient with the words Sample photo eight.",
+    "caption": "",
+    "year": 2024
   }
 ]

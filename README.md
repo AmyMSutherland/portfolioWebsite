@@ -1,7 +1,8 @@
 # Amy Sutherland: portfolio website
 
 A simple, accessible art and photography portfolio built with [Eleventy](https://www.11ty.dev/).
-It's plain HTML and CSS, and the only JavaScript is the light/dark toggle.
+It's plain HTML and CSS. The only JavaScript is the light/dark toggle and a small script that
+balances the photo rows; the site works without either.
 
 ## Add a photo (or artwork) in 3 steps
 
@@ -22,11 +23,12 @@ It's plain HTML and CSS, and the only JavaScript is the light/dark toggle.
      The build stops with an error if it's missing.
    - Titles must be unique. They become the page address (`/photography/harbor-at-dawn/`).
    - Separate entries with commas, and don't put a comma after the last one.
-   - The first entries in the list show first, and the first three appear on the home page.
+   - Photos appear in the order of the list, on both the home page and the Photography page.
+     Each photo keeps its own shape (wide, tall or square). Nothing gets cropped.
 3. **Commit and push.** The host rebuilds the site automatically within a minute or two.
 
 Delete the `sample-*.jpg` files and their entries once you've added your own work.
-Edit your name, email and links in `src/_data/site.js`, and your bio in `src/about.njk`.
+Edit your name, email, links and the home page headline in `src/_data/site.js`, and your bio in `src/about.njk`.
 
 ## Run it on your computer
 

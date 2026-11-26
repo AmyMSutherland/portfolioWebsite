@@ -20,7 +20,8 @@
   "homepage": "https://github.com/AmyMSutherland/portfolioWebsite#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.8",
-    "@11ty/eleventy-img": "^7.1.1"
+    "@11ty/eleventy-img": "^7.1.1",
+    "sharp": "^0.35.5"
   },
   "private": true
 }

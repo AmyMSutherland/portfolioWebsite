@@ -1,29 +1,25 @@
 /* ==========================================================================
    Colors: change them here. Light theme first, then dark.
-   All text/background pairs meet WCAG AA contrast (most meet AAA).
+   Brand colors come straight from the AS logo. The exact blue (#1889b1) is used
+   for large headings, borders and fills; text-sized links use a deeper shade of
+   the same blue so they meet WCAG AA contrast (4.5:1).
    ========================================================================== */
 :root {
-  --navy: #0b1f3a;
-  --navy-deep: #061224;
-  --blue: #1d4ed8;
-  --blue-light: #93b4ff;
-  --yellow: #ffc72c;
-  --yellow-soft: #ffd54a;
-  --cream: #fffbea;
-  --off-white: #f5f3ea;
+  --brand-blue: #1889b1;
+  --brand-blue-deep: #0e6585;   /* same hue, darker: for small text on light bg */
+  --brand-yellow: #fdcf66;
+  --ink: #1a1a1a;               /* text placed on yellow or blue fills */
 
-  --bg: var(--cream);
-  --text: var(--navy);
-  --muted: #3c4a63;
-  --link: var(--blue);
-  --link-hover: var(--navy);
-  --surface: #efece3; /* neutral-ish backdrop behind artwork */
-  --border: #c9c3ae;
-  --focus: var(--navy);
-
-  --header-bg: var(--navy);
-  --header-text: var(--off-white);
-  --header-focus: var(--yellow);
+  --bg: #fffdf7;
+  --text: #1a1a1a;
+  --muted: #4a4a4a;
+  --heading: var(--brand-blue);
+  --link: var(--brand-blue-deep);
+  --link-hover: var(--text);
+  --surface: #f4f1ea;           /* neutral backdrop behind artwork */
+  --border: #d9d4c7;
+  --focus: var(--text);
+  --accent-line: var(--brand-blue);
 
   color-scheme: light;
 }
@@ -31,28 +27,30 @@
 /* Dark theme values, used for the device setting AND the toggle. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: var(--navy);
-    --text: var(--off-white);
-    --muted: #c9cfdb;
-    --link: var(--yellow-soft);
+    --bg: #141414;
+    --text: #f2f0eb;
+    --muted: #b8b8b8;
+    --heading: var(--brand-blue);
+    --link: var(--brand-yellow);
     --link-hover: #fff;
-    --surface: #13233b;
-    --border: #2e4466;
-    --focus: var(--yellow-soft);
-    --header-bg: var(--navy-deep);
+    --surface: #1f1f1f;
+    --border: #3a3a3a;
+    --focus: var(--brand-yellow);
+    --accent-line: var(--brand-yellow);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: var(--navy);
-  --text: var(--off-white);
-  --muted: #c9cfdb;
-  --link: var(--yellow-soft);
+  --bg: #141414;
+  --text: #f2f0eb;
+  --muted: #b8b8b8;
+  --heading: var(--brand-blue);
+  --link: var(--brand-yellow);
   --link-hover: #fff;
-  --surface: #13233b;
-  --border: #2e4466;
-  --focus: var(--yellow-soft);
-  --header-bg: var(--navy-deep);
+  --surface: #1f1f1f;
+  --border: #3a3a3a;
+  --focus: var(--brand-yellow);
+  --accent-line: var(--brand-yellow);
   color-scheme: dark;
 }
 
@@ -84,7 +82,7 @@ main { flex: 1; padding-block: 2.5rem 4rem; }
 main:focus { outline: none; }
 
 h1, h2, h3 { line-height: 1.2; margin: 0 0 0.75rem; }
-h1 { font-size: clamp(2rem, 1.4rem + 2.5vw, 3rem); letter-spacing: -0.01em; }
+h1 { color: var(--heading); font-size: clamp(2rem, 1.4rem + 2.5vw, 3rem); letter-spacing: -0.01em; }
 h2 { font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem); margin-top: 2.5rem; }
 h3 { font-size: 1.2rem; }
 p { margin: 0 0 1rem; max-width: 65ch; }
@@ -118,20 +116,19 @@ img { max-width: 100%; height: auto; display: block; }
   left: 1rem; top: -100%;
   z-index: 10;
   padding: 0.75rem 1rem;
-  background: var(--yellow);
-  color: var(--navy);
+  background: var(--brand-yellow);
+  color: var(--ink);
   font-weight: 700;
 }
-.skip-link:focus { top: 1rem; outline-color: var(--navy); }
+.skip-link:focus { top: 1rem; outline-color: var(--ink); }
 
 /* ==========================================================================
    Header + navigation
    ========================================================================== */
 .site-header {
-  background: var(--header-bg);
-  color: var(--header-text);
-  border-bottom: 0.4rem solid var(--yellow);
-  --focus: var(--header-focus);
+  background: var(--bg);
+  border-top: 0.4rem solid var(--brand-blue);
+  border-bottom: 2px solid var(--border);
 }
 .header-inner {
   display: flex;
@@ -140,7 +137,7 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 0.75rem 2rem;
   padding-block: 0.9rem;
 }
-.site-header a { color: var(--header-text); text-decoration: none; }
+.site-header a { color: var(--text); text-decoration: none; }
 
 .brand {
   display: inline-flex;
@@ -151,9 +148,16 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 1.2rem;
   margin-right: auto;
 }
-.brand-mark { font-size: 1.9rem; font-weight: 900; letter-spacing: -0.08em; line-height: 1; }
-.brand-a { color: var(--blue-light); }
-.brand-s { color: var(--yellow); }
+/* Original AS logo (black lettering) in light mode; a copy with off-white
+   lettering in dark mode. The blue and yellow are unchanged in both. */
+.brand-logo { width: 9.75rem; height: auto; }
+.logo-on-dark { display: none; }
+:root[data-theme="dark"] .logo-on-light { display: none; }
+:root[data-theme="dark"] .logo-on-dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .logo-on-light { display: none; }
+  :root:not([data-theme="light"]) .logo-on-dark { display: block; }
+}
 
 .nav-list {
   display: flex;
@@ -171,8 +175,8 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 600;
   border-bottom: 0.2rem solid transparent;
 }
-.nav-list a:hover { border-bottom-color: var(--blue-light); }
-.nav-list a[aria-current] { border-bottom-color: var(--yellow); }
+.nav-list a:hover { border-bottom-color: var(--border); }
+.nav-list a[aria-current] { border-bottom-color: var(--accent-line); }
 
 .theme-toggle {
   display: inline-flex;
@@ -182,81 +186,79 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 0.4rem 0.9rem;
   font: inherit;
   font-weight: 600;
-  color: var(--header-text);
+  color: var(--text);
   background: transparent;
-  border: 2px solid var(--header-text);
+  border: 2px solid var(--text);
   border-radius: 999px;
   cursor: pointer;
 }
-.theme-toggle:hover { border-color: var(--yellow); }
+.theme-toggle:hover { border-color: var(--brand-blue); }
 .theme-toggle[hidden] { display: none; }
 .theme-icon {
   width: 1rem; height: 1rem;
   border-radius: 50%;
-  background: var(--yellow);
-  box-shadow: inset -0.35rem -0.1rem 0 0 var(--header-bg);
+  background: var(--brand-yellow);
+  border: 1px solid var(--text);
+  box-shadow: inset -0.35rem -0.1rem 0 0 var(--bg);
 }
 .theme-toggle[aria-pressed="true"] .theme-icon { box-shadow: none; }
 
 /* ==========================================================================
-   Home
+   Home intro
    ========================================================================== */
-.hero { padding-block: 1rem 1.5rem; }
-.hero h1 span { display: block; }
-.hero .tagline {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.15rem 0.6rem;
-  background: var(--yellow);
-  color: var(--navy);
-  font-size: 0.55em;
-  font-weight: 700;
-  letter-spacing: 0;
-}
-
-.section-links {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0 0;
-}
-.section-links a {
-  display: block;
-  height: 100%;
-  padding: 1.25rem 1.25rem 1.1rem;
-  border: 2px solid var(--border);
-  border-top: 0.4rem solid var(--link);
-  background: var(--surface);
-  color: var(--text);
-  text-decoration: none;
-}
-@media (min-width: 32rem) { .section-links { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 64rem) { .section-links { grid-template-columns: repeat(4, 1fr); } }
-.section-links a:hover { border-color: var(--link); }
-.section-links strong { display: block; font-size: 1.2rem; color: var(--link); }
-.section-links span { color: var(--muted); }
+.intro { padding-block: 0.5rem 0; }
+.intro h1 { max-width: 22ch; margin-bottom: 0.4rem; }
+.intro p { color: var(--muted); font-size: 1.1rem; margin: 0; }
+.more-link { margin-top: 2rem; font-weight: 600; }
 
 /* ==========================================================================
-   Galleries
+   Gallery wall: rows of photos at their natural shapes (no cropping).
+   Each item grows in proportion to its width/height ratio (--r), so every
+   photo in a row ends up the same height. Order stays left to right.
    ========================================================================== */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
-  gap: 1.5rem;
+.wall {
+  --row-h: 11rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
   list-style: none;
   padding: 0;
-  margin: 2rem 0 0;
+  margin: 1.75rem 0 0;
 }
-.card { display: block; color: var(--text); text-decoration: none; }
-.card-media { display: block; background: var(--surface); overflow: hidden; aspect-ratio: 4 / 3; }
+@media (min-width: 40rem) { .wall { --row-h: 15rem; gap: 1rem; } }
+@media (min-width: 72rem) { .wall { --row-h: 18rem; } }
+/* Invisible spacer so the last row isn't stretched to full width. */
+.wall::after { content: ""; flex: 999 1 0; }
+/* js/wall.js balances the rows when JavaScript is available. */
+.wall.is-justified::after { display: none; }
+
+.wall-item {
+  flex: var(--r) 1 calc(var(--r) * var(--row-h));
+  max-width: calc(var(--r) * var(--row-h) * 1.6); /* no single photo gets blown up */
+  min-width: 0;
+}
+.wall-link { display: block; color: var(--muted); text-decoration: none; }
+.wall-media {
+  display: block;
+  aspect-ratio: var(--r);
+  overflow: hidden;
+  background: var(--surface);
+}
+.wall-media picture { display: block; height: 100%; }
+.wall-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.wall-link:hover .wall-media img { transform: scale(1.025); }
+.wall-title { display: block; margin-top: 0.4rem; font-size: 0.95rem; }
+.wall-link:hover .wall-title { color: var(--link); text-decoration: underline; }
+
+/* Image boxes used on the Projects page */
+.card-media { display: block; background: var(--surface); overflow: hidden; aspect-ratio: 16 / 10; }
 .card-media picture { display: block; height: 100%; }
-.card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
-.card:hover .card-media img { transform: scale(1.03); }
-.card-title { display: block; margin-top: 0.6rem; font-weight: 700; color: var(--link); }
-.card:hover .card-title { text-decoration: underline; }
-.card-meta { display: block; font-size: 0.95rem; color: var(--muted); }
+.card-media img { width: 100%; height: 100%; object-fit: cover; }
 
 /* Single artwork page */
 .artwork { margin: 0; }
@@ -304,8 +306,8 @@ img { max-width: 100%; height: auto; display: block; }
   display: inline-block;
   margin-bottom: 0.5rem;
   padding: 0.1rem 0.55rem;
-  background: var(--yellow);
-  color: var(--navy);
+  background: var(--brand-yellow);
+  color: var(--ink);
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -336,5 +338,5 @@ img { max-width: 100%; height: auto; display: block; }
 
 @media (forced-colors: active) {
   .nav-list a[aria-current] { border-bottom-color: Highlight; }
-  .tag, .hero .tagline { border: 1px solid; }
+  .tag { border: 1px solid; }
 }
