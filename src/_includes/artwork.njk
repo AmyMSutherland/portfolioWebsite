@@ -5,7 +5,12 @@
   <figure class="artwork">
     <div class="artwork-frame">
       {% picture item.file, item.alt, "(min-width: 72rem) 72rem, 100vw", "eager" %}
+      {#- The photos on either side, waiting just out of view so a swipe can slide them in. -#}
+      {%- if prev %}<span class="swipe-peek swipe-peek-prev" aria-hidden="true"><img src="{% imageUrl prev.file, 1200 %}" alt="" decoding="async" fetchpriority="low"></span>{% endif %}
+      {%- if next %}<span class="swipe-peek swipe-peek-next" aria-hidden="true"><img src="{% imageUrl next.file, 1200 %}" alt="" decoding="async" fetchpriority="low"></span>{% endif %}
     </div>
+    {%- if prev %}<link rel="prefetch" href="{{ baseUrl }}{{ prev.title | slugify }}/">{% endif %}
+    {%- if next %}<link rel="prefetch" href="{{ baseUrl }}{{ next.title | slugify }}/">{% endif %}
     <figcaption>
       <h1>{{ item.title }}</h1>
       {#- Years are kept in the data files but not shown, since not every photo has one. -#}
@@ -17,9 +22,9 @@
 
   <nav class="pager" aria-label="{{ sectionName }}">
     <ul>
-      <li class="pager-prev">{% if prev %}<a class="pager-btn" href="{{ baseUrl }}{{ prev.title | slugify }}/" rel="prev"><span class="pager-arrow" aria-hidden="true">←</span><span class="pager-text"><span class="pager-label">Previous</span> <span class="pager-name">{{ prev.title }}</span></span></a>{% endif %}</li>
+      <li class="pager-prev">{% if prev %}<a class="pager-btn" href="{{ baseUrl }}{{ prev.title | slugify }}/" rel="prev"><svg class="pager-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span class="pager-text"><span class="pager-label">Previous</span> <span class="pager-name">{{ prev.title }}</span></span></a>{% endif %}</li>
       <li class="pager-all"><a class="pager-btn pager-btn-all" href="{{ baseUrl }}"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>All {{ sectionName | lower }} <span class="pager-count">({{ pagination.pageNumber + 1 }} of {{ items.length }})</span></a></li>
-      <li class="pager-next">{% if next %}<a class="pager-btn" href="{{ baseUrl }}{{ next.title | slugify }}/" rel="next"><span class="pager-text"><span class="pager-label">Next</span> <span class="pager-name">{{ next.title }}</span></span><span class="pager-arrow" aria-hidden="true">→</span></a>{% endif %}</li>
+      <li class="pager-next">{% if next %}<a class="pager-btn" href="{{ baseUrl }}{{ next.title | slugify }}/" rel="next"><span class="pager-text"><span class="pager-label">Next</span> <span class="pager-name">{{ next.title }}</span></span><svg class="pager-arrow" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>{% endif %}</li>
     </ul>
   </nav>
 </div>

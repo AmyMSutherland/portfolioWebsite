@@ -355,7 +355,15 @@ main:has(.home-wall) { padding-top: 1.5rem; }
 }
 .artwork figcaption { margin-top: 1.25rem; }
 /* Photos can be swiped on touch screens: sideways swipes go to the script, up/down still scrolls. */
-.artwork-frame { touch-action: pan-y pinch-zoom; overflow: hidden; }
+.artwork-frame { --pad: clamp(0.5rem, 2vw, 1.5rem); position: relative; touch-action: pan-y pinch-zoom; overflow: hidden; }
+.artwork-frame picture { display: block; }
+/* Neighboring photos sit one frame-width to each side and slide in with the swipe. */
+.swipe-peek { position: absolute; inset: var(--pad); display: grid; place-items: center; pointer-events: none; }
+.swipe-peek img { width: auto; max-width: 100%; max-height: 80vh; }
+.swipe-peek-prev { transform: translateX(calc(-100% - var(--pad))); }
+.swipe-peek-next { transform: translateX(calc(100% + var(--pad))); }
+/* A gentle cross-fade between pages, in browsers that support it (skipped for reduced motion). */
+@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
 .swipe-hint { display: none; margin: 0.75rem 0 0; font-size: 0.9rem; color: var(--muted); }
 @media (pointer: coarse) { .swipe-hint { display: block; } }
 .artwork figcaption h1 { margin-bottom: 0.25rem; }
@@ -398,12 +406,17 @@ main:has(.home-wall) { padding-top: 1.5rem; }
   text-decoration: none;
   transition: border-color 0.2s;
 }
-.pager-prev .pager-btn, .pager-next .pager-btn { width: 100%; }
+/* Previous and Next match: same width and height, arrows the same size at the outer edges. */
+.pager ul { align-items: stretch; }
+.pager-all { align-self: center; }
+.pager-prev, .pager-next { display: flex; width: min(100%, 15rem); }
+.pager-prev .pager-btn, .pager-next .pager-btn { width: 100%; height: 100%; }
+.pager-prev .pager-btn { justify-content: flex-start; }
 .pager-next .pager-btn { justify-content: flex-end; text-align: right; }
 .pager-text { display: flex; flex-direction: column; line-height: 1.25; }
 .pager-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .pager-name { font-size: 1rem; }
-.pager-arrow { font-size: 1.2rem; color: var(--accent-line); transition: transform 0.2s; }
+.pager-arrow { flex: none; width: 1.25rem; height: 1.25rem; color: var(--accent-line); transition: transform 0.2s; }
 .pager-btn:hover { border-color: var(--accent-line); color: var(--text); }
 .pager-prev .pager-btn:hover .pager-arrow { transform: translateX(-0.25rem); }
 .pager-next .pager-btn:hover .pager-arrow { transform: translateX(0.25rem); }
@@ -456,6 +469,10 @@ main:has(.home-wall) { padding-top: 1.5rem; }
 }
 .footer-name { display: flex; align-items: center; gap: 0.75rem; }
 .footer-name img { width: 2rem; height: 2rem; }
+/* The AS mark links home: a 44px tap target that lifts a little on hover. */
+.footer-home { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; margin: -0.375rem; border-radius: 0.5rem; }
+.footer-home img { transition: transform 0.2s ease; }
+.footer-home:hover img { transform: scale(1.1); }
 .footer-email {
   display: inline-flex;
   align-items: center;

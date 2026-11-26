@@ -11,16 +11,24 @@
   var startX = 0, startY = 0, dx = 0, tracking = false, horizontal = null;
 
   function zoomed() { return window.visualViewport && window.visualViewport.scale > 1.01; }
+  var peekPrev = frame.querySelector(".swipe-peek-prev");
+  var peekNext = frame.querySelector(".swipe-peek-next");
+  var pad = parseFloat(getComputedStyle(frame).paddingLeft) || 0;
+
+  // Slide the photo and its neighbors together, so the next one follows your finger in.
   function move(x, animate) {
     if (reduce) return;
-    img.style.transition = animate ? "transform 0.25s ease, opacity 0.25s ease" : "none";
+    var t = animate ? "transform 0.28s cubic-bezier(.2,.7,.2,1)" : "none";
+    [img, peekPrev, peekNext].forEach(function (el) { if (el) el.style.transition = t; });
     img.style.transform = x ? "translateX(" + x + "px)" : "";
-    img.style.opacity = x ? String(Math.max(0.4, 1 - Math.abs(x) / 600)) : "";
+    if (peekPrev) peekPrev.style.transform = "translateX(calc(-100% - " + pad + "px + " + x + "px))";
+    if (peekNext) peekNext.style.transform = "translateX(calc(100% + " + pad + "px + " + x + "px))";
   }
   function go(link, dir) {
     if (!link) { move(0, true); return; }
-    move(dir * frame.clientWidth, true);
-    setTimeout(function () { window.location.href = link.href; }, reduce ? 0 : 180);
+    // Finish the slide so the neighbor lands exactly where the photo was, then open its page.
+    move(dir * (frame.clientWidth - pad), true);
+    setTimeout(function () { window.location.href = link.href; }, reduce ? 0 : 260);
   }
 
   frame.addEventListener("touchstart", function (e) {
