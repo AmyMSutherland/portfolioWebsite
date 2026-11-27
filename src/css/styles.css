@@ -877,3 +877,10 @@ html { scroll-behavior: smooth; }
   .home-tile-strips { position: relative; inset: auto; height: 13rem; flex: none; }
   .home-tile-label { position: static; padding: 0.9rem 1.1rem 1.1rem; background: #1f1f1f; text-shadow: none; }
 }
+/* Phones: About banner text in a solid band under the photo (like the home tiles), so it never covers the photo */
+@media (max-width: 40rem) {
+  .about-banner { height: auto; display: flex; flex-direction: column; background: #1f1f1f; }
+  .about-banner picture { height: 15rem; flex: none; overflow: hidden; position: relative; }
+  .about-banner img { object-position: 36% 38%; transform-origin: 36% 38%; }
+  .about-banner-text { position: static; padding: 1rem 1.25rem 1.25rem; background: #1f1f1f; text-shadow: none; }
+}
