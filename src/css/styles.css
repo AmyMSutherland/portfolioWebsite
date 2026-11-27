@@ -774,3 +774,33 @@ main:has(.home) { padding-top: 1.75rem; }
 .about-email:hover { color: var(--ink); text-decoration: underline; }
 @media (forced-colors: active) { .about-email { border: 2px solid ButtonText; } }
 
+/* About: the address in full, with Email me and Copy email side by side */
+.about-address { margin: 0 0 0.75rem; font-size: 1.15rem; font-weight: 700; color: var(--text); overflow-wrap: anywhere; }
+.about-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.about-actions .about-email { margin: 0; }
+.about-copy { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 2.75rem; padding: 0.5rem 1.25rem; border-radius: 999px; border: 2px solid var(--accent-line); background: transparent; color: var(--text); font: inherit; font-weight: 700; cursor: pointer; }
+.about-copy:hover { background: var(--surface); }
+.about-copy[hidden] { display: none; }
+.about-copy .i-check { display: none; }
+.about-copy.is-copied { border-color: #2e7d32; }
+.about-copy.is-copied .i-copy { display: none; }
+.about-copy.is-copied .i-check { display: block; color: #2e7d32; }
+:root[data-theme="dark"] .about-copy.is-copied { border-color: #7bd389; }
+:root[data-theme="dark"] .about-copy.is-copied .i-check { color: #7bd389; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .about-copy.is-copied { border-color: #7bd389; } :root:not([data-theme="light"]) .about-copy.is-copied .i-check { color: #7bd389; } }
+
+/* Footer: small copy button beside the email; says "Copied!" for a moment */
+.footer-contact { display: flex; align-items: center; gap: 0.5rem; }
+.footer-copy { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; min-width: 2.75rem; height: 2.75rem; padding: 0 0.75rem; border-radius: 999px; border: 2px solid var(--border); background: transparent; color: var(--text); font: inherit; font-weight: 600; cursor: pointer; }
+.footer-copy:hover { border-color: var(--accent-line); }
+.footer-copy[hidden] { display: none; }
+.footer-copy .copy-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.footer-copy.is-copied .copy-label { position: static; width: auto; height: auto; clip: auto; }
+.footer-copy .i-check { display: none; }
+.footer-copy.is-copied { border-color: #2e7d32; }
+.footer-copy.is-copied .i-copy { display: none; }
+.footer-copy.is-copied .i-check { display: block; color: #2e7d32; }
+:root[data-theme="dark"] .footer-copy.is-copied { border-color: #7bd389; }
+:root[data-theme="dark"] .footer-copy.is-copied .i-check { color: #7bd389; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .footer-copy.is-copied { border-color: #7bd389; } :root:not([data-theme="light"]) .footer-copy.is-copied .i-check { color: #7bd389; } }
+@media (max-width: 40rem) { .footer-contact { justify-content: center; } }
