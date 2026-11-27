@@ -27,9 +27,10 @@
     <p class="swipe-hint" aria-hidden="true">Swipe or tap the sides for more</p>
   </figure>
 
-  {#- Optional long-form write-up, e.g. a UX case study: "caseStudy": "petchecker" loads _includes/case-studies/petchecker.njk -#}
-  <!-- caseStudy: {{ item.caseStudy }} -->
-  {% if item.caseStudy == "petchecker" %}{% include "case-studies/petchecker.njk" %}{% endif %}
+  {#- Optional long-form write-up, e.g. a UX case study: "caseStudy": "petchecker" loads _includes/case-studies/petchecker.njk.
+      Projects without one load the empty case-studies/none.njk. (No {% if %} here on purpose: in Nunjucks,
+      image shortcodes inside an if block render nothing.) -#}
+  {% include "case-studies/" + (item.caseStudy or "none") + ".njk" %}
 
   <nav class="pager" aria-label="{{ sectionName }}">
     <ul>
