@@ -50,7 +50,7 @@
   {
     "title": "BlackJack",
     "category": "JavaScript game",
-    "summary": "A blackjack game I built in JavaScript for a college class in 2016, on a green felt table with my own title and buttons. Deal, hit or stand against a dealer who draws to 17. You can play it right here in your browser.",
+    "summary": "My introduction to JavaScript: a blackjack game I built for a college class in 2016 to learn how the language works. Deal, hit or stand against a dealer who draws to 17, right here in your browser. The playing card art isn’t mine; it came with the class.",
     "file": "projects/blackjack.jpg",
     "alt": "Screenshot of the BlackJack game: a green felt table with the title BlackJack at the top and Instructions, Play, Hit and Stand buttons in the corner. The player's hand of 5, 4 and Queen totals 19, the dealer's hand of 3, 5 and King totals 18, and a banner reads You Win! 19 beats the dealer's 18.",
     "link": "/play/blackjack/",
