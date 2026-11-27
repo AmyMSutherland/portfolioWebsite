@@ -12,7 +12,7 @@
 
   <div class="case-summary">
     <p><strong>Problem:</strong> Busy families and new pet owners lack the time or knowledge to pick the best food and care for their pet.</p>
-    <p><strong>What I did:</strong> Interviews, a persona, paper and digital wireframes, low- and high-fidelity prototypes, and two rounds of usability testing.</p>
+    <p><strong>What I did:</strong> Interviews, personas, a journey map, paper and digital wireframes, low- and high-fidelity prototypes, and two rounds of usability testing.</p>
     <p><strong>Result:</strong> A pet profile that leads straight to food recommendations, redesigned twice based on what testers struggled with.</p>
   </div>
 
@@ -92,6 +92,73 @@
       </div>
     </div>
     <p class="case-statement"><strong>Problem statement:</strong> Karin is a busy teacher who needs specialized information about her dog without hassle, because she doesn’t have time to find and organize the information herself.</p>
+    <div class="persona">
+      <div class="persona-id">
+        <svg class="persona-avatar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Illustration of Justin: a smiling young man with short dark swept hair, red glasses and a red plaid shirt over a white T-shirt">
+  <defs>
+    <clipPath id="justin-clip"><circle cx="100" cy="100" r="100"/></clipPath>
+    <pattern id="justin-plaid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="#a8323a"/>
+      <rect x="0" y="6" width="16" height="4" fill="#7e2229"/>
+      <rect x="6" y="0" width="4" height="16" fill="#7e2229"/>
+      <rect x="0" y="7.5" width="16" height="1" fill="#e9a3a3" fill-opacity=".5"/>
+      <rect x="7.5" y="0" width="1" height="16" fill="#e9a3a3" fill-opacity=".5"/>
+    </pattern>
+  </defs>
+  <g clip-path="url(#justin-clip)">
+    <rect width="200" height="200" fill="#dfe8f5"/>
+    <circle cx="160" cy="40" r="46" fill="#c9d8ee"/>
+    <path d="M28 200c4-34 30-54 72-54s68 20 72 54z" fill="url(#justin-plaid)"/>
+    <path d="M80 150h40l-6 50H86z" fill="#f4f4f4"/>
+    <path d="M80 148l20 22 20-22" fill="none" stroke="#7e2229" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M88 124h24v22c-3 5-8 8-12 8s-9-3-12-8z" fill="#e3a77f"/>
+    <ellipse cx="68" cy="104" rx="5" ry="8" fill="#e3a77f"/>
+    <ellipse cx="132" cy="104" rx="5" ry="8" fill="#e3a77f"/>
+    <path d="M68 96c0-24 14-38 32-38s32 14 32 38v6c0 22-14 36-32 36s-32-14-32-36z" fill="#eebb94"/>
+    <path d="M64 98c-4-30 10-52 38-54 14-1 26 4 32 12 8 4 10 14 6 22-2 10-4 16-8 20-2-12-6-20-14-24-12 6-30 8-44 6-4 6-8 12-10 18z" fill="#2a2522"/>
+    <path d="M84 54c10-12 32-15 48-4-15-2-28 1-38 9z" fill="#2a2522"/>
+    <rect x="73" y="93" width="23" height="16" rx="5" fill="#ffffff" fill-opacity=".35" stroke="#c8323f" stroke-width="3"/>
+    <rect x="104" y="93" width="23" height="16" rx="5" fill="#ffffff" fill-opacity=".35" stroke="#c8323f" stroke-width="3"/>
+    <path d="M96 99h8" stroke="#c8323f" stroke-width="3"/>
+    <circle cx="84.5" cy="101" r="3" fill="#2a2522"/>
+    <circle cx="115.5" cy="101" r="3" fill="#2a2522"/>
+    <path d="M75 87c6-3 12-3 17-1" stroke="#2a2522" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M108 86c5-2 11-2 17 1" stroke="#2a2522" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M100 105c-2 6-3 9 0 10" stroke="#c98d68" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    <path d="M88 121c6 6 18 6 24 0" stroke="#8a3b34" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>
+        <h3>Justin Cresswell</h3>
+        <dl class="persona-details">
+          <div><dt>Age</dt><dd>25</dd></div>
+          <div><dt>Education</dt><dd>Bachelor’s degree</dd></div>
+          <div><dt>Hometown</dt><dd>Westbrook, Maine</dd></div>
+          <div><dt>Family</dt><dd>One cat</dd></div>
+          <div><dt>Occupation</dt><dd>Photographer</dd></div>
+        </dl>
+      </div>
+      <div class="persona-body">
+        <blockquote class="persona-quote"><p>“As long as he is not getting fat, then I don’t feel like I need to track it.”</p></blockquote>
+        <div class="persona-cols">
+          <div>
+            <h4>Goals</h4>
+            <ul>
+              <li>Having pet food that my cat loves but is also budget friendly</li>
+              <li>Being able to compare different foods while tracking his weight</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Frustrations</h4>
+            <ul>
+              <li>“My cat has been upset when I have changed his food.”</li>
+              <li>“I have made a lot of mistakes as a first-time pet owner.”</li>
+            </ul>
+          </div>
+        </div>
+        <p class="persona-story">Justin is a 25-year-old who lives with his one cat, Sugar, whom he got recently. He tends to be out most of the day for his job. Justin likes getting the best “bang for the buck” and finding the best deals on just about anything. He has never owned a pet before.</p>
+      </div>
+    </div>
+    <figure class="case-wide">{% picture "projects/petchecker/journey-map-justin.jpg", "User journey map for Justin, whose goal is to easily get first-time cat owner information. Five actions: navigate to first-time cat owner information, input pet information into the app, gather information about his cat's needs, buy food based on recommendations, and log his cat's meals. His feelings move from intimidated, annoyed and overwhelmed to relieved, hopeful and excited. Improvement opportunities include high-contrast colors for new users, an option to scan pet information, search filters, screen reader support, delivery notifications and a rewards program.", "(min-width: 72rem) 60rem, 100vw", "lazy", [700, 1009] %}<figcaption>Mapping Justin’s user journey showed how helpful it would be to have the quickest and easiest way to order pet food.</figcaption></figure>
   </section>
 
   <section>
