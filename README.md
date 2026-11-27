@@ -11,6 +11,7 @@ balances the photo rows; the site works without either.
 |---|---|
 | Photos (home page and Photography page) | `src/_data/photography.json` + images in `src/images/photography/` |
 | Other projects (illustration, relief carving…) | `src/_data/projects.json` + images in `src/images/projects/` |
+| The playable BlackJack game (at `/play/blackjack/`) | `src/play/blackjack/` (copied as-is, not run through the templates) |
 | About page bio and photo | `src/about.njk` (photo in `src/images/about/`) |
 | Name, email, social links, menu | `src/_data/site.js` |
 | Colors and layout | `src/css/styles.css` |

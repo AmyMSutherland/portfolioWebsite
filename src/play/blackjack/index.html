@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<!--
+  BlackJack! - by Amy Sutherland (original class project, 2016)
+  Restored 2026: fixed shuffle, ace scoring, win/lose rules, dealer hand,
+  card layout, and replaced pop-up alerts with on-table messages.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BlackJack! | Amy Sutherland</title>
+<meta name="description" content="A blackjack game Amy Sutherland built in JavaScript for a college class.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+    html, body {
+        margin: 0;
+        height: 100%;
+        background: #0b3d1a;
+        overflow: hidden;
+        font-family: Georgia, "Times New Roman", serif;
+    }
+
+    /* The whole table is drawn at its original 1280x1024 size,
+       then scaled to fit whatever window (or iframe) it's in. */
+    #table {
+        position: absolute;
+        width: 1280px;
+        height: 1024px;
+        left: 50%;
+        top: 50%;
+        transform-origin: center center;
+        background: url("table.jpg") no-repeat;
+        user-select: none;
+    }
+
+    .startButton, .instructionButton, .hitButton, .standButton {
+        position: absolute;
+        display: block;
+        width: 170px;
+        height: 27px;
+        box-shadow: 5px 5px 5px #0d4d1f;
+        cursor: pointer;
+    }
+    .startButton:hover, .instructionButton:hover, .hitButton:hover, .standButton:hover {
+        filter: brightness(1.15);
+    }
+    .instructionButton { left: 25px;  top: 10px; }
+    .startButton       { left: 205px; top: 10px; }
+    .hitButton         { left: 25px;  top: 50px; }
+    .standButton       { left: 205px; top: 50px; }
+
+    .disabled { opacity: 0.45; cursor: default; }
+    .disabled:hover { filter: none; }
+
+    .card {
+        position: absolute;
+        width: 167px;
+        height: 264px;
+        top: 545px;
+        border-radius: 8px;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+        transition: left 0.25s ease;
+    }
+
+    #backLink {
+        position: absolute;
+        right: 30px;
+        top: 18px;
+        padding: 8px 16px;
+        font-size: 22px;
+        color: #fff;
+        text-decoration: none;
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 6px;
+    }
+    #backLink:hover, #backLink:focus { background: rgba(0, 0, 0, 0.65); text-decoration: underline; }
+
+    .score {
+        position: absolute;
+        top: 470px;
+        width: 100px;
+        text-align: right;
+        font-size: 34px;
+        font-weight: bold;
+        color: #062b10;
+    }
+    #playerScore { left: 310px; }
+    #dealerScore { left: 782px; }
+
+    #message {
+        position: absolute;
+        left: 240px;
+        top: 230px;
+        width: 800px;
+        padding: 22px 0;
+        text-align: center;
+        font-size: 44px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.45);
+        border-radius: 10px;
+        text-shadow: 2px 2px 4px #000;
+        display: none;
+    }
+    #message small {
+        display: block;
+        margin-top: 8px;
+        font-size: 24px;
+        color: #cfe9d4;
+    }
+
+    #instructions {
+        position: absolute;
+        left: 190px;
+        top: 150px;
+        width: 860px;
+        padding: 28px 36px;
+        background: #f4f1e6;
+        color: #1b1b1b;
+        border: 6px solid #10a34a;
+        border-radius: 10px;
+        box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.6);
+        font-size: 22px;
+        line-height: 1.45;
+        z-index: 100;
+        display: none;
+    }
+    #instructions h2 { margin: 0 0 12px; font-size: 34px; }
+    #instructions p  { margin: 0 0 12px; }
+    #closeInstructions {
+        margin-top: 8px;
+        font: inherit;
+        font-size: 22px;
+        padding: 8px 26px;
+        background: #10a34a;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div id="table">
+    <img id="instructionButton" class="instructionButton" src="btn-instructions.jpg" alt="Instructions">
+    <img id="startButton" class="startButton" src="btn-play.jpg" alt="Play">
+    <img id="hitButton" class="hitButton" src="btn-hit.jpg" alt="Hit">
+    <img id="standButton" class="standButton" src="btn-stand.jpg" alt="Stand">
+
+    <a id="backLink" href="/projects/blackjack/">&larr; Back to Amy Sutherland</a>
+
+    <div id="playerScore" class="score"></div>
+    <div id="dealerScore" class="score"></div>
+
+    <div id="message"></div>
+
+    <div id="instructions">
+        <h2>How to play</h2>
+        <p>Get as close to 21 as you can without going over. Number cards are worth their number, face cards (Jacks, Queens and Kings) are worth 10, and Aces are worth 11 or 1, whichever helps you more.</p>
+        <p>Press <b>Play</b> to deal. <b>Hit</b> takes another card, <b>Stand</b> keeps what you have and lets the dealer play. Go over 21 and you bust.</p>
+        <p>21 with your first two cards is a <b>BlackJack</b> and wins right away. The dealer keeps drawing until they reach 17 or more. If you tie with the dealer, the dealer wins.</p>
+        <p>Press <b>Play</b> again to start a new hand. Good luck!</p>
+        <button id="closeInstructions">Got it</button>
+    </div>
+</div>
+
+<script>
+    var CARD_WIDTH = 167;
+    var CARD_SPACING = 48;     // how far apart cards in a hand are fanned out
+    var PLAYER_LEFT = 20;      // under the PLAYER banner
+    var DEALER_LEFT = 492;     // under the DEALER banner
+
+    var table = document.getElementById("table");
+    var theDeck, thePlayer, theHouse;
+    var gameStarted = false;
+
+    function Card(suit, value) {
+        this.value = value;
+        this.suit = suit;
+        this.isFaceUp = true;
+        this.imgSrcFront = "img/" + value + "." + suit + ".jpg";
+        this.imgSrcBack = "img/back.jpg";
+
+        this.img = document.createElement("img");
+        this.img.className = "card";
+        this.img.src = this.imgSrcFront;
+        this.img.alt = value + " of " + suit;
+
+        switch (value) {
+            case "ace":   this.numberValue = 11; break;
+            case "two":   this.numberValue = 2;  break;
+            case "three": this.numberValue = 3;  break;
+            case "four":  this.numberValue = 4;  break;
+            case "five":  this.numberValue = 5;  break;
+            case "six":   this.numberValue = 6;  break;
+            case "seven": this.numberValue = 7;  break;
+            case "eight": this.numberValue = 8;  break;
+            case "nine":  this.numberValue = 9;  break;
+            default:      this.numberValue = 10; // ten, jack, queen, king
+        }
+
+        this.show = function (left) {
+            this.img.style.left = left + "px";
+            table.appendChild(this.img);
+        };
+
+        this.flip = function () {
+            this.isFaceUp = !this.isFaceUp;
+            this.img.src = this.isFaceUp ? this.imgSrcFront : this.imgSrcBack;
+        };
+    }
+
+    function Deck() {
+        this.cardStack = [];
+        var suits = ["hearts", "diamonds", "spades", "clubs"];
+        var values = ["ace", "two", "three", "four", "five", "six", "seven",
+                      "eight", "nine", "ten", "jack", "queen", "king"];
+        for (var j = 0; j < values.length; j++) {
+            for (var i = 0; i < suits.length; i++) {
+                this.cardStack.push(new Card(suits[i], values[j]));
+            }
+        }
+
+        // Fisher-Yates shuffle. (The original swapped a card with itself,
+        // which created duplicate cards and lost others.)
+        for (var k = this.cardStack.length - 1; k > 0; k--) {
+            var r = Math.floor(Math.random() * (k + 1));
+            var temp = this.cardStack[k];
+            this.cardStack[k] = this.cardStack[r];
+            this.cardStack[r] = temp;
+        }
+
+        this.drawCard = function () {
+            return this.cardStack.pop();
+        };
+    }
+
+    function Player(left) {
+        this.hand = [];
+        this.left = left;
+
+        this.drawCard = function (card, faceDown) {
+            if (faceDown) { card.flip(); }
+            card.show(this.left + this.hand.length * CARD_SPACING);
+            this.hand.push(card);
+        };
+
+        // Aces count as 11 unless that would bust you, then they count as 1.
+        this.score = function () {
+            var total = 0, aces = 0;
+            for (var i = 0; i < this.hand.length; i++) {
+                total += this.hand[i].numberValue;
+                if (this.hand[i].value === "ace") { aces++; }
+            }
+            while (total > 21 && aces > 0) {
+                total -= 10;
+                aces--;
+            }
+            return total;
+        };
+
+        // Score of only the cards that are face up (for the dealer's hidden card).
+        this.visibleScore = function () {
+            var shown = new Player(0);
+            for (var i = 0; i < this.hand.length; i++) {
+                if (this.hand[i].isFaceUp) { shown.hand.push(this.hand[i]); }
+            }
+            return shown.score();
+        };
+
+        this.hasBlackJack = function () {
+            return this.hand.length === 2 && this.score() === 21;
+        };
+    }
+
+    function updateScores() {
+        document.getElementById("playerScore").textContent = thePlayer.hand.length ? thePlayer.score() : "";
+        document.getElementById("dealerScore").textContent = theHouse.hand.length ? theHouse.visibleScore() : "";
+    }
+
+    function showMessage(text, detail) {
+        var box = document.getElementById("message");
+        box.innerHTML = text + (detail ? "<small>" + detail + "</small>" : "");
+        box.style.display = "block";
+    }
+
+    function hideMessage() {
+        document.getElementById("message").style.display = "none";
+    }
+
+    function setButtons() {
+        document.getElementById("hitButton").classList.toggle("disabled", !gameStarted);
+        document.getElementById("standButton").classList.toggle("disabled", !gameStarted);
+    }
+
+    function revealDealer() {
+        for (var i = 0; i < theHouse.hand.length; i++) {
+            if (!theHouse.hand[i].isFaceUp) { theHouse.hand[i].flip(); }
+        }
+        updateScores();
+    }
+
+    function endGame(text, detail) {
+        gameStarted = false;
+        revealDealer();
+        showMessage(text, (detail ? detail + " " : "") + "Press Play to deal again.");
+        setButtons();
+    }
+
+    function clearTable() {
+        var cards = table.querySelectorAll(".card");
+        for (var i = 0; i < cards.length; i++) {
+            table.removeChild(cards[i]);
+        }
+    }
+
+    function startGame() {
+        hideInstructions();
+        hideMessage();
+        clearTable();
+
+        theDeck = new Deck();
+        thePlayer = new Player(PLAYER_LEFT);
+        theHouse = new Player(DEALER_LEFT);
+        gameStarted = true;
+
+        thePlayer.drawCard(theDeck.drawCard());
+        theHouse.drawCard(theDeck.drawCard());
+        thePlayer.drawCard(theDeck.drawCard());
+        theHouse.drawCard(theDeck.drawCard(), true); // dealer's hole card, face down
+        updateScores();
+        setButtons();
+
+        if (thePlayer.hasBlackJack() && theHouse.hasBlackJack()) {
+            endGame("Push", "You both have BlackJack. Dealer wins ties.");
+        } else if (thePlayer.hasBlackJack()) {
+            endGame("BlackJack! You Win!");
+        } else if (theHouse.hasBlackJack()) {
+            endGame("Dealer has BlackJack", "You Lost!");
+        }
+    }
+
+    function hitButton() {
+        if (!gameStarted) {
+            if (!thePlayer || thePlayer.hand.length === 0) { showMessage("Press Play to start the game!"); }
+            return;
+        }
+        thePlayer.drawCard(theDeck.drawCard());
+        updateScores();
+
+        if (thePlayer.score() > 21) {
+            endGame("You Busted!", "Your total went over 21.");
+        } else if (thePlayer.score() === 21) {
+            standButton(); // nothing better to do with 21
+        }
+    }
+
+    function standButton() {
+        if (!gameStarted) {
+            if (!thePlayer || thePlayer.hand.length === 0) { showMessage("Press Play to start the game!"); }
+            return;
+        }
+        gameStarted = false;
+        setButtons();
+        revealDealer();
+
+        // Dealer draws one card at a time so you can watch it play out.
+        function dealerTurn() {
+            if (theHouse.score() < 17) {
+                theHouse.drawCard(theDeck.drawCard());
+                updateScores();
+                setTimeout(dealerTurn, 600);
+                return;
+            }
+            var playerTotal = thePlayer.score();
+            var dealerTotal = theHouse.score();
+
+            if (dealerTotal > 21) {
+                endGame("You Win!", "Dealer busted with " + dealerTotal + ".");
+            } else if (playerTotal > dealerTotal) {
+                endGame("You Win!", playerTotal + " beats the dealer's " + dealerTotal + ".");
+            } else if (playerTotal < dealerTotal) {
+                endGame("You Lost!", "Dealer's " + dealerTotal + " beats your " + playerTotal + ".");
+            } else {
+                endGame("You Lost!", "Tied at " + playerTotal + ". Dealer wins ties.");
+            }
+        }
+        setTimeout(dealerTurn, 500);
+    }
+
+    function showInstructions() {
+        document.getElementById("instructions").style.display = "block";
+    }
+    function hideInstructions() {
+        document.getElementById("instructions").style.display = "none";
+    }
+
+    // Scale the 1280x1024 table to fit the window.
+    function fitTable() {
+        var scale = Math.min(window.innerWidth / 1280, window.innerHeight / 1024);
+        table.style.transform = "translate(-50%, -50%) scale(" + scale + ")";
+    }
+
+    function init() {
+        document.getElementById("startButton").onclick = startGame;
+        document.getElementById("instructionButton").onclick = showInstructions;
+        document.getElementById("hitButton").onclick = hitButton;
+        document.getElementById("standButton").onclick = standButton;
+        document.getElementById("closeInstructions").onclick = hideInstructions;
+        window.addEventListener("resize", fitTable);
+        fitTable();
+        setButtons();
+        showMessage("Welcome to BlackJack!", "Press Play to deal, or Instructions to learn how.");
+    }
+
+    init();
+</script>
+</body>
+</html>

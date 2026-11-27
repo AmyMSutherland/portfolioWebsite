@@ -81,6 +81,10 @@ export default function (eleventyConfig) {
   const HIDDEN_PAGES = ["src/art.njk", "src/art-item.njk"];
   HIDDEN_PAGES.forEach((file) => eleventyConfig.ignores.add(file));
 
+  // Playable projects (e.g. the BlackJack game) are copied as-is, not run through the templates.
+  eleventyConfig.ignores.add("src/play/**");
+  eleventyConfig.addPassthroughCopy("src/play");
+
   eleventyConfig.addPassthroughCopy("src/robots.txt"); // points search engines to the sitemap
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");

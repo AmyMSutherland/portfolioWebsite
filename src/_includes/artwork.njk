@@ -22,7 +22,7 @@
       <h1 class="logo-heading logo-title"><span class="name-light">{{ words[0] }}</span>{% if words.length > 1 %} <span class="name-bold">{{ words.slice(1).join(" ") }}</span>{% endif %}</h1>
       {#- Years are kept in the data files but not shown, since not every photo has one. -#}
       {%- set caption = item.caption or item.summary %}{% if caption %}<p>{{ caption }}</p>{% endif %}
-      {%- if item.link %}<p><a href="{{ item.link }}">Visit {{ item.title }}</a></p>{% endif %}
+      {%- if item.link %}<p><a href="{{ item.link }}">{{ item.linkLabel or ("Visit " + item.title) }}</a></p>{% endif %}
     </figcaption>
     <p class="swipe-hint" aria-hidden="true">Swipe or tap the sides for more</p>
   </figure>
