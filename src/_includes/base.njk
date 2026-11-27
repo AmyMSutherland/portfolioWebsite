@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if title %}{{ title }} · {% endif %}{{ site.name }}</title>
+  {%- set fullTitle = (title + " · " + site.name) if title else (site.name + " · " + site.tagline) %}
+  <title>{{ fullTitle }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <meta name="color-scheme" content="light dark">
   {%- if page.url != "/404.html" %}
@@ -15,12 +16,30 @@
   {%- set shareAlt = item.alt if (item and item.alt) else (shareImageAlt or photography[0].alt) %}
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ site.name }}">
-  <meta property="og:title" content="{% if title %}{{ title }} · {% endif %}{{ site.name }}">
+  <meta property="og:title" content="{{ fullTitle }}">
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:image" content="{{ site.url }}{% shareImage shareFile %}">
   <meta property="og:image:alt" content="{{ shareAlt }}">
   <meta name="twitter:card" content="summary_large_image">
+  {%- if page.url == "/" %}
+  {#- Tells search engines who this site belongs to (schema.org Person). -#}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.name }}",
+    "url": "{{ site.url }}/",
+    "image": "{{ site.url }}{% shareImage 'about/amy-gallery.jpg' %}",
+    "jobTitle": "Photographer and artist",
+    "description": "{{ site.description }}",
+    "email": "mailto:{{ site.email }}",
+    "address": { "@type": "PostalAddress", "addressLocality": "Auburn", "addressRegion": "ME", "addressCountry": "US" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Maine", "sameAs": "https://umaine.edu/" },
+    "knowsAbout": ["Photography", "Digital illustration", "Relief carving", "Logo design", "Graphic design"]
+  }
+  </script>
+  {%- endif %}
   <link rel="icon" href="{{ '/favicon.ico' | bust }}" sizes="any">
   <link rel="icon" href="{{ '/favicon.svg' | bust }}" type="image/svg+xml">
   <link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | bust }}">

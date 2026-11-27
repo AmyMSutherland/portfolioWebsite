@@ -81,6 +81,7 @@ export default function (eleventyConfig) {
   const HIDDEN_PAGES = ["src/art.njk", "src/art-item.njk"];
   HIDDEN_PAGES.forEach((file) => eleventyConfig.ignores.add(file));
 
+  eleventyConfig.addPassthroughCopy("src/robots.txt"); // points search engines to the sitemap
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/fonts"); // Open Sans, only the letters of the home page name (SIL Open Font License)

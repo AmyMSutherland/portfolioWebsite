@@ -3,7 +3,9 @@ export default {
   name: "Amy Sutherland",
   // The site's main address (no slash at the end). Used for search engines and link previews.
   url: "https://amysutherlandsart.com",
-  description: "Photography by Amy Sutherland: animals, family and the moments in between.",
+  description: "Amy Sutherland is a photographer and artist in Auburn, Maine, sharing photography, digital illustration, relief carving and logo design.",
+  // Added after the name in the home page title, to tell this Amy Sutherland apart in search results.
+  tagline: "Photographer and artist in Auburn, Maine",
   // Forwards to a personal inbox via Cloudflare Email Routing.
   email: "amy@amysutherlandsart.com",
   // Add or remove links, e.g. { label: "Instagram", url: "https://instagram.com/yourname" }.
