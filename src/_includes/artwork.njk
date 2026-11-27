@@ -8,6 +8,9 @@
       {#- The photos on either side, waiting just out of view so a swipe can slide them in. -#}
       {%- if prev %}<span class="swipe-peek swipe-peek-prev" aria-hidden="true"><img src="{% imageUrl prev.file, 1200 %}" alt="" decoding="async" fetchpriority="low"></span>{% endif %}
       {%- if next %}<span class="swipe-peek swipe-peek-next" aria-hidden="true"><img src="{% imageUrl next.file, 1200 %}" alt="" decoding="async" fetchpriority="low"></span>{% endif %}
+      {#- Quick arrows on the photo itself. Keyboard and screen-reader users get the same links in the buttons below, so these are skipped for them. -#}
+      {%- if prev %}<a class="frame-nav frame-nav-prev" href="{{ baseUrl }}{{ prev.title | slugify }}/" tabindex="-1" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></a>{% endif %}
+      {%- if next %}<a class="frame-nav frame-nav-next" href="{{ baseUrl }}{{ next.title | slugify }}/" tabindex="-1" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></a>{% endif %}
     </div>
     {%- if prev %}<link rel="prefetch" href="{{ baseUrl }}{{ prev.title | slugify }}/">{% endif %}
     {%- if next %}<link rel="prefetch" href="{{ baseUrl }}{{ next.title | slugify }}/">{% endif %}
@@ -19,7 +22,7 @@
       {%- set caption = item.caption or item.summary %}{% if caption %}<p>{{ caption }}</p>{% endif %}
       {%- if item.link %}<p><a href="{{ item.link }}">Visit {{ item.title }}</a></p>{% endif %}
     </figcaption>
-    <p class="swipe-hint" aria-hidden="true">Swipe the photo for more</p>
+    <p class="swipe-hint" aria-hidden="true">Swipe or tap the sides for more</p>
   </figure>
 
   <nav class="pager" aria-label="{{ sectionName }}">

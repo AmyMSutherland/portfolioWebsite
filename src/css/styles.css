@@ -673,3 +673,24 @@ main:has(.carousel) { padding-top: 0; }
 .carousel:not(.is-playing) .carousel-play .icon-play { display: block; }
 .carousel-play { display: grid; place-items: center; }
 @media (max-width: 40rem) { .carousel.is-enhanced .carousel-play { display: grid; flex: none; } }
+
+/* Arrows on the sides of a photo; clicking either half of the photo goes back or forward. */
+.frame-nav {
+  position: absolute; top: 50%; z-index: 2;
+  display: grid; place-items: center;
+  width: 3rem; height: 3rem; margin-top: -1.5rem;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 0.45);
+  border: 2px solid rgb(255 255 255 / 0.85);
+  color: #fff;
+  opacity: 0.85;
+  transition: opacity 0.2s, background-color 0.2s, transform 0.2s;
+}
+.frame-nav-prev { left: calc(var(--pad) + 0.75rem); }
+.frame-nav-next { right: calc(var(--pad) + 0.75rem); }
+.artwork-frame.go-prev .frame-nav-prev, .artwork-frame.go-next .frame-nav-next, .frame-nav:hover { opacity: 1; background: rgb(0 0 0 / 0.7); border-color: var(--brand-yellow); color: var(--brand-yellow); }
+.artwork-frame.go-prev .frame-nav-prev { transform: translateX(-0.2rem); }
+.artwork-frame.go-next .frame-nav-next { transform: translateX(0.2rem); }
+.artwork-frame.go-prev, .artwork-frame.go-next { cursor: pointer; }
+@media (max-width: 40rem) { .frame-nav { width: 2.5rem; height: 2.5rem; margin-top: -1.25rem; } }
+@media (forced-colors: active) { .frame-nav { border-color: ButtonText; } }

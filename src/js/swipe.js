@@ -67,6 +67,26 @@
     if (e.key === "ArrowRight" && next) window.location.href = next.href;
   });
 
+  // Click the left or right side of the photo (or its arrows) to go back or forward.
+  var swiped = 0;
+  frame.addEventListener("touchend", function () { if (horizontal) swiped = Date.now(); });
+  frame.addEventListener("click", function (e) {
+    if (Date.now() - swiped < 400) return;          // that was a swipe, not a tap
+    if (zoomed()) return;
+    var r = frame.getBoundingClientRect(), left = (e.clientX - r.left) < r.width / 2;
+    var link = left ? prev : next;
+    if (!link) return;
+    e.preventDefault();
+    go(link, left ? 1 : -1);
+  });
+  // Show which way a click will go.
+  frame.addEventListener("mousemove", function (e) {
+    var r = frame.getBoundingClientRect(), left = (e.clientX - r.left) < r.width / 2;
+    frame.classList.toggle("go-prev", left && !!prev);
+    frame.classList.toggle("go-next", !left && !!next);
+  });
+  frame.addEventListener("mouseleave", function () { frame.classList.remove("go-prev", "go-next"); });
+
   // Bring the photo back if someone returns with the browser's Back button.
   window.addEventListener("pageshow", function () { move(0, false); });
 })();
