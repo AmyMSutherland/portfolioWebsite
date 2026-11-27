@@ -2,7 +2,7 @@
   {
     "title": "PetChecker",
     "category": "UX case study",
-    "summary": "A mobile app that recommends dog food based on a profile of your dog, designed in Figma for the Google UX Design Certificate. I took it from wireframes to a clickable prototype, tested it with six people in Maze, and revised the design based on what they told me.",
+    "summary": "A pet food and health app for busy pet owners who don’t have time to research what’s best for their pet. As the UX designer for the Google UX Design Certificate, I took it from interviews and a persona through wireframes, prototypes and two rounds of usability testing in Figma and Maze.",
     "file": "projects/petchecker.jpg",
     "alt": "Three phone screens from the PetChecker app prototype: an Add your Pets Info form, a completed profile for a dog named Lassie, and the home page showing a matching dog food and a bar chart of steps walked this week.",
     "link": "",

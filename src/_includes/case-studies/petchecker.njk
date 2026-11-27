@@ -1,27 +1,49 @@
 {#- PetChecker UX case study. Shown below the cover image on /projects/petchecker/.
-    Designed in Figma for the Google UX Design Certificate; results come from the
-    Maze unmoderated study run in March 2022. -#}
+    Content follows Amy's Google UX Design Certificate case study slides (Oct 2021 – Apr 2022);
+    round 2 numbers come from the Maze unmoderated study run in March 2022. -#}
 <article class="case-study" aria-label="PetChecker case study">
 
   <dl class="case-facts">
-    <div><dt>Project</dt><dd>Mobile app, Google UX Design Certificate</dd></div>
+    <div><dt>My role</dt><dd>UX designer, from conception to delivery</dd></div>
+    <div><dt>Duration</dt><dd>October 2021 to April 2022</dd></div>
     <div><dt>Tools</dt><dd>Figma, Maze</dd></div>
-    <div><dt>Method</dt><dd>Unmoderated usability test, 6 participants</dd></div>
-    <div><dt>When</dt><dd>2021–2022</dd></div>
+    <div><dt>Program</dt><dd>Google UX Design Certificate</dd></div>
   </dl>
 
+  <div class="case-summary">
+    <p><strong>Problem:</strong> Busy families and new pet owners lack the time or knowledge to pick the best food and care for their pet.</p>
+    <p><strong>What I did:</strong> Interviews, a persona, paper and digital wireframes, low- and high-fidelity prototypes, and two rounds of usability testing.</p>
+    <p><strong>Result:</strong> A pet profile that leads straight to food recommendations, redesigned twice based on what testers struggled with.</p>
+  </div>
+
   <section>
-    <h2>The idea</h2>
-    <p>PetChecker helps dog owners find food that fits their dog. You build a profile for your pet (type, name, birthdate, sex, weight and breed), and the app recommends a food that matches it, tracks how active your dog has been this week, and lets you order without leaving the app.</p>
+    <h2>The problem</h2>
+    <p>It can be hard for pet owners to know which food, accessories and medicine are best for their pet. Busy families and young pet owners often don’t have the time or knowledge to find out.</p>
+    <p><strong>The goal:</strong> design a pet food and health app that lets people pick the best food for their pet quickly and easily.</p>
+    <p class="case-meta">Responsibilities: conducting interviews, paper and digital wireframing, low- and high-fidelity prototyping, conducting usability studies, accounting for accessibility, and iterating on designs.</p>
   </section>
 
   <section>
-    <h2>From wireframe to prototype</h2>
-    <p>I started with low-fidelity wireframes in Figma to work out the layout and the flow, then built them into a high-fidelity, clickable prototype.</p>
+    <h2>Understanding the user</h2>
+    <p>I conducted interviews and created empathy maps to understand who I was designing for. The main user group was working adults who don’t have time to research pet food or health and don’t know what’s best. Research also showed that people love the convenience of ordering from home, that many just pick the first food they see at the store, and that the sheer amount of pet food out there is overwhelming.</p>
+    <div class="case-pains">
+      <div><h3>Time</h3><p>Working adults are too busy to research the best food and health information for their pet.</p></div>
+      <div><h3>User flow</h3><p>Some platforms make it really hard to set up a pet profile and use the app.</p></div>
+      <div><h3>Options</h3><p>The amount of food and health information out there feels overwhelming.</p></div>
+    </div>
+    <figure class="case-wide">{% picture "projects/petchecker/persona-karin.jpg", "Persona card for Karin Boyer, 36, a teacher from Machias, Maine, with a master's degree, who lives with her husband, a cat and a dog. Quote: I made a lot of mistakes with my last dog, I know better this time around. Goals: track her pet's wellness and health, and have the best nutrition and ingredients no matter the cost. Frustrations: not having time to use tracking apps, and researching foods being difficult with so many options.", "(min-width: 72rem) 60rem, 100vw", "lazy", [600, 960] %}</figure>
+    <p class="case-statement"><strong>Problem statement:</strong> Karin is a busy teacher who needs specialized information about her dog without hassle, because she doesn’t have time to find and organize the information herself.</p>
+  </section>
+
+  <section>
+    <h2>Starting the design</h2>
+    <p>I sketched several versions of each screen on paper first, so the elements that made it into the digital wireframes would address users’ pain points. For the home screen, I prioritized a layout that gives enough information without overwhelming people. Stars mark the parts of each sketch I carried into the digital wireframes.</p>
+    <figure class="case-wide">{% picture "projects/petchecker/paper-wireframes.jpg", "Two notebook pages of pencil sketches labelled #1 Project for Google Class, showing five versions of the home screen, labelled A to E, with stars marking the elements chosen for the digital wireframes.", "(min-width: 72rem) 72rem, 100vw", "lazy", [900, 2048] %}</figure>
+    <p>From there I built digital wireframes based on the research: a button at the top of the home screen gets you to your recommended food fast, and each screen gives a clear route and a digestible amount of information.</p>
     <div class="case-compare">
       <div class="case-pair">
         <figure>{% picture "projects/petchecker/lofi-home.png", "Grayscale wireframe of the home page: a menu, search bar, a This Pet Food Matches your Pet Profile banner with a Check it out button, a placeholder for Goals your dog is hitting, and three placeholder product images.", "(min-width: 48rem) 12rem, 40vw" %}<figcaption>Wireframe</figcaption></figure>
-        <figure>{% picture "projects/petchecker/home.png", "Finished PetChecker home page: a matching food banner, a bar chart of steps walked each day this week, and other dog food choices, with a blue navigation bar.", "(min-width: 48rem) 12rem, 40vw" %}<figcaption>Prototype</figcaption></figure>
+        <figure>{% picture "projects/petchecker/home.png", "Finished PetChecker home page: a matching food banner with a large Go to Recommended Pet Food button, a bar chart of steps walked each day this week, and other dog food choices.", "(min-width: 48rem) 12rem, 40vw" %}<figcaption>Prototype</figcaption></figure>
         <p class="case-pair-title">Home</p>
       </div>
       <div class="case-pair">
@@ -35,25 +57,27 @@
         <p class="case-pair-title">Recommended food</p>
       </div>
     </div>
+    <p class="case-links"><a href="https://www.figma.com/file/EBCEwGrZMWSmxmEdn9x8Om/Google-Project-%231-Wireframe?node-id=0%3A1">View the low-fidelity prototype in Figma</a></p>
   </section>
 
   <section>
-    <h2>Design system</h2>
-    <p>A sticker sheet kept the screens consistent: Fira Sans for headings and Nanum Gothic for body text, a navy, gold, blue and copper palette checked for accessible contrast, and shared buttons, navigation bars, search bar, icons and calendar states.</p>
-    <figure class="case-wide">{% picture "projects/petchecker/sticker-sheet.png", "PetChecker sticker sheet: the PetChecker logo; typography specs for Fira Sans headers and Nanum Gothic body and buttons; copper, blue and edit buttons, a quantity stepper and a dropdown; the navy footer navigation bar and top navigation bar; the search bar; icons for map, health, home, settings, help and log out; calendar states; and four color swatches, 2A3A83, BFAE5A, 658CBF and BF814B.", "(min-width: 72rem) 72rem, 100vw", "lazy", [800, 1440] %}</figure>
+    <h2>Usability study, round 1</h2>
+    <p>The low-fidelity prototype connected the main flow, building a pet profile and checking out with your recommended food, so I could test it with users. They needed:</p>
+    <ol>
+      <li>A clear way to start a pet profile</li>
+      <li>Better cues to find the recommendation from the profile they made</li>
+      <li>A clear way to enter their pet’s information</li>
+    </ol>
+    <p>People were frustrated that they couldn’t find their recommended food, so I made the button bigger and brighter, with clear directions on where it takes you. You can see the change in the home screens above: the small “Check it out” link became a large “Go to Recommended Pet Food” button.</p>
   </section>
 
   <section>
-    <h2>What I tested</h2>
-    <p>I ran an unmoderated test of the prototype in Maze with two tasks, each followed by an open question about how easy it was and what participants would change.</p>
+    <h2>Usability study, round 2</h2>
+    <p>I tested the high-fidelity prototype with six people in an unmoderated study in Maze, using two tasks:</p>
     <ol>
       <li><strong>Create a pet profile</strong> for Lassie, a female mixed border collie born January 4, 2020, weighing 80 pounds.</li>
       <li><strong>Order the matching food:</strong> add the recommended food to the cart, check out and complete the order.</li>
     </ol>
-  </section>
-
-  <section>
-    <h2>Results</h2>
     <div class="case-stats">
       <div class="case-stat-group">
         <h3>Task 1: Create a pet profile</h3>
@@ -73,26 +97,8 @@
         </ul>
       </div>
     </div>
-    <p>Ordering worked. Building the profile was where people struggled: it took more than three times as long, and most clicks landed somewhere unexpected.</p>
-  </section>
-
-  <section>
-    <h2>What participants told me</h2>
+    <p>Ordering worked well. Building the profile was still where people struggled, and two needs stood out: <strong>more food recommendation options</strong>, and <strong>a clear way to enter mixed breed information</strong>.</p>
     <div class="case-findings">
-      <div class="case-finding">
-        {% picture "projects/petchecker/photo-prompt.png", "Pop-up asking Do you want to upload a photo of your pet? with Yes and No buttons.", "(min-width: 48rem) 12rem, 40vw" %}
-        <div>
-          <h3>The steps felt locked in order</h3>
-          <p>One participant couldn’t continue until they added a photo, so the photo didn’t feel optional. Another expected the pet’s name to come first.</p>
-        </div>
-      </div>
-      <div class="case-finding">
-        {% picture "projects/petchecker/date-picker.png", "Birthdate picker labelled Month/Date/Year showing a grid of the twelve months.", "(min-width: 48rem) 12rem, 40vw" %}
-        <div>
-          <h3>The birthdate picker worked against expectations</h3>
-          <p>A participant expected to pick the year, then the month, then the day, and wanted to be able to type the date with the keyboard instead. They also spotted a typo in “January.” Asking for age as well as birthdate felt redundant.</p>
-        </div>
-      </div>
       <div class="case-finding">
         {% picture "projects/petchecker/breed-list.png", "Pet's Breed list with a search bar, an Is your pet a mixed breed? checkbox and an alphabetical list of breeds with an A to Z index.", "(min-width: 48rem) 12rem, 40vw" %}
         <div>
@@ -104,28 +110,35 @@
         {% picture "projects/petchecker/recommended-food.png", "Recommended Pet food pop-up showing Fresh Kisses Dog Food at $10.99, placeholder reasons it matches the profile, and an Add to Cart button.", "(min-width: 48rem) 12rem, 40vw" %}
         <div>
           <h3>One recommendation felt suspicious</h3>
-          <p>Ordering was easy, but a single food with no alternatives made one participant wonder whether the app was just selling one brand. Another didn’t expect Add to Cart to take them away from the page they were on.</p>
+          <p>A single food with no alternatives made one participant wonder whether the app was just selling one brand. Another didn’t expect Add to Cart to take them away from the page they were on.</p>
+        </div>
+      </div>
+      <div class="case-finding">
+        {% picture "projects/petchecker/date-picker.png", "Birthdate picker labelled Month/Date/Year showing a grid of the twelve months.", "(min-width: 48rem) 12rem, 40vw" %}
+        <div>
+          <h3>The profile form felt rigid</h3>
+          <p>Participants expected to pick the birth year first or type the date, wanted the pet’s name to come first, and found that the photo step blocked them from moving on.</p>
         </div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>What I changed after testing</h2>
-    <p>I took the feedback back into Figma and revised the prototype.</p>
+    <h2>Refining the design</h2>
+    <p>I took the round 2 feedback back into Figma. To make choosing food easier without overwhelming anyone, I added two more recommendations below the best match, with just enough information to compare them.</p>
     <div class="case-findings">
-      <div class="case-finding">
-        {% picture "projects/petchecker/v2-mixed-breed.png", "Pop-up asking Is your pet a mixed breed? with Yes and No buttons.", "(min-width: 48rem) 12rem, 40vw" %}
-        <div>
-          <h3>Mixed breed is asked once</h3>
-          <p>Instead of two checkboxes in two places, a single yes-or-no question.</p>
-        </div>
-      </div>
       <div class="case-finding">
         {% picture "projects/petchecker/v2-recommendations.png", "Best Recommended Pet food pop-up with Fresh Kisses Dog Food and an Add to Cart button, followed by Other Great Pet Food Recommendations: two more foods, each with a Preview button.", "(min-width: 48rem) 12rem, 40vw" %}
         <div>
           <h3>More than one food to choose from</h3>
           <p>The best match now comes with other recommendations you can preview, so the app feels like it’s helping you choose rather than selling one brand.</p>
+        </div>
+      </div>
+      <div class="case-finding">
+        {% picture "projects/petchecker/v2-mixed-breed.png", "Pop-up asking Is your pet a mixed breed? with Yes and No buttons.", "(min-width: 48rem) 12rem, 40vw" %}
+        <div>
+          <h3>Mixed breed is asked once</h3>
+          <p>Instead of two checkboxes in two places, a single yes-or-no question.</p>
         </div>
       </div>
       <div class="case-finding">
@@ -139,15 +152,29 @@
         {% picture "projects/petchecker/v2-photo-step.png", "Select a Profile Picture screen showing a grid of photos of a black dog and a Next button.", "(min-width: 48rem) 12rem, 40vw" %}
         <div>
           <h3>A clearer photo step</h3>
-          <p>Choosing a profile picture became its own screen with a photo grid, instead of a yes-or-no pop-up that blocked the form.</p>
+          <p>Choosing a profile picture became its own screen with a photo grid, instead of a pop-up that blocked the form.</p>
         </div>
       </div>
     </div>
-    <p>Next, I’d let people type the birthdate or pick the year first, work out the pet’s age from it instead of asking twice, and put the pet’s name first.</p>
+    <p class="case-links"><a href="https://www.figma.com/file/EBCEwGrZMWSmxmEdn9x8Om/Google-Project-%231-Wireframe?node-id=510%3A17669">View the high-fidelity prototype in Figma</a></p>
   </section>
 
   <section>
-    <h2>What I learned</h2>
-    <p>A flow that feels obvious to the designer can still trip people up. Testing with real people showed me that the hard part wasn’t ordering but filling in a form, and that small things, like an extra checkbox or a single recommendation, can change how much people trust an app.</p>
+    <h2>Design system and accessibility</h2>
+    <p>A sticker sheet kept the screens consistent: Fira Sans for headings and Nanum Gothic for body text, a navy, gold, blue and copper palette, and shared buttons, navigation bars, a search bar, icons and calendar states.</p>
+    <figure class="case-wide">{% picture "projects/petchecker/sticker-sheet.png", "PetChecker sticker sheet: the PetChecker logo; typography specs for Fira Sans headers and Nanum Gothic body and buttons; copper, blue and edit buttons, a quantity stepper and a dropdown; the navy footer navigation bar and top navigation bar; the search bar; icons for map, health, home, settings, help and log out; calendar states; and four color swatches, 2A3A83, BFAE5A, 658CBF and BF814B.", "(min-width: 72rem) 72rem, 100vw", "lazy", [800, 1440] %}</figure>
+    <ul>
+      <li>Icons have names below them to make navigation easier.</li>
+      <li>High-contrast buttons make the user flow clearer.</li>
+      <li>I used Material’s color tool to choose the color scheme so the contrast meets WCAG standards.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Takeaways</h2>
+    <p><strong>Impact:</strong> PetChecker makes users feel like the app really takes care of their needs. From peer feedback:</p>
+    <blockquote class="case-quote"><p>“It was very easy to create a pet profile. The steps were well broken out and well organized. Having an idea on how much progress you’ve made by the little progress bar was helpful as well.”</p></blockquote>
+    <p><strong>What I learned:</strong> While designing PetChecker, I learned that designing the app is a tiny piece of the UX process. Usability testing showed me problems with the app that I had never even considered.</p>
+    <p><strong>Next steps:</strong> Run another round of usability testing to check whether the pain points from round 2 are solved, then address anything new it turns up.</p>
   </section>
 </article>

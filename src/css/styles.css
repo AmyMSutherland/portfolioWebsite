@@ -928,3 +928,18 @@ html { scroll-behavior: smooth; }
 .case-finding p { margin-bottom: 0; }
 @media (max-width: 34rem) { .case-finding { grid-template-columns: 1fr; } .case-finding picture { max-width: 14rem; } }
 
+
+/* Case study: summary box, pain points, statements, links and quotes */
+.case-summary { margin: 1.5rem 0 0; padding: 1.25rem 1.5rem; background: var(--surface); border-left: 4px solid var(--accent-line); }
+.case-summary p { margin: 0 0 0.5rem; max-width: 70ch; }
+.case-summary p:last-child { margin-bottom: 0; }
+.case-meta { color: var(--muted); font-size: 0.95rem; }
+.case-pains { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.case-pains > div { padding: 1.1rem 1.25rem; background: var(--surface); border-top: 4px solid var(--accent-line); }
+.case-pains h3 { margin: 0 0 0.35rem; }
+.case-pains p { margin: 0; }
+.case-statement { margin-top: 1.25rem; padding: 1rem 1.25rem; border: 2px solid var(--border); max-width: 70ch; }
+.case-links { margin-top: 1.25rem; font-weight: 700; }
+.case-links a::after { content: " \2192"; }
+.case-quote { margin: 0.75rem 0 1.25rem; padding: 0.25rem 0 0.25rem 1.25rem; border-left: 4px solid var(--accent-line); font-style: italic; max-width: 65ch; }
+.case-quote p { margin: 0; }
