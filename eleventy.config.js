@@ -83,6 +83,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/js");
+  eleventyConfig.addPassthroughCopy("src/fonts"); // Open Sans, only the letters of the home page name (SIL Open Font License)
   eleventyConfig.addPassthroughCopy({
     "src/favicon.svg": "favicon.svg",
     "src/favicon.ico": "favicon.ico",

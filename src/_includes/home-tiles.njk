@@ -1,0 +1,40 @@
+{#- The three big home page tiles (Photography, Other projects, About me). -#}
+<ul class="home-tiles">
+  <li>
+    <a class="home-tile" href="/photography/">
+      <span class="home-tile-strips" aria-hidden="true">
+        <span class="strip" style="--pos: 18% 78%">{% decorativePicture "photography/cookie.jpg", "(min-width: 72rem) 24rem, 34vw", "eager", [500, 900] %}</span>
+        <span class="strip" style="--pos: 50% 50%">{% decorativePicture "photography/light-columns.jpg", "(min-width: 72rem) 24rem, 34vw", "eager", [500, 900] %}</span>
+        <span class="strip" style="--pos: 52% 40%">{% decorativePicture "photography/grammy.jpg", "(min-width: 72rem) 24rem, 34vw", "eager", [500, 900] %}</span>
+      </span>
+      <span class="home-tile-label">
+        <span class="home-tile-title">Photography</span>
+        <span class="home-tile-desc">Animals, family and the moments in between</span>
+      </span>
+    </a>
+  </li>
+  <li>
+    <a class="home-tile" href="/projects/">
+      <span class="home-tile-strips" aria-hidden="true">
+        <span class="strip" style="--pos: 50% 50%">{% decorativePicture "projects/friends.jpg", "(min-width: 72rem) 24rem, 34vw", "lazy", [500, 900] %}</span>
+        <span class="strip" style="--pos: 50% 45%">{% decorativePicture "projects/eye-print.jpg", "(min-width: 72rem) 24rem, 34vw", "lazy", [500, 900] %}</span>
+        <span class="strip" style="--pos: 34% 50%">{% decorativePicture "projects/erics-miniatures-logo.png", "(min-width: 72rem) 24rem, 34vw", "lazy", [500, 900] %}</span>
+      </span>
+      <span class="home-tile-label">
+        <span class="home-tile-title">Other projects</span>
+        <span class="home-tile-desc">Illustration, relief carving and logo design</span>
+      </span>
+    </a>
+  </li>
+  <li>
+    <a class="home-tile" href="/about/">
+      <span class="home-tile-strips" aria-hidden="true">
+        <span class="strip strip-zoom" style="--pos: 36% 50%">{% decorativePicture "about/amy-gallery.jpg", "(min-width: 72rem) 72rem, 100vw", "lazy", [960] %}</span>
+      </span>
+      <span class="home-tile-label">
+        <span class="home-tile-title">About me</span>
+        <span class="home-tile-desc">Why I love photography, and how to get in touch</span>
+      </span>
+    </a>
+  </li>
+</ul>
