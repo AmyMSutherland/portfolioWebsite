@@ -1,27 +1,51 @@
 ---
 layout: base.njk
 title: About
-description: About Amy Sutherland, a photographer based in Auburn, Maine, and how to get in touch.
+description: About Amy Sutherland, a photographer and artist based in Auburn, Maine, and how to get in touch.
 permalink: /about/
 shareImageFile: about/amy-gallery.jpg
 shareImageAlt: Amy smiling at a college art exhibition, in front of a wall of framed photographs.
 ---
+{%- set favorites = [
+  { file: "photography/cookie.jpg", title: "Cookie", url: "/photography/cookie/" },
+  { file: "photography/light-columns.jpg", title: "Light columns", url: "/photography/light-columns/" },
+  { file: "projects/eye-print.jpg", title: "Through the lens", url: "/projects/through-the-lens/" }
+] %}
 <div class="wrap">
-  <h1>About me</h1>
-  <div class="about">
-    <figure class="about-photo">
-      {% picture "about/amy-gallery.jpg", "Amy smiling at a college art exhibition, standing in front of a wall of Amy's framed photographs, including a chickadee on a rock, a cat, glowing columns of light, and a tree against a red sky.", "(min-width: 56rem) 28rem, 100vw", "eager", [500, 960] %}
-      <figcaption>At my college art exhibition, with my photographs on the wall behind me.</figcaption>
-    </figure>
-    <div class="about-text">
-      <p class="lead">Hi, I'm {{ site.name }}, a photographer based in Auburn, Maine.</p>
-      <p>Photography is my hobby and my passion, and what I love most is capturing moments. A single picture can hold so much emotion when it's taken at just the right time: a laugh, a quiet glance, a dog mid-grin, the sky going dark at totality. I photograph animals, the people I love, and the moments in between, always waiting for that instant when a feeling shows itself.</p>
-      <p>I graduated from the University of Maine in Orono in 2018 with majors in studio art and art education, plus minors in graphic design and art history. While I was there, my photograph <a href="/photography/light-columns/">Light columns</a> received an award at the 2017 Juried Student Art Exhibition.</p>
-      <p>Design is part of my work too: I created the <a href="/projects/">logo for Windham Parks &amp; Recreation</a>, which the department used on its website from 2016 until 2025.</p>
-      <p>I hope a few of these photos make you smile.</p>
+  {#- Banner: a close crop of the exhibition photo with a short intro over it -#}
+  <div class="about-banner">
+    {% picture "about/amy-gallery.jpg", "Amy smiling at a college art exhibition, standing in front of a wall of Amy's framed photographs.", "(min-width: 72rem) 72rem, 100vw", "eager", [960] %}
+    <div class="about-banner-text">
+      <h1>Hi, I'm Amy</h1>
+      <p>Photographer and artist in Auburn, Maine, chasing the moments that make you feel something.</p>
+    </div>
+  </div>
 
-      <h2>Contact</h2>
-      <p>The best way to reach me is by email: <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+  <div class="about-cols">
+    <section aria-labelledby="story-title">
+      <h2 id="story-title">My story</h2>
+      <p>I'm a photographer and artist based in Auburn, Maine. What draws me to photography is emotion: a laugh, a quiet glance, a dog mid-grin, the sky going dark at totality. I photograph animals, the people I love and the moments in between, and I'm happy to wait as long as it takes for a feeling to show itself.</p>
+      <p>Beyond the camera, I make digital illustrations, relief carvings and logos. Different tools, same goal: making something that makes you feel something.</p>
+
+      <h2>A few favorites</h2>
+      <ul class="about-favs">
+        {%- for f in favorites %}
+        <li><a href="{{ f.url }}"><span class="thumb">{% decorativePicture f.file, "(min-width: 56rem) 14rem, 33vw", "lazy", [500] %}</span><span class="cap">{{ f.title }}</span></a></li>
+        {%- endfor %}
+      </ul>
+    </section>
+
+    <section aria-labelledby="facts-title">
+      <h2 id="facts-title">Quick facts</h2>
+      <ul class="about-facts">
+        <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/></svg></span><span><b>Education</b><span class="small">University of Maine, Orono, 2018. Studio art and art education; minors in graphic design and art history.</span></span></li>
+        <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13.5L7.5 21 12 18.5 16.5 21 15 13.5"/></svg></span><span><b>Award</b><span class="small">2017 Juried Student Art Exhibition, Lord Hall Gallery, for <a href="/photography/light-columns/">Light columns</a>.</span></span></li>
+        <li><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 20l4-1L19 8l-3-3L5 16z"/><path d="M14 7l3 3"/></svg></span><span><b>Design</b><span class="small">Logos for <a href="/projects/windham-parks-and-recreation/">Windham Parks &amp; Recreation</a> (in use 2016–2025) and <a href="/projects/eric-s-miniatures/">Eric's Miniatures</a>.</span></span></li>
+      </ul>
+
+      <h2>Say hello</h2>
+      <p>Want to talk photos, art or design? I'd love to hear from you.</p>
+      <p><a class="about-email" href="mailto:{{ site.email }}"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email me</a></p>
       {%- if site.social.length %}
       <p>You can also find me on:</p>
       <ul>
@@ -30,6 +54,6 @@ shareImageAlt: Amy smiling at a college art exhibition, in front of a wall of fr
         {%- endfor %}
       </ul>
       {%- endif %}
-    </div>
+    </section>
   </div>
 </div>

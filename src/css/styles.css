@@ -743,3 +743,34 @@ main:has(.home) { padding-top: 1.75rem; }
 .home-tile:hover .home-tile-title { text-decoration: underline; text-decoration-color: var(--brand-yellow); text-underline-offset: 0.2em; text-decoration-thickness: 0.12em; }
 @media (prefers-reduced-motion: reduce) { .home-tile:hover .strip img { transform: none; } .home-tile:hover .strip-zoom img { transform: scale(1.3); } }
 
+/* ==========================================================================
+   About page: photo banner, story + favorites, quick facts + contact
+   ========================================================================== */
+.about-banner { position: relative; height: clamp(16rem, 45vh, 26rem); border-radius: 1.5rem; overflow: hidden; margin-bottom: 2.5rem; background: var(--surface); }
+.about-banner picture { display: block; height: 100%; }
+.about-banner img { width: 100%; height: 100%; object-fit: cover; object-position: 36% 45%; transform: scale(1.25); transform-origin: 36% 40%; }
+.about-banner-text { position: absolute; inset: auto 0 0 0; padding: 4rem 2rem 1.75rem; background: linear-gradient(transparent, rgb(0 0 0 / 0.8)); color: #fff; text-shadow: 0 1px 3px rgb(0 0 0 / 0.5); }
+.about-banner-text h1 { color: #fff; margin: 0; }
+.about-banner-text p { margin: 0.35rem 0 0; color: #f2f0eb; font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem); max-width: 40rem; }
+@media (max-width: 40rem) { .about-banner-text { padding: 3rem 1.25rem 1.25rem; } }
+.about-cols { display: grid; gap: 1rem 3rem; }
+@media (min-width: 56rem) { .about-cols { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); } }
+.about-cols h2:first-child { margin-top: 0; }
+@media (max-width: 55.99rem) { .about-cols section + section h2:first-child { margin-top: 1.5rem; } }
+.about-favs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; list-style: none; padding: 0; margin: 0; }
+.about-favs a { display: block; color: var(--text); text-decoration: none; font-size: 0.95rem; }
+.about-favs .thumb { display: block; aspect-ratio: 1; overflow: hidden; border-radius: 0.75rem; background: var(--surface); }
+.about-favs picture { display: block; height: 100%; }
+.about-favs img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.about-favs a:hover img { transform: scale(1.05); }
+.about-favs a:hover .cap { text-decoration: underline; }
+.about-favs .cap { display: block; margin-top: 0.35rem; }
+.about-facts { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+.about-facts li { display: grid; grid-template-columns: 2.5rem 1fr; gap: 0.75rem; align-items: start; padding: 0.9rem 1rem; background: var(--surface); border: 2px solid var(--border); border-radius: 1rem; }
+.about-facts .ico { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--brand-yellow); color: var(--ink); display: grid; place-items: center; }
+.about-facts b { display: block; }
+.about-facts .small { color: var(--muted); font-size: 0.95rem; }
+.about-email { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 2.75rem; padding: 0.5rem 1.25rem; border-radius: 999px; background: var(--brand-yellow); color: var(--ink); font-weight: 700; text-decoration: none; }
+.about-email:hover { color: var(--ink); text-decoration: underline; }
+@media (forced-colors: active) { .about-email { border: 2px solid ButtonText; } }
+
