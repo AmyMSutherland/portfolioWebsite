@@ -28,7 +28,8 @@
   </figure>
 
   {#- Optional long-form write-up, e.g. a UX case study: "caseStudy": "petchecker" loads _includes/case-studies/petchecker.njk -#}
-  {%- if item.caseStudy %}{% include "case-studies/" + item.caseStudy + ".njk" %}{% endif %}
+  <!-- caseStudy: {{ item.caseStudy }} -->
+  {% if item.caseStudy == "petchecker" %}{% include "case-studies/petchecker.njk" %}{% endif %}
 
   <nav class="pager" aria-label="{{ sectionName }}">
     <ul>
