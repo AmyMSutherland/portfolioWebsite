@@ -1,28 +1,51 @@
 {#- PetChecker UX case study. Shown below the cover image on /projects/petchecker/.
-    Results come from the Maze unmoderated study run in March 2022. -#}
+    Designed in Figma for the Google UX Design Certificate; results come from the
+    Maze unmoderated study run in March 2022. -#}
 <article class="case-study" aria-label="PetChecker case study">
 
   <dl class="case-facts">
-    <div><dt>Project</dt><dd>Mobile app prototype</dd></div>
-    <div><dt>Method</dt><dd>Unmoderated usability test in Maze</dd></div>
-    <div><dt>Participants</dt><dd>6</dd></div>
-    <div><dt>When</dt><dd>March 2022</dd></div>
+    <div><dt>Project</dt><dd>Mobile app, Google UX Design Certificate</dd></div>
+    <div><dt>Tools</dt><dd>Figma, Maze</dd></div>
+    <div><dt>Method</dt><dd>Unmoderated usability test, 6 participants</dd></div>
+    <div><dt>When</dt><dd>2021–2022</dd></div>
   </dl>
 
   <section>
     <h2>The idea</h2>
     <p>PetChecker helps dog owners find food that fits their dog. You build a profile for your pet (type, name, birthdate, sex, weight and breed), and the app recommends a food that matches it, tracks how active your dog has been this week, and lets you order without leaving the app.</p>
-    <div class="case-screens">
-      <figure>{% picture "projects/petchecker/start.png", "PetChecker start screen: Lets Make a Pet Profile, with a line drawing of a dog and a cat and a Get Started button.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Start a profile</figcaption></figure>
-      <figure>{% picture "projects/petchecker/pet-info.png", "Add your Pets Info screen with a profile picture placeholder and fields for pet type, pet name and birthdate, plus Back and Next buttons.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Step 1: the basics</figcaption></figure>
-      <figure>{% picture "projects/petchecker/pet-info-2.png", "Second Add your Pets Info screen with the dog's photo and fields for sex (Female), weight (80 lb), age and breed, plus a Mixed breed checkbox.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Step 2: the details</figcaption></figure>
-      <figure>{% picture "projects/petchecker/home.png", "PetChecker home page: This Pet Food Matches your Pet Profile with a button to see it, a bar chart of steps walked each day this week, and other dog food choices.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Home: a match and the week's activity</figcaption></figure>
+  </section>
+
+  <section>
+    <h2>From wireframe to prototype</h2>
+    <p>I started with low-fidelity wireframes in Figma to work out the layout and the flow, then built them into a high-fidelity, clickable prototype.</p>
+    <div class="case-compare">
+      <div class="case-pair">
+        <figure>{% picture "projects/petchecker/lofi-home.png", "Grayscale wireframe of the home page: a menu, search bar, a This Pet Food Matches your Pet Profile banner with a Check it out button, a placeholder for Goals your dog is hitting, and three placeholder product images.", "(min-width: 48rem) 12rem, 40vw" %}<figcaption>Wireframe</figcaption></figure>
+        <figure>{% picture "projects/petchecker/home.png", "Finished PetChecker home page: a matching food banner, a bar chart of steps walked each day this week, and other dog food choices, with a blue navigation bar.", "(min-width: 48rem) 12rem, 40vw" %}<figcaption>Prototype</figcaption></figure>
+        <p class="case-pair-title">Home</p>
+      </div>
+      <div class="case-pair">
+        <figure>{% picture "projects/petchecker/lofi-pet-info.png", "Grayscale wireframe of the Add your pets info form with a picture placeholder, fields for pet type, pet name and birthdate, a progress bar and Back and Next buttons.", "(min-width: 48rem) 12rem, 40vw" %}<figcaption>Wireframe</figcaption></figure>
+        <figure>{% picture "projects/petchecker/pet-info.png", "Finished Add your Pets Info form with a profile picture placeholder, dropdowns for pet type and birthdate, a pet name field, a blue progress bar and Back and Next buttons.", "(min-width: 48rem) 12rem, 40vw" %}<figcaption>Prototype</figcaption></figure>
+        <p class="case-pair-title">Pet profile</p>
+      </div>
+      <div class="case-pair">
+        <figure>{% picture "projects/petchecker/lofi-food-detail.png", "Grayscale wireframe of a Dog Food pop-up with an image placeholder, lines of placeholder text and an Add to Cart button.", "(min-width: 48rem) 12rem, 40vw" %}<figcaption>Wireframe</figcaption></figure>
+        <figure>{% picture "projects/petchecker/recommended-food.png", "Finished Recommended Pet food pop-up showing Fresh Kisses Dog Food at $10.99, placeholder reasons it matches the profile, and an Add to Cart button.", "(min-width: 48rem) 12rem, 40vw" %}<figcaption>Prototype</figcaption></figure>
+        <p class="case-pair-title">Recommended food</p>
+      </div>
     </div>
   </section>
 
   <section>
+    <h2>Design system</h2>
+    <p>A sticker sheet kept the screens consistent: Fira Sans for headings and Nanum Gothic for body text, a navy, gold, blue and copper palette checked for accessible contrast, and shared buttons, navigation bars, search bar, icons and calendar states.</p>
+    <figure class="case-wide">{% picture "projects/petchecker/sticker-sheet.png", "PetChecker sticker sheet: the PetChecker logo; typography specs for Fira Sans headers and Nanum Gothic body and buttons; copper, blue and edit buttons, a quantity stepper and a dropdown; the navy footer navigation bar and top navigation bar; the search bar; icons for map, health, home, settings, help and log out; calendar states; and four color swatches, 2A3A83, BFAE5A, 658CBF and BF814B.", "(min-width: 72rem) 72rem, 100vw", "lazy", [800, 1440] %}</figure>
+  </section>
+
+  <section>
     <h2>What I tested</h2>
-    <p>I ran an unmoderated test of the clickable prototype in Maze with two tasks, each followed by an open question about how easy it was and what participants would change.</p>
+    <p>I ran an unmoderated test of the prototype in Maze with two tasks, each followed by an open question about how easy it was and what participants would change.</p>
     <ol>
       <li><strong>Create a pet profile</strong> for Lassie, a female mixed border collie born January 4, 2020, weighing 80 pounds.</li>
       <li><strong>Order the matching food:</strong> add the recommended food to the cart, check out and complete the order.</li>
@@ -78,7 +101,7 @@
         </div>
       </div>
       <div class="case-finding">
-        {% picture "projects/petchecker/recommended-food.png", "Recommended Pet food card showing Fresh Kisses Dog Food at $10.99, placeholder reasons it matches the profile, and an Add to Cart button.", "(min-width: 48rem) 12rem, 40vw" %}
+        {% picture "projects/petchecker/recommended-food.png", "Recommended Pet food pop-up showing Fresh Kisses Dog Food at $10.99, placeholder reasons it matches the profile, and an Add to Cart button.", "(min-width: 48rem) 12rem, 40vw" %}
         <div>
           <h3>One recommendation felt suspicious</h3>
           <p>Ordering was easy, but a single food with no alternatives made one participant wonder whether the app was just selling one brand. Another didn’t expect Add to Cart to take them away from the page they were on.</p>
@@ -88,22 +111,43 @@
   </section>
 
   <section>
-    <h2>What I’d change next</h2>
-    <ul class="case-changes">
-      <li>Let people fill in the profile in any order, start with the pet’s name, and make the photo a clear “skip for now.”</li>
-      <li>Let people type the birthdate, or pick year first, and work out age from it instead of asking twice.</li>
-      <li>Ask about mixed breed once, in one obvious place.</li>
-      <li>Recommend a few foods with the reasons each one fits, so the match feels trustworthy.</li>
-      <li>Keep people on the page after Add to Cart, with a short confirmation instead of a jump to the cart.</li>
-    </ul>
+    <h2>What I changed after testing</h2>
+    <p>I took the feedback back into Figma and revised the prototype.</p>
+    <div class="case-findings">
+      <div class="case-finding">
+        {% picture "projects/petchecker/v2-mixed-breed.png", "Pop-up asking Is your pet a mixed breed? with Yes and No buttons.", "(min-width: 48rem) 12rem, 40vw" %}
+        <div>
+          <h3>Mixed breed is asked once</h3>
+          <p>Instead of two checkboxes in two places, a single yes-or-no question.</p>
+        </div>
+      </div>
+      <div class="case-finding">
+        {% picture "projects/petchecker/v2-recommendations.png", "Best Recommended Pet food pop-up with Fresh Kisses Dog Food and an Add to Cart button, followed by Other Great Pet Food Recommendations: two more foods, each with a Preview button.", "(min-width: 48rem) 12rem, 40vw" %}
+        <div>
+          <h3>More than one food to choose from</h3>
+          <p>The best match now comes with other recommendations you can preview, so the app feels like it’s helping you choose rather than selling one brand.</p>
+        </div>
+      </div>
+      <div class="case-finding">
+        {% picture "projects/petchecker/v2-added-to-cart.png", "Added Item To Cart! confirmation pop-up with the dog food image and buttons for Go to Cart and Go to Homepage.", "(min-width: 48rem) 12rem, 40vw" %}
+        <div>
+          <h3>Add to Cart keeps you in place</h3>
+          <p>A confirmation pop-up replaces the jump to the cart, and you decide whether to check out now or keep browsing.</p>
+        </div>
+      </div>
+      <div class="case-finding">
+        {% picture "projects/petchecker/v2-photo-step.png", "Select a Profile Picture screen showing a grid of photos of a black dog and a Next button.", "(min-width: 48rem) 12rem, 40vw" %}
+        <div>
+          <h3>A clearer photo step</h3>
+          <p>Choosing a profile picture became its own screen with a photo grid, instead of a yes-or-no pop-up that blocked the form.</p>
+        </div>
+      </div>
+    </div>
+    <p>Next, I’d let people type the birthdate or pick the year first, work out the pet’s age from it instead of asking twice, and put the pet’s name first.</p>
   </section>
 
   <section>
-    <h2>The finished flow</h2>
-    <div class="case-screens">
-      <figure>{% picture "projects/petchecker/profile-complete.png", "Completed pet profile for Lassie: dog, born 01/04/2020, female, 80 lb, age 2, border collie, mixed breed yes, with buttons to create another or delete the profile.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>The finished profile</figcaption></figure>
-      <figure>{% picture "projects/petchecker/checkout.png", "Checkout screen with payment and shipping information, an order summary for Fresh Kisses Dog Food totaling $19.17, and a Complete Order button.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Checkout</figcaption></figure>
-      <figure>{% picture "projects/petchecker/order-complete.png", "Order Complete screen with a smiling dog line drawing and a Back to Home button.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Order complete</figcaption></figure>
-    </div>
+    <h2>What I learned</h2>
+    <p>A flow that feels obvious to the designer can still trip people up. Testing with real people showed me that the hard part wasn’t ordering but filling in a form, and that small things, like an extra checkbox or a single recommendation, can change how much people trust an app.</p>
   </section>
 </article>
