@@ -1,5 +1,14 @@
 [
   {
+    "title": "PetChecker",
+    "category": "UX case study",
+    "summary": "A mobile app that recommends dog food based on a profile of your dog. I tested the clickable prototype with six people in Maze: ordering was easy, but building the pet profile tripped people up, which showed me what to fix next.",
+    "file": "projects/petchecker.jpg",
+    "alt": "Three phone screens from the PetChecker app prototype: an Add your Pets Info form, a completed profile for a dog named Lassie, and the home page showing a matching dog food and a bar chart of steps walked this week.",
+    "link": "",
+    "caseStudy": "petchecker"
+  },
+  {
     "title": "Self-portrait by the river",
     "category": "Digital illustration",
     "summary": "A flat, painted self-portrait layered over one of my own photographs: sunlight sparkling on a river, an old tree trunk, and autumn leaves floating by.",

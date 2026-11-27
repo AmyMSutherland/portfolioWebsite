@@ -27,6 +27,9 @@
     <p class="swipe-hint" aria-hidden="true">Swipe or tap the sides for more</p>
   </figure>
 
+  {#- Optional long-form write-up, e.g. a UX case study: "caseStudy": "petchecker" loads _includes/case-studies/petchecker.njk -#}
+  {%- if item.caseStudy %}{% include "case-studies/" + item.caseStudy + ".njk" %}{% endif %}
+
   <nav class="pager" aria-label="{{ sectionName }}">
     <ul>
       <li class="pager-all"><a class="pager-btn pager-btn-all" href="{{ baseUrl }}"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>All {{ sectionName | lower }} <span class="pager-count">({{ pagination.pageNumber + 1 }} of {{ items.length }})</span></a></li>

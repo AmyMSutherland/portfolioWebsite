@@ -1,0 +1,109 @@
+{#- PetChecker UX case study. Shown below the cover image on /projects/petchecker/.
+    Results come from the Maze unmoderated study run in March 2022. -#}
+<article class="case-study" aria-label="PetChecker case study">
+
+  <dl class="case-facts">
+    <div><dt>Project</dt><dd>Mobile app prototype</dd></div>
+    <div><dt>Method</dt><dd>Unmoderated usability test in Maze</dd></div>
+    <div><dt>Participants</dt><dd>6</dd></div>
+    <div><dt>When</dt><dd>March 2022</dd></div>
+  </dl>
+
+  <section>
+    <h2>The idea</h2>
+    <p>PetChecker helps dog owners find food that fits their dog. You build a profile for your pet (type, name, birthdate, sex, weight and breed), and the app recommends a food that matches it, tracks how active your dog has been this week, and lets you order without leaving the app.</p>
+    <div class="case-screens">
+      <figure>{% picture "projects/petchecker/start.png", "PetChecker start screen: Lets Make a Pet Profile, with a line drawing of a dog and a cat and a Get Started button.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Start a profile</figcaption></figure>
+      <figure>{% picture "projects/petchecker/pet-info.png", "Add your Pets Info screen with a profile picture placeholder and fields for pet type, pet name and birthdate, plus Back and Next buttons.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Step 1: the basics</figcaption></figure>
+      <figure>{% picture "projects/petchecker/pet-info-2.png", "Second Add your Pets Info screen with the dog's photo and fields for sex (Female), weight (80 lb), age and breed, plus a Mixed breed checkbox.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Step 2: the details</figcaption></figure>
+      <figure>{% picture "projects/petchecker/home.png", "PetChecker home page: This Pet Food Matches your Pet Profile with a button to see it, a bar chart of steps walked each day this week, and other dog food choices.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Home: a match and the week's activity</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>What I tested</h2>
+    <p>I ran an unmoderated test of the clickable prototype in Maze with two tasks, each followed by an open question about how easy it was and what participants would change.</p>
+    <ol>
+      <li><strong>Create a pet profile</strong> for Lassie, a female mixed border collie born January 4, 2020, weighing 80 pounds.</li>
+      <li><strong>Order the matching food:</strong> add the recommended food to the cart, check out and complete the order.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Results</h2>
+    <div class="case-stats">
+      <div class="case-stat-group">
+        <h3>Task 1: Create a pet profile</h3>
+        <ul>
+          <li><span class="case-num">67%</span> completed it (4 of 6), but none took the expected path</li>
+          <li><span class="case-num">2 of 6</span> gave up partway</li>
+          <li><span class="case-num">64%</span> of clicks missed</li>
+          <li><span class="case-num">2.5 min</span> on average</li>
+        </ul>
+      </div>
+      <div class="case-stat-group">
+        <h3>Task 2: Order the matching food</h3>
+        <ul>
+          <li><span class="case-num">100%</span> completed it (4 of 4), half by the expected path</li>
+          <li><span class="case-num">38%</span> of clicks missed</li>
+          <li><span class="case-num">45 sec</span> on average</li>
+        </ul>
+      </div>
+    </div>
+    <p>Ordering worked. Building the profile was where people struggled: it took more than three times as long, and most clicks landed somewhere unexpected.</p>
+  </section>
+
+  <section>
+    <h2>What participants told me</h2>
+    <div class="case-findings">
+      <div class="case-finding">
+        {% picture "projects/petchecker/photo-prompt.png", "Pop-up asking Do you want to upload a photo of your pet? with Yes and No buttons.", "(min-width: 48rem) 12rem, 40vw" %}
+        <div>
+          <h3>The steps felt locked in order</h3>
+          <p>One participant couldn’t continue until they added a photo, so the photo didn’t feel optional. Another expected the pet’s name to come first.</p>
+        </div>
+      </div>
+      <div class="case-finding">
+        {% picture "projects/petchecker/date-picker.png", "Birthdate picker labelled Month/Date/Year showing a grid of the twelve months.", "(min-width: 48rem) 12rem, 40vw" %}
+        <div>
+          <h3>The birthdate picker worked against expectations</h3>
+          <p>A participant expected to pick the year, then the month, then the day, and wanted to be able to type the date with the keyboard instead. They also spotted a typo in “January.” Asking for age as well as birthdate felt redundant.</p>
+        </div>
+      </div>
+      <div class="case-finding">
+        {% picture "projects/petchecker/breed-list.png", "Pet's Breed list with a search bar, an Is your pet a mixed breed? checkbox and an alphabetical list of breeds with an A to Z index.", "(min-width: 48rem) 12rem, 40vw" %}
+        <div>
+          <h3>“Mixed breed” was confusing</h3>
+          <p>The option showed up in two places. One participant asked why there were two checkboxes, and another tapped it and nothing happened.</p>
+        </div>
+      </div>
+      <div class="case-finding">
+        {% picture "projects/petchecker/recommended-food.png", "Recommended Pet food card showing Fresh Kisses Dog Food at $10.99, placeholder reasons it matches the profile, and an Add to Cart button.", "(min-width: 48rem) 12rem, 40vw" %}
+        <div>
+          <h3>One recommendation felt suspicious</h3>
+          <p>Ordering was easy, but a single food with no alternatives made one participant wonder whether the app was just selling one brand. Another didn’t expect Add to Cart to take them away from the page they were on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What I’d change next</h2>
+    <ul class="case-changes">
+      <li>Let people fill in the profile in any order, start with the pet’s name, and make the photo a clear “skip for now.”</li>
+      <li>Let people type the birthdate, or pick year first, and work out age from it instead of asking twice.</li>
+      <li>Ask about mixed breed once, in one obvious place.</li>
+      <li>Recommend a few foods with the reasons each one fits, so the match feels trustworthy.</li>
+      <li>Keep people on the page after Add to Cart, with a short confirmation instead of a jump to the cart.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>The finished flow</h2>
+    <div class="case-screens">
+      <figure>{% picture "projects/petchecker/profile-complete.png", "Completed pet profile for Lassie: dog, born 01/04/2020, female, 80 lb, age 2, border collie, mixed breed yes, with buttons to create another or delete the profile.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>The finished profile</figcaption></figure>
+      <figure>{% picture "projects/petchecker/checkout.png", "Checkout screen with payment and shipping information, an order summary for Fresh Kisses Dog Food totaling $19.17, and a Complete Order button.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Checkout</figcaption></figure>
+      <figure>{% picture "projects/petchecker/order-complete.png", "Order Complete screen with a smiling dog line drawing and a Back to Home button.", "(min-width: 48rem) 14rem, 45vw" %}<figcaption>Order complete</figcaption></figure>
+    </div>
+  </section>
+</article>

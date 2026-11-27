@@ -40,7 +40,9 @@ balances the photo rows; the site works without either.
 3. **Commit and push.** The host rebuilds the site automatically within about 5 minutes.
 
 Projects work the same way, using `src/_data/projects.json` (each entry also has a `category`
-and a `summary`).
+and a `summary`). A project can also have a full write-up under its image, like the PetChecker
+UX case study: add `"caseStudy": "petchecker"` and put the write-up in
+`src/_includes/case-studies/petchecker.njk`.
 
 ## Hidden pages
 
