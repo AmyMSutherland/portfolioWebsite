@@ -7,8 +7,8 @@ pagination:
   addAllPagesToCollections: true
 permalink: "/photography/{{ item.title | slugify }}/"
 eleventyComputed:
-  title: "{{ item.title }}"
-  description: "{{ item.alt }}"
+  title: "{{ item.title | safe }}"
+  description: "{{ item.alt | safe }}"
 ---
 {% set items = photography %}{% set baseUrl = "/photography/" %}{% set sectionName = "Photography" %}
 {% include "artwork.njk" %}

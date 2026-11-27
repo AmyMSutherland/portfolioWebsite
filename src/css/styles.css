@@ -368,6 +368,7 @@ main:has(.home-wall) { padding-top: 1.5rem; }
 .artwork-frame picture { display: block; }
 /* Neighboring photos sit one frame-width to each side and slide in with the swipe. */
 .swipe-peek { position: absolute; inset: var(--pad); display: grid; place-items: center; pointer-events: none; }
+.swipe-peek picture { display: contents; }
 .swipe-peek img { width: auto; max-width: 100%; max-height: 80vh; }
 .swipe-peek-prev { transform: translateX(calc(-100% - var(--pad))); }
 .swipe-peek-next { transform: translateX(calc(100% + var(--pad))); }
