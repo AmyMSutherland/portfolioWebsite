@@ -2,32 +2,50 @@
 layout: base.njk
 permalink: /
 ---
-{% include "carousel.njk" %}
+{#- Home page: three big tiles, each a link with a taste of what's inside. -#}
+<div class="wrap home">
+  <header class="home-intro">
+    <h1 class="home-name">{{ site.name }}</h1>
+    <p class="home-tagline">Photography · Illustration · Design</p>
+  </header>
 
-<div class="wrap">
-  <nav class="next" aria-label="More from this site">
-    <ul class="next-links">
-      <li>
-        <a href="/photography/">
-          <span class="next-icon" aria-hidden="true"><svg focusable="false" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 7h3l2-2.5h6L17 7h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/><circle cx="12" cy="12.5" r="3.5"/></svg></span>
-          <span class="next-title">All photography</span>
-          <span class="next-desc">Every photo, from animals and family to the 2024 eclipse</span>
-        </a>
-      </li>
-      <li>
-        <a href="/projects/">
-          <span class="next-icon" aria-hidden="true"><svg focusable="false" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.7-.9 1.4-1.8-.4-1.2.3-2.2 1.5-2.2H17a4 4 0 0 0 4-4c0-5.5-4-10-9-10z"/><circle cx="7.5" cy="11" r="1" fill="currentColor"/><circle cx="10.5" cy="7" r="1" fill="currentColor"/><circle cx="15.5" cy="8" r="1" fill="currentColor"/></svg></span>
-          <span class="next-title">Other projects</span>
-          <span class="next-desc">Illustrations, relief carving and creative work beyond the camera</span>
-        </a>
-      </li>
-      <li>
-        <a href="/about/">
-          <span class="next-icon" aria-hidden="true"><svg focusable="false" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg></span>
-          <span class="next-title">About me</span>
-          <span class="next-desc">Why I love photography, and how to get in touch</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <ul class="home-tiles">
+    <li>
+      <a class="home-tile" href="/photography/">
+        <span class="home-tile-strips" aria-hidden="true">
+          <span class="strip" style="--pos: 18% 78%">{% decorativePicture "photography/cookie.jpg", "(min-width: 72rem) 24rem, 34vw", "eager", [500, 900] %}</span>
+          <span class="strip" style="--pos: 50% 50%">{% decorativePicture "photography/light-columns.jpg", "(min-width: 72rem) 24rem, 34vw", "eager", [500, 900] %}</span>
+          <span class="strip" style="--pos: 52% 40%">{% decorativePicture "photography/grammy.jpg", "(min-width: 72rem) 24rem, 34vw", "eager", [500, 900] %}</span>
+        </span>
+        <span class="home-tile-label">
+          <span class="home-tile-title">Photography</span>
+          <span class="home-tile-desc">Animals, family and the moments in between</span>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a class="home-tile" href="/projects/">
+        <span class="home-tile-strips" aria-hidden="true">
+          <span class="strip" style="--pos: 50% 50%">{% decorativePicture "projects/friends.jpg", "(min-width: 72rem) 24rem, 34vw", "lazy", [500, 900] %}</span>
+          <span class="strip" style="--pos: 50% 45%">{% decorativePicture "projects/eye-print.jpg", "(min-width: 72rem) 24rem, 34vw", "lazy", [500, 900] %}</span>
+          <span class="strip" style="--pos: 34% 50%">{% decorativePicture "projects/erics-miniatures-logo.png", "(min-width: 72rem) 24rem, 34vw", "lazy", [500, 900] %}</span>
+        </span>
+        <span class="home-tile-label">
+          <span class="home-tile-title">Other projects</span>
+          <span class="home-tile-desc">Illustration, relief carving and logo design</span>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a class="home-tile" href="/about/">
+        <span class="home-tile-strips" aria-hidden="true">
+          <span class="strip strip-zoom" style="--pos: 36% 50%">{% decorativePicture "about/amy-gallery.jpg", "(min-width: 72rem) 72rem, 100vw", "lazy", [960] %}</span>
+        </span>
+        <span class="home-tile-label">
+          <span class="home-tile-title">About me</span>
+          <span class="home-tile-desc">Why I love photography, and how to get in touch</span>
+        </span>
+      </a>
+    </li>
+  </ul>
 </div>

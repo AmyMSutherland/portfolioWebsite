@@ -50,6 +50,15 @@ export default function (eleventyConfig) {
   });
 
   /**
+   * A purely decorative <picture> (alt=""), e.g. previews inside a link that already has a text label.
+   * Usage: {% decorativePicture "photography/cookie.jpg", "34vw", "eager", [500, 900] %}
+   */
+  eleventyConfig.addAsyncShortcode("decorativePicture", async (file, sizes = "100vw", loading = "lazy", widths = [500, 900, 1400]) => {
+    const metadata = await Image(path.join(IMAGE_ROOT, file), imageOptions([...widths, "auto"], ["avif", "webp", "jpeg"]));
+    return Image.generateHTML(metadata, { alt: "", sizes, loading, decoding: "async" });
+  });
+
+  /**
    * URL of a 1200px JPEG for link previews (texts, social media).
    * Usage: {% shareImage "photography/harbor.jpg" %}
    */
