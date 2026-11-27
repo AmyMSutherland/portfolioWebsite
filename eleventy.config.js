@@ -89,8 +89,8 @@ export default function (eleventyConfig) {
     "src/favicon.ico": "favicon.ico",
     "src/_redirects": "_redirects",
     "src/apple-touch-icon.png": "apple-touch-icon.png",
-    "src/logo.png": "logo.png",
-    "src/logo-light-text.png": "logo-light-text.png",
+    "src/logo.svg": "logo.svg",
+    "src/logo-light-text.svg": "logo-light-text.svg",
   });
 
   eleventyConfig.addWatchTarget("src/images/");
