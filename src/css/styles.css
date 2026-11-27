@@ -819,7 +819,15 @@ main:has(.home) { padding-top: 1.75rem; }
 @font-face { font-family: "Open Sans Name"; font-weight: 300; font-display: swap; src: url("/fonts/open-sans-light-name.otf") format("opentype"); }
 @font-face { font-family: "Open Sans Name"; font-weight: 700; font-display: swap; src: url("/fonts/open-sans-bold-name.otf") format("opentype"); }
 .home-intro .home-name { font-family: "Open Sans Name", "Open Sans", system-ui, sans-serif; letter-spacing: -0.01em; }
-.home-name .name-light { font-weight: 300; }
-.home-name .name-bold { font-weight: 700; }
+.home-name .name-light, .logo-heading .name-light { font-weight: 300; }
+.home-name .name-bold, .logo-heading .name-bold { font-weight: 700; }
 /* First dot in the logo's blue (the A), second in its yellow (the S) */
 .home-words li:nth-child(2)::before { background: var(--brand-blue); }
+/* Headings in the logo's lettering, e.g. "Say hello" on the About page */
+.logo-heading { font-family: "Open Sans Name", "Open Sans", system-ui, sans-serif; font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.4rem); letter-spacing: -0.01em; color: var(--text); }
+.logo-heading.logo-title { font-size: clamp(2.2rem, 1.5rem + 2.8vw, 3.4rem); line-height: 1.1; margin-bottom: 0.5rem; }
+/* Home tile titles in the logo's lettering */
+.home-tile-title { font-family: "Open Sans Name", "Open Sans", system-ui, sans-serif; letter-spacing: -0.01em; }
+.home-tile-title .name-light { font-weight: 300; }
+.home-tile-title .name-bold { font-weight: 700; }
+.about-banner-text h1.logo-heading { color: #fff; font-size: clamp(2.2rem, 1.5rem + 2.8vw, 3.4rem); }
