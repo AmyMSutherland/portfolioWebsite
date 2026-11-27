@@ -943,3 +943,20 @@ html { scroll-behavior: smooth; }
 .case-links a::after { content: " \2192"; }
 .case-quote { margin: 0.75rem 0 1.25rem; padding: 0.25rem 0 0.25rem 1.25rem; border-left: 4px solid var(--accent-line); font-style: italic; max-width: 65ch; }
 .case-quote p { margin: 0; }
+
+/* Case study persona card (text, so it stays readable on phones and to screen readers) */
+.persona { display: grid; grid-template-columns: minmax(12rem, 16rem) 1fr; gap: 2rem; margin-top: 1.5rem; padding: 1.75rem; background: var(--surface); }
+.persona-id { text-align: center; }
+.persona-avatar { display: block; width: 100%; max-width: 11rem; height: auto; margin: 0 auto 0.75rem; }
+.persona-id h3 { margin: 0 0 0.75rem; color: var(--heading); }
+.persona-details { margin: 0; text-align: left; font-size: 0.95rem; }
+.persona-details div { display: grid; grid-template-columns: 6.5rem 1fr; gap: 0.5rem; padding: 0.3rem 0; border-top: 1px solid var(--border); }
+.persona-details dt { font-weight: 700; }
+.persona-details dd { margin: 0; }
+.persona-quote { margin: 0 0 1.25rem; font-size: 1.2rem; font-style: italic; }
+.persona-quote p { margin: 0; }
+.persona-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 1.25rem; }
+.persona-cols h4 { margin: 0 0 0.4rem; color: var(--heading); }
+.persona-cols ul { margin: 0; padding-left: 1.1rem; }
+.persona-story { margin: 1.25rem 0 0; padding: 0.9rem 1.1rem; border-left: 4px solid var(--accent-line); background: var(--bg); }
+@media (max-width: 40rem) { .persona { grid-template-columns: 1fr; padding: 1.25rem; } }
