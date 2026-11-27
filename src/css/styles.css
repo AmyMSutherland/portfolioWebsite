@@ -755,7 +755,14 @@ main:has(.home) { padding-top: 1.75rem; }
 .about-banner-text p { margin: 0.35rem 0 0; color: #f2f0eb; font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem); max-width: 40rem; }
 @media (max-width: 40rem) { .about-banner-text { padding: 3rem 1.25rem 1.25rem; } }
 .about-cols { display: grid; gap: 1rem 3rem; }
-@media (min-width: 56rem) { .about-cols { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); } }
+@media (min-width: 56rem) {
+  .about-cols { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); grid-template-rows: auto 1fr; }
+  .about-story { grid-column: 1; grid-row: 1; }
+  .about-facts-col { grid-column: 2; grid-row: 1 / span 2; }
+  .about-hello { grid-column: 1; grid-row: 2; }
+}
+/* Story, facts, hello in reading order; on desktop hello sits under the story */
+.about-cols .about-hello h2:first-child { margin-top: 1.5rem; }
 .about-cols h2:first-child { margin-top: 0; }
 @media (max-width: 55.99rem) { .about-cols section + section h2:first-child { margin-top: 1.5rem; } }
 .about-favs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; list-style: none; padding: 0; margin: 0; }
