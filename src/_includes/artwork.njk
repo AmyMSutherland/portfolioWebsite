@@ -17,7 +17,9 @@
     <figcaption>
       {%- set medium = item.medium or item.category %}
       {%- if medium %}<span class="tag">{{ medium }}</span>{% endif %}
-      <h1>{{ item.title }}</h1>
+      {#- Logo lettering: first word thin, the rest bold (a one-word title stays thin) -#}
+      {%- set words = item.title.split(" ") %}
+      <h1 class="logo-heading logo-title"><span class="name-light">{{ words[0] }}</span>{% if words.length > 1 %} <span class="name-bold">{{ words.slice(1).join(" ") }}</span>{% endif %}</h1>
       {#- Years are kept in the data files but not shown, since not every photo has one. -#}
       {%- set caption = item.caption or item.summary %}{% if caption %}<p>{{ caption }}</p>{% endif %}
       {%- if item.link %}<p><a href="{{ item.link }}">Visit {{ item.title }}</a></p>{% endif %}
