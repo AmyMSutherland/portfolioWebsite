@@ -16,14 +16,22 @@
     <p><strong>Result:</strong> A pet profile that leads straight to food recommendations, redesigned twice based on what testers struggled with.</p>
   </div>
 
-  <section>
+  <nav class="case-jump" aria-label="Jump to a section of this case study">
+    <a href="#research">Research</a>
+    <a href="#design">Design</a>
+    <a href="#testing">Testing</a>
+    <a href="#refining">Refining</a>
+    <a href="#takeaways">Takeaways</a>
+  </nav>
+
+  <section id="problem">
     <h2 class="logo-heading"><span class="name-light">The</span> <span class="name-bold">problem</span></h2>
     <p>It can be hard for pet owners to know which food, accessories and medicine are best for their pet. Busy families and young pet owners often don’t have the time or knowledge to find out.</p>
     <p><strong>The goal:</strong> design a pet food and health app that lets people pick the best food for their pet quickly and easily.</p>
     <p class="case-meta">Responsibilities: conducting interviews, paper and digital wireframing, low- and high-fidelity prototyping, conducting usability studies, accounting for accessibility, and iterating on designs.</p>
   </section>
 
-  <section>
+  <section id="research">
     <h2 class="logo-heading"><span class="name-light">Understanding</span> <span class="name-bold">the user</span></h2>
     <p>I conducted interviews and created empathy maps to understand who I was designing for. The main user group was working adults who don’t have time to research pet food or health and don’t know what’s best. Research also showed that people love the convenience of ordering from home, that many just pick the first food they see at the store, and that the sheer amount of pet food out there is overwhelming.</p>
     <div class="case-pains">
@@ -161,7 +169,7 @@
     <figure class="case-wide">{% picture "projects/petchecker/journey-map-justin.jpg", "User journey map for Justin, whose goal is to easily get first-time cat owner information. Five actions: navigate to first-time cat owner information, input pet information into the app, gather information about his cat's needs, buy food based on recommendations, and log his cat's meals. His feelings move from intimidated, annoyed and overwhelmed to relieved, hopeful and excited. Improvement opportunities include high-contrast colors for new users, an option to scan pet information, search filters, screen reader support, delivery notifications and a rewards program.", "(min-width: 72rem) 60rem, 100vw", "lazy", [700, 1009] %}<figcaption>Mapping Justin’s user journey showed how helpful it would be to have the quickest and easiest way to order pet food.</figcaption></figure>
   </section>
 
-  <section>
+  <section id="design">
     <h2 class="logo-heading"><span class="name-light">Starting</span> <span class="name-bold">the design</span></h2>
     <p>I sketched several versions of each screen on paper first, so the elements that made it into the digital wireframes would address users’ pain points. For the home screen, I prioritized a layout that gives enough information without overwhelming people. Stars mark the parts of each sketch I carried into the digital wireframes.</p>
     <figure class="case-wide">{% picture "projects/petchecker/paper-wireframes.jpg", "Two notebook pages of pencil sketches labelled #1 Project for Google Class, showing five versions of the home screen, labelled A to E, with stars marking the elements chosen for the digital wireframes.", "(min-width: 72rem) 72rem, 100vw", "lazy", [900, 2048] %}</figure>
@@ -186,7 +194,7 @@
     <p class="case-links"><a href="https://www.figma.com/file/EBCEwGrZMWSmxmEdn9x8Om/Google-Project-%231-Wireframe?node-id=0%3A1">View the low-fidelity prototype in Figma</a></p>
   </section>
 
-  <section>
+  <section id="testing">
     <h2 class="logo-heading"><span class="name-light">Usability</span> <span class="name-bold">study, round 1</span></h2>
     <p>The low-fidelity prototype connected the main flow, building a pet profile and checking out with your recommended food. In December 2021 I ran an unmoderated, remote usability study with <strong>5 participants</strong> (3 men, 1 woman and 1 nonbinary person, ages 20 to 60), about 10 minutes each, to see whether that flow was easy to complete.</p>
     <div class="case-pains case-themes">
@@ -212,7 +220,7 @@
     <p><strong>What I changed:</strong> the buttons got a more noticeable color and a pressed state so they look clickable; the small “Check it out” link became a large “Go to Recommended Pet Food” button, with the recommendation opening in an overlay that’s hard to miss; and most profile fields became drop-down menus instead of typing. You can see these in the wireframe and prototype comparisons above.</p>
   </section>
 
-  <section>
+  <section id="testing-2">
     <h2 class="logo-heading"><span class="name-light">Usability</span> <span class="name-bold">study, round 2</span></h2>
     <p>I tested the high-fidelity prototype with six people in an unmoderated study in Maze, using two tasks:</p>
     <ol>
@@ -264,7 +272,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="refining">
     <h2 class="logo-heading"><span class="name-light">Refining</span> <span class="name-bold">the design</span></h2>
     <p>I took the round 2 feedback back into Figma. To make choosing food easier without overwhelming anyone, I added two more recommendations below the best match, with just enough information to compare them.</p>
     <div class="case-findings">
@@ -300,7 +308,7 @@
     <p class="case-links"><a href="https://www.figma.com/file/EBCEwGrZMWSmxmEdn9x8Om/Google-Project-%231-Wireframe?node-id=510%3A17669">View the high-fidelity prototype in Figma</a></p>
   </section>
 
-  <section>
+  <section id="design-system">
     <h2 class="logo-heading"><span class="name-light">Design</span> <span class="name-bold">system and accessibility</span></h2>
     <p>A sticker sheet kept the screens consistent: Fira Sans for headings and Nanum Gothic for body text, a navy, gold, blue and copper palette, and shared buttons, navigation bars, a search bar, icons and calendar states.</p>
     <figure class="case-wide">{% picture "projects/petchecker/sticker-sheet.png", "PetChecker sticker sheet: the PetChecker logo; typography specs for Fira Sans headers and Nanum Gothic body and buttons; copper, blue and edit buttons, a quantity stepper and a dropdown; the navy footer navigation bar and top navigation bar; the search bar; icons for map, health, home, settings, help and log out; calendar states; and four color swatches, 2A3A83, BFAE5A, 658CBF and BF814B.", "(min-width: 72rem) 72rem, 100vw", "lazy", [800, 1440] %}</figure>
@@ -311,11 +319,27 @@
     </ul>
   </section>
 
-  <section>
+  <section id="takeaways">
     <h2 class="logo-heading"><span class="name-light">Key</span> <span class="name-bold">takeaways</span></h2>
     <p><strong>Impact:</strong> In round 2, everyone who reached checkout completed their order. And after the final redesign, the pet profile, the hardest part of testing, earned this from peer feedback:</p>
     <blockquote class="case-quote"><p>“It was very easy to create a pet profile. The steps were well broken out and well organized. Having an idea on how much progress you’ve made by the little progress bar was helpful as well.”</p></blockquote>
     <p><strong>What I learned:</strong> While designing PetChecker, I learned that designing the app is a tiny piece of the UX process. Usability testing showed me problems with the app that I had never even considered.</p>
-    <p><strong>Next steps:</strong> Run another round of usability testing to check whether the pain points from round 2 are solved, then address anything new it turns up.</p>
+    <p><strong>Next steps:</strong> A third round of testing on the redesign, measuring:</p>
+    <ul>
+      <li>Whether all participants can create a pet profile (round 2: 4 of 6)</li>
+      <li>Whether misclicks drop from 64%</li>
+      <li>Whether people pick from the new recommendation options</li>
+    </ul>
+  </section>
+  <section class="case-cta" aria-labelledby="cta-title">
+    <h2 id="cta-title" class="logo-heading"><span class="name-light">Let’s</span> <span class="name-bold">connect</span></h2>
+    <p>Thanks for reading about PetChecker! I’d love to hear what you think, or talk about how I could help your team.</p>
+    <div class="about-actions"><span class="about-mail">
+      <a class="about-email" href="mailto:{{ site.email }}"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email me</a>
+      <button type="button" class="about-copy" data-copy="{{ site.email }}" data-status="cs-copy-status" hidden><svg class="i-copy" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><svg class="i-check" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span class="copy-label">Copy email</span></button></span>
+      <a class="case-more" href="/about/">More about me</a>
+    </div>
+    <p class="visually-hidden" id="cs-copy-status" aria-live="polite"></p>
   </section>
 </article>
+<script src="{{ '/js/case-nav.js' | bust }}" defer></script>
