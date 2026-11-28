@@ -38,6 +38,16 @@
     }
   }
 
+  // Fade the edge of the pill row on the side that has more to swipe to.
+  function edges() {
+    var max = track.scrollWidth - track.clientWidth;
+    track.classList.toggle("more-left", track.scrollLeft > 2);
+    track.classList.toggle("more-right", track.scrollLeft < max - 2);
+  }
+  track.addEventListener("scroll", edges, { passive: true });
+  window.addEventListener("resize", edges);
+  edges();
+
   var queued = false;
   function onScroll() {
     if (queued) return;
