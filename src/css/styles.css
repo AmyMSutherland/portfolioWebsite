@@ -974,3 +974,8 @@ html { scroll-behavior: smooth; }
 .persona-cols h4 { color: var(--text); }
 .case-study a { color: var(--text); }
 .case-study a:hover { color: var(--text); }
+/* Dark mode: yellow numbers on the dark card read better than yellow blocks */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .case-stat-group .case-num { background: none; color: var(--brand-yellow); text-align: left; padding-left: 0; }
+}
+:root[data-theme="dark"] .case-stat-group .case-num { background: none; color: var(--brand-yellow); text-align: left; padding-left: 0; }
