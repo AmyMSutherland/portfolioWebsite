@@ -1016,3 +1016,13 @@ html { -webkit-tap-highlight-color: transparent; scrollbar-gutter: stable; }
   .home-words a { font-size: 0.95rem; letter-spacing: 0.1em; white-space: nowrap; }
   .home-words li + li::before { display: block; width: 0.4rem; height: 0.4rem; margin: 0 auto; }
 }
+
+/* Phone menu: "Design & new media" is longer, so tighten the menu until all three items share one row
+   (and spread across it). On the very narrowest screens it wraps, centered, instead of leaving About alone at the left. */
+@media (max-width: 30rem) {
+  .nav-list { margin-inline: -0.4rem; justify-content: space-between; gap: 0.25rem 0; }
+  .nav-list a { padding-inline: 0.4rem; font-size: 0.9rem; }
+}
+@media (max-width: 22rem) {
+  .nav-list { justify-content: center; margin-inline: 0; column-gap: 0.6rem; }
+}
