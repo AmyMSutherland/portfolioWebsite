@@ -13,7 +13,7 @@ export default {
   social: [],
   nav: [
     { label: "Photography", url: "/photography/" },
-    { label: "Other projects", url: "/projects/" },
+    { label: "Design & new media", url: "/projects/" },
     { label: "About", url: "/about/" },
   ],
 };

@@ -325,7 +325,7 @@ main:has(.home-wall) { padding-top: 1.5rem; }
 /* Medium (illustration, relief carving, logo design) under a project's title */
 .wall-medium { display: inline-block; margin-top: 0.3rem; padding: 0.05rem 0.5rem; background: var(--brand-yellow); color: var(--ink); font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
 .artwork figcaption .tag { margin-bottom: 0.4rem; }
-/* Other projects on phones: one per row, every thumbnail the same size (the full piece shows on its own page). */
+/* Design & new media on phones: one per row, every thumbnail the same size (the full piece shows on its own page). */
 @media (max-width: 40rem) {
   .wall.wall-uniform { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
   .wall-uniform .wall-item { flex: none !important; max-width: none !important; width: 100%; }
