@@ -5,6 +5,7 @@
   if (!nav) return;
 
   // Which pill each section belongs to (both test rounds count as "Testing").
+  var track = nav.querySelector(".case-jump-track") || nav;
   var linkFor = {};
   nav.querySelectorAll("a[href^='#']:not(.case-jump-top)").forEach(function (a) { linkFor[a.getAttribute("href").slice(1)] = a; });
   var extra = { "testing-2": "testing", "design-system": "refining" };
@@ -32,8 +33,8 @@
     current = link;
     if (link) {
       link.setAttribute("aria-current", "true");
-      // keep the active pill in view when the bar scrolls sideways on phones
-      nav.scrollTo({ left: Math.max(0, link.offsetLeft - nav.clientWidth / 2 + link.offsetWidth / 2), behavior: "smooth" });
+      // keep the active pill in view when the pills scroll sideways on phones
+      track.scrollTo({ left: Math.max(0, link.offsetLeft - track.offsetLeft - track.clientWidth / 2 + link.offsetWidth / 2), behavior: "smooth" });
     }
   }
 
