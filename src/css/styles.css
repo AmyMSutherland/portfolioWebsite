@@ -1008,3 +1008,11 @@ html { scroll-behavior: smooth; }
 h1, h2, h3, .lead, figcaption p { text-wrap: balance; }
 p, li { text-wrap: pretty; }
 html { -webkit-tap-highlight-color: transparent; scrollbar-gutter: stable; }
+
+/* Home top line: the three phrases are longer than before, so on phones and small tablets they
+   stack, one per line, with the yellow and blue dots between them. */
+@media (max-width: 46rem) {
+  .home-words { flex-direction: column; flex-wrap: nowrap; align-items: center; gap: 0; }
+  .home-words a { font-size: 0.95rem; letter-spacing: 0.1em; white-space: nowrap; }
+  .home-words li + li::before { display: block; width: 0.4rem; height: 0.4rem; margin: 0 auto; }
+}
