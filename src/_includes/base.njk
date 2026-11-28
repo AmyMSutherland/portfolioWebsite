@@ -7,6 +7,8 @@
   <title>{{ fullTitle }}</title>
   <meta name="description" content="{{ description or site.description }}">
   <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fffdf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)">
   {%- if page.url != "/404.html" %}
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   {%- endif %}
@@ -31,12 +33,12 @@
     "name": "{{ site.name }}",
     "url": "{{ site.url }}/",
     "image": "{{ site.url }}{% shareImage 'about/amy-gallery.jpg' %}",
-    "jobTitle": "Photographer and artist",
+    "jobTitle": "Photographer, artist and designer",
     "description": "{{ site.description }}",
     "email": "mailto:{{ site.email }}",
     "address": { "@type": "PostalAddress", "addressLocality": "Auburn", "addressRegion": "ME", "addressCountry": "US" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Maine", "sameAs": "https://umaine.edu/" },
-    "knowsAbout": ["Photography", "Digital illustration", "Relief carving", "Logo design", "Graphic design"]
+    "knowsAbout": ["Photography", "UX design", "Digital illustration", "Logo design", "Graphic design", "New media"]
   }
   </script>
   {%- endif %}
