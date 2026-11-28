@@ -44,13 +44,6 @@ and a `summary`). A project can also have a full write-up under its image, like 
 UX case study: add `"caseStudy": "petchecker"` and put the write-up in
 `src/_includes/case-studies/petchecker.njk`.
 
-## Hidden pages
-
-The Art page is built but hidden. To bring it back, remove it from `HIDDEN_PAGES` in
-`eleventy.config.js`, restore its menu entry in `src/_data/site.js`, replace the sample
-entries in `src/_data/art.json`, and delete the `/art/` lines in `src/_redirects`
-(they currently send old Art addresses to Other projects).
-
 **After removing or renaming any page**, purge Cloudflare's cache (Cloudflare dashboard →
 amysutherlandsart.com → Caching → Configuration → Purge Everything). Otherwise Cloudflare
 may keep showing the old page at its old address for up to a week.
